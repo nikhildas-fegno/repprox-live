@@ -11,7 +11,7 @@ import Container from "@/components/layout/container";
 export const metadata: Metadata = buildMetadata({
   title: "Features",
   description:
-    "Explore every RepPro X module — financial management, inventory & warehouse, operations, reporting, supply chain, CRM, compliance, and integrations — all on one data model.",
+    "Explore every RepProX module — financial management, inventory & warehouse, operations, reporting, supply chain, CRM, compliance, and integrations — all on one data model.",
   path: "/features",
 });
 
@@ -27,12 +27,12 @@ export default function FeaturesPage() {
             eyebrow="Product / Features"
             align="center"
             title="Eight modules. Built to run as one system, not eight."
-            description="Most ERPs bolt separate products together behind a shared login. RepPro X is designed from a single data model outward — so a change in inventory shows up in financials the same instant, with no sync job in between."
+            description="Most ERPs bolt separate products together behind a shared login. RepProX is designed from a single data model outward — so a change in inventory shows up in financials the same instant, with no sync job in between."
           />
         </Container>
       </section>
 
-      <section aria-label="All RepPro X modules" className="bg-paper">
+      <section aria-label="All RepProX modules" className="bg-paper">
         <Container className="py-20 lg:py-24">
           <FeatureGrid modules={featureModules} variant="full" />
         </Container>
@@ -41,7 +41,7 @@ export default function FeaturesPage() {
       <CtaSection
         eyebrow="Go deeper"
         title="Want a walkthrough of how the modules connect?"
-        description="In a 30-minute session, we'll map RepPro X's modules onto your current stack and show you exactly what would change on day one."
+        description="In a 30-minute session, we'll map RepProX's modules onto your current stack and show you exactly what would change on day one."
         primary={{ label: "Book a walkthrough", href: "/contact" }}
         secondary={{ label: "Compare plans", href: "/pricing" }}
       />

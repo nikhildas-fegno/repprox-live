@@ -29,13 +29,13 @@ export default function CompanyPage() {
           <SectionHeading
             eyebrow="Company"
             align="center"
-            title="We started RepPro X because the data never matched"
+            title="We started RepProX because the data never matched"
             description="Three operations leads, three different companies, the same problem: financials, inventory, and operations living in systems that didn't talk to each other — and a closing process that took weeks to reconcile what should have been simple. We built the system we wished we'd had."
           />
         </Container>
       </section>
 
-      <section aria-label="RepPro X by the numbers" className="border-b border-ink/10 bg-paper">
+      <section aria-label="RepProX by the numbers" className="border-b border-ink/10 bg-paper">
         <Container className="py-16 lg:py-20">
           <Reveal>
             <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-md border border-ink/10 bg-ink/10 sm:grid-cols-4">
@@ -106,7 +106,7 @@ export default function CompanyPage() {
 
       <CtaSection
         eyebrow="Join us"
-        title="Curious what it's like to build RepPro X?"
+        title="Curious what it's like to build RepProX?"
         description="We grow the team deliberately and post roles as they open. Reach out and we'll keep you posted on openings that match your background."
         primary={{ label: "Get in touch", href: "/contact" }}
         secondary={{ label: "See the platform", href: "/features" }}

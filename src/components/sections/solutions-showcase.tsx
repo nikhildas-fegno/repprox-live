@@ -208,7 +208,7 @@ export function SolutionsShowcase() {
           <SectionHeading
             eyebrow="Solutions"
             title={<span id="solutions-heading">Solutions Built For Modern Distribution</span>}
-            description="RepPro X combines multiple operational modules into a single platform designed to improve sales execution and operational visibility."
+            description="RepProX combines multiple operational modules into a single platform designed to improve sales execution and operational visibility."
           />
           <Reveal delay={0.1}>
             <Link
@@ -294,7 +294,7 @@ export function SolutionsShowcase() {
                   <span className="size-2.5 rounded-full bg-yellow-500/80" />
                   <span className="size-2.5 rounded-full bg-green-500/80" />
                   <span className="ml-3 font-mono text-[9px] text-slate-500 tracking-wider uppercase">
-                    RepPro X // {activeSol.slug.replace(/-/g, ' ')}
+                    RepProX // {activeSol.slug.replace(/-/g, ' ')}
                   </span>
                 </div>
                 <div className="flex items-center gap-2">

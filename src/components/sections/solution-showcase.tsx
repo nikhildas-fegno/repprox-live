@@ -43,7 +43,7 @@ export function SolutionShowcase({ solutions }: { solutions: Solution[] }) {
               </div>
               <div className="flex flex-col gap-3 bg-card p-7">
                 <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-accent-ink">
-                  After · with RepPro X
+                  After · with RepProX
                 </span>
                 <p className="text-[15px] leading-relaxed text-ink">{solution.after}</p>
               </div>

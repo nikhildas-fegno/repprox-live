@@ -27,7 +27,7 @@ import { pricingPlans, pricingFaqs, testimonials } from "@/data/pricing";
 export const metadata: Metadata = buildMetadata({
   title: `${SITE_NAME} — AI-Powered Field Force Automation & Distribution Management`,
   description:
-    "RepPro X unifies field sales, collections, route planning, inventory, and AI smart ordering into one integrated platform for wholesalers and distributors.",
+    "RepProX unifies field sales, collections, route planning, inventory, and AI smart ordering into one integrated platform for wholesalers and distributors.",
   path: "/",
 });
 
@@ -97,7 +97,7 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="Industries We Empower"
               title={<span id="industries-heading">Configured for the realities of field sales & distribution</span>}
-              description="RepPro X is purpose-built for distribution, wholesale, and logistics operations — avoiding generic configurations."
+              description="RepProX is purpose-built for distribution, wholesale, and logistics operations — avoiding generic configurations."
             />
             <Reveal delay={0.1}>
               <Link
@@ -134,7 +134,7 @@ export default function HomePage() {
           {/* Heading */}
           <div className="mb-16 text-center">
             <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.18em] text-accent font-bold">
-              Why RepPro X
+              Why RepProX
             </p>
             <h2
               id="why-repprox-heading"
@@ -142,7 +142,7 @@ export default function HomePage() {
             >
               Why Companies Choose{" "}
               <span className="bg-gradient-to-r from-accent to-accent-ink bg-clip-text text-transparent">
-                RepPro X
+                RepProX
               </span>
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-slate-400">
@@ -218,8 +218,8 @@ export default function HomePage() {
           <div className="mb-14 text-center">
             <SectionHeading
               eyebrow="From the field"
-              title={<span id="testimonials-heading">See How Businesses Achieve More With RepPro X</span>}
-              description="Leading wholesale distributors trust RepPro X with the daily numbers that scale their operations."
+              title={<span id="testimonials-heading">See How Businesses Achieve More With RepProX</span>}
+              description="Leading wholesale distributors trust RepProX with the daily numbers that scale their operations."
               align="center"
             />
           </div>
@@ -247,7 +247,7 @@ export default function HomePage() {
       <CtaSection
         eyebrow="One Platform. Complete Control."
         title="Ready to automate your field sales & collections?"
-        description="From sales and distribution to collections, analytics, KPI management, and AI-powered recommendations, RepPro X helps organizations improve productivity, increase revenue, and gain complete visibility."
+        description="From sales and distribution to collections, analytics, KPI management, and AI-powered recommendations, RepProX helps organizations improve productivity, increase revenue, and gain complete visibility."
         primary={{ label: "Request a Demo", href: "/contact" }}
         secondary={{ label: "Contact Sales", href: "/contact" }}
       />

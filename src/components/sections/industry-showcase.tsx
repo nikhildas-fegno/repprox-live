@@ -172,7 +172,7 @@ export function IndustryShowcase({ industries }: { industries: Industry[] }) {
                           {/* Help */}
                           <div className="flex-1 flex flex-col gap-1 pl-1 md:pl-0 border-l border-white/5 md:border-l-0">
                             <span className="text-[8px] font-mono text-emerald-400 uppercase font-extrabold tracking-wider">
-                              RepPro X Automation Solution
+                              RepProX Automation Solution
                             </span>
                             <span className="text-xs text-slate-400 leading-normal">
                               {helpText}

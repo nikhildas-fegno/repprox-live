@@ -64,12 +64,12 @@ export const pricingFaqs: FaqItem[] = [
   {
     question: "How does the ERP integration work?",
     answer:
-      "RepPro X offers pre-built connectors for SAP Business One, Oracle NetSuite, Microsoft Dynamics, and major accounting software. Synchronization is bidirectional: pricing and inventory flow from your ERP to RepPro X, and orders, invoices, and payment collections sync back to the ERP automatically in real time.",
+      "RepProX offers pre-built connectors for SAP Business One, Oracle NetSuite, Microsoft Dynamics, and major accounting software. Synchronization is bidirectional: pricing and inventory flow from your ERP to RepProX, and orders, invoices, and payment collections sync back to the ERP automatically in real time.",
   },
   {
     question: "Does the mobile app support offline usage?",
     answer:
-      "Yes. The RepPro X mobile app is built offline-first. Field sales representatives can access customer lists, view inventory balances, apply promotions, and capture orders without internet connectivity. Once a signal is restored, all data synchronizes with the management portal automatically.",
+      "Yes. The RepProX mobile app is built offline-first. Field sales representatives can access customer lists, view inventory balances, apply promotions, and capture orders without internet connectivity. Once a signal is restored, all data synchronizes with the management portal automatically.",
   },
   {
     question: "Is client data secure on the platform?",
@@ -89,7 +89,7 @@ export const pricingFaqs: FaqItem[] = [
   {
     question: "What platforms does the mobile app run on?",
     answer:
-      "The RepPro X mobile application is fully optimized for iOS and Android devices, supporting both smartphones and tablets. It is lightweight, respects battery consumption, and is designed for quick navigation in the field.",
+      "The RepProX mobile application is fully optimized for iOS and Android devices, supporting both smartphones and tablets. It is lightweight, respects battery consumption, and is designed for quick navigation in the field.",
   },
   {
     question: "How does AI Smart Ordering make recommendations?",
@@ -114,7 +114,7 @@ export const pricingFaqs: FaqItem[] = [
   {
     question: "Do you support multi-currency and multi-branch setups?",
     answer:
-      "Yes. RepPro X allows groups to manage multiple branches, distribution networks, and warehouses under a single billing account. Branch managers can view data isolated to their territory, while executives access consolidated analytics.",
+      "Yes. RepProX allows groups to manage multiple branches, distribution networks, and warehouses under a single billing account. Branch managers can view data isolated to their territory, while executives access consolidated analytics.",
   },
 ];
 
@@ -148,14 +148,14 @@ export const valueProps: ValueProp[] = [
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "RepPro X helped us transition to 100% digital invoices in the field. Our collections efficiency is up 30%, and cash flow reconciliation is instantaneous.",
+      "RepProX helped us transition to 100% digital invoices in the field. Our collections efficiency is up 30%, and cash flow reconciliation is instantaneous.",
     name: "Priya Raman",
     role: "VP of Finance",
     company: "Solace FMCG Distribution",
   },
   {
     quote:
-      "Route compliance increased from 65% to 98% with RepPro X route planning. Drivers save hours of drive time and we've reduced transit fuel costs by 20%.",
+      "Route compliance increased from 65% to 98% with RepProX route planning. Drivers save hours of drive time and we've reduced transit fuel costs by 20%.",
     name: "Daniel Ortega",
     role: "COO",
     company: "Northbound Wholesalers",

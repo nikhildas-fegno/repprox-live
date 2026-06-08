@@ -11,7 +11,7 @@ export const industries: Industry[] = [
       { label: "Daily route compliance", value: "98%" },
     ],
     useCases: [
-      "Challenge: Complex promotional schemes -> Help: RepPro X calculates BOGOs and tiered discounts instantly at checkout.",
+      "Challenge: Complex promotional schemes -> Help: RepProX calculates BOGOs and tiered discounts instantly at checkout.",
       "Challenge: Stale shelf monitoring -> Help: Mobile survey tools capture competitor pricing, shelf share, and stockouts.",
     ],
   },

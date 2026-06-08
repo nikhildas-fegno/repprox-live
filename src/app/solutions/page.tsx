@@ -11,7 +11,7 @@ import Container from "@/components/layout/container";
 export const metadata: Metadata = buildMetadata({
   title: "Solutions",
   description:
-    "See how RepPro X transforms financial close, inventory accuracy, procure-to-pay, workflow automation, and reporting — with before-and-after outcomes for each team.",
+    "See how RepProX transforms financial close, inventory accuracy, procure-to-pay, workflow automation, and reporting — with before-and-after outcomes for each team.",
   path: "/solutions",
 });
 
@@ -27,7 +27,7 @@ export default function SolutionsPage() {
             eyebrow="Product / Solutions"
             align="center"
             title="The same platform, mapped to the work each team actually does"
-            description="Features describe what RepPro X can do. Solutions describe what changes for the people doing the work — from the close, to the warehouse floor, to the boardroom deck."
+            description="Features describe what RepProX can do. Solutions describe what changes for the people doing the work — from the close, to the warehouse floor, to the boardroom deck."
           />
         </Container>
       </section>
@@ -41,7 +41,7 @@ export default function SolutionsPage() {
       <CtaSection
         eyebrow="Find your fit"
         title="Tell us which of these looks most like your week."
-        description="We'll walk through the solution that matches your biggest current friction — and show you exactly how RepPro X would change it, using your own data where possible."
+        description="We'll walk through the solution that matches your biggest current friction — and show you exactly how RepProX would change it, using your own data where possible."
         primary={{ label: "Talk to our team", href: "/contact" }}
         secondary={{ label: "See pricing", href: "/pricing" }}
       />

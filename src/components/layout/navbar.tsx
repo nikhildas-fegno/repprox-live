@@ -15,6 +15,45 @@ export function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [productOpen, setProductOpen] = React.useState(false);
+  const [isVisible, setIsVisible] = React.useState(true);
+  const [isScrolled, setIsScrolled] = React.useState(false);
+  const lastScrollY = React.useRef(0);
+
+  // Track scroll position and direction
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Check if scrolled past threshold
+      if (currentScrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+
+      // If mobile nav is open, keep header visible
+      if (mobileOpen) {
+        setIsVisible(true);
+        return;
+      }
+
+      // Check scroll direction to toggle visibility
+      if (currentScrollY < 60) {
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY.current) {
+        // Scrolling down - hide
+        setIsVisible(false);
+      } else {
+        // Scrolling up - show
+        setIsVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [mobileOpen]);
 
   // Reset open menus on navigation. Adjusting state during render (rather than
   // in an effect) avoids the extra commit-then-rerender cascade — see
@@ -24,24 +63,36 @@ export function Navbar() {
     setLastPathname(pathname);
     setMobileOpen(false);
     setProductOpen(false);
+    setIsVisible(true);
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-ink/10 bg-paper/85 backdrop-blur-md supports-[backdrop-filter]:bg-paper/70">
-      <Container className="flex h-18 items-center justify-between gap-6">
+    <header
+      className={cn(
+        "sticky top-0 z-50 w-full transition-all duration-300 ease-in-out border-b",
+        isVisible ? "translate-y-0" : "-translate-y-full",
+        isScrolled
+          ? "bg-white/80 backdrop-blur-md border-ink/5 shadow-xs"
+          : "bg-paper border-transparent",
+      )}
+    >
+      <Container
+        className={cn(
+          "flex items-center justify-between gap-6 transition-all duration-300 h-18 4xl:h-20",
+        )}
+      >
         <Link
           href="/"
-          className="group flex items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 rounded-sm"
+          className="group flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 rounded-sm"
         >
           <img
             src="/logo.png"
             alt="RepPro X Logo"
-            className="size-9 object-contain rounded-sm"
+            className="size-12 object-contain rounded-sm"
           />
           <span className="flex flex-col leading-none">
-            <span className="font-display text-lg font-[#0f172a] font-bold tracking-tight">RepPro X</span>
-            <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-ink-soft">
-              Field Force Automation
+            <span className="font-display text-lg font-extrabold tracking-tight text-ink">
+              RepProX
             </span>
           </span>
         </Link>
@@ -59,12 +110,15 @@ export function Navbar() {
                 aria-expanded={productOpen}
                 aria-haspopup="true"
                 onClick={() => setProductOpen((open) => !open)}
-                className="flex items-center gap-1.5 rounded-sm px-4 py-2.5 font-mono text-[13px] uppercase tracking-[0.1em] text-ink-soft transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40"
+                className="flex items-center gap-1.5 rounded-sm px-4 py-2.5 font-display text-[14px] font-bold capitalize tracking-wider text-ink-soft transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40"
               >
                 {group.label}
                 <ChevronDown
                   aria-hidden="true"
-                  className={cn("size-3.5 transition-transform duration-200", productOpen && "rotate-180")}
+                  className={cn(
+                    "size-3.5 transition-transform duration-200",
+                    productOpen && "rotate-180",
+                  )}
                 />
               </button>
               <AnimatePresence>
@@ -84,7 +138,9 @@ export function Navbar() {
                             href={item.href}
                             className="block rounded-sm px-4 py-3 transition-colors hover:bg-paper-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40"
                           >
-                            <span className="block font-display text-base font-semibold">{item.label}</span>
+                            <span className="block font-display text-base font-bold text-ink">
+                              {item.label}
+                            </span>
                             {item.description && (
                               <span className="mt-0.5 block text-[13px] leading-snug text-muted-foreground">
                                 {item.description}
@@ -104,7 +160,7 @@ export function Navbar() {
               key={link.href}
               href={link.href}
               className={cn(
-                "rounded-sm px-4 py-2.5 font-mono text-[13px] uppercase tracking-[0.1em] transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40",
+                "rounded-sm px-4 py-2.5 font-display text-[14px] font-bold capitalize tracking-wider transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40",
                 pathname === link.href ? "text-ink" : "text-ink-soft",
               )}
             >
@@ -114,13 +170,33 @@ export function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Button asChild variant="ghost" size="sm">
-            <Link href="/contact">Sign in</Link>
-          </Button>
-          <Button asChild variant="accent" size="sm">
+          <Button
+            asChild
+            variant="accent"
+            size="sm"
+            className="
+    font-display
+    font-bold
+    px-6
+    rounded-full
+    bg-gradient-to-r
+    from-accent
+    to-accent/80
+    shadow-lg
+    shadow-accent/25
+    hover:shadow-xl
+    hover:shadow-accent/40
+    hover:-translate-y-0.5
+    transition-all
+    duration-300
+  "
+          >
             <Link href="/contact">
               Request a demo
-              <ArrowUpRight aria-hidden="true" />
+              <ArrowUpRight
+                aria-hidden="true"
+                className="transition-transform duration-300 group-hover/button:translate-x-1 group-hover/button:-translate-y-1"
+              />
             </Link>
           </Button>
         </div>
@@ -133,7 +209,11 @@ export function Navbar() {
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           className="flex size-11 items-center justify-center rounded-sm border border-ink/15 text-ink lg:hidden"
         >
-          {mobileOpen ? <X aria-hidden="true" className="size-5" /> : <Menu aria-hidden="true" className="size-5" />}
+          {mobileOpen ? (
+            <X aria-hidden="true" className="size-5" />
+          ) : (
+            <Menu aria-hidden="true" className="size-5" />
+          )}
         </button>
       </Container>
 
@@ -149,15 +229,18 @@ export function Navbar() {
           >
             <Container>
               <nav aria-label="Mobile" className="flex flex-col gap-1 py-6">
-                {primaryNav.flatMap((group) => group.items).concat(secondaryNav).map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="rounded-sm px-3 py-3 font-display text-lg font-semibold transition-colors hover:text-accent"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
+                {primaryNav
+                  .flatMap((group) => group.items)
+                  .concat(secondaryNav)
+                  .map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="rounded-sm px-3 py-3 font-display text-lg font-semibold transition-colors hover:text-accent"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
                 <div className="mt-4 flex flex-col gap-3">
                   <Button asChild variant="outline">
                     <Link href="/contact">Sign in</Link>

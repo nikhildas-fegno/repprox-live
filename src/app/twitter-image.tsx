@@ -2,8 +2,8 @@ import { ogImageSize, ogImageContentType, renderSocialCard } from "@/lib/og-imag
 
 export const size = ogImageSize;
 export const contentType = ogImageContentType;
-export const alt = "RepPro X — Run the whole business from one connected ERP";
+export const alt = "RepProX — Run the whole business from one connected ERP";
 
 export default function Image() {
-  return renderSocialCard("RepPro X · ERP");
+  return renderSocialCard("RepProX · ERP");
 }

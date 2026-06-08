@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
-export const SITE_NAME = "RepPro X";
+export const SITE_NAME = "RepProX";
 export const SITE_URL = "https://www.repprox.com";
 export const SITE_DESCRIPTION =
-  "RepPro X is the ERP system that unifies finance, inventory, operations, and reporting into one connected platform — built for growing companies that have outgrown spreadsheets.";
+  "RepProX is the ERP system that unifies finance, inventory, operations, and reporting into one connected platform — built for growing companies that have outgrown spreadsheets.";
 
 export const defaultMetadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -16,7 +16,7 @@ export const defaultMetadata: Metadata = {
     "operations platform",
     "financial reporting software",
     "business management system",
-    "RepPro X",
+    "RepProX",
   ],
   authors: [{ name: SITE_NAME }],
   creator: SITE_NAME,

@@ -65,7 +65,7 @@ export const featureModules: FeatureModule[] = [
     icon: Database,
     title: "Seamless ERP Integration",
     description:
-      "Connect RepPro X with SAP Business One, Oracle NetSuite, Microsoft Dynamics, and other ERP platforms for automatic, bidirectional data synchronization.",
+      "Connect RepProX with SAP Business One, Oracle NetSuite, Microsoft Dynamics, and other ERP platforms for automatic, bidirectional data synchronization.",
     points: [
       "Real-time master data sync (customers, products, price lists)",
       "Instant order and collection posting to general ledgers",

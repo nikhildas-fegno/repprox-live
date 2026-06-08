@@ -154,7 +154,7 @@ export function FeatureGrid({ modules, variant = "full" }: FeatureGridProps) {
                     <div className="w-full flex items-center justify-between gap-2 px-2">
                       <div className="flex flex-col items-center gap-1.5">
                         <div className="p-1.5 bg-white border border-slate-200 rounded-lg"><Monitor className="size-4 text-slate-600" /></div>
-                        <span className="text-[8px] font-mono text-slate-400 font-medium">RepPro X</span>
+                        <span className="text-[8px] font-mono text-slate-400 font-medium">RepProX</span>
                       </div>
                       
                       <div className="flex-1 flex items-center justify-center relative">

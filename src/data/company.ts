@@ -1,7 +1,7 @@
 import type { FaqItem, TimelineEntry, ValueProp } from "@/types/content";
 
 export const companyStats: { label: string; value: string }[] = [
-  { label: "Distributors running on RepPro X", value: "1,400+" },
+  { label: "Distributors running on RepProX", value: "1,400+" },
   { label: "Daily field transactions processed", value: "6.2M" },
   { label: "Average enterprise implementation", value: "6 weeks" },
   { label: "Platform uptime & sync availability", value: "99.97%" },
@@ -12,7 +12,7 @@ export const timeline: TimelineEntry[] = [
     year: "2017",
     title: "Founded to solve field disconnects",
     description:
-      "RepPro X was founded by three logistics and sales distribution directors frustrated by the disconnect between field operations and accounting systems, aiming to unify sales and logistics under one platform.",
+      "RepProX was founded by three logistics and sales distribution directors frustrated by the disconnect between field operations and accounting systems, aiming to unify sales and logistics under one platform.",
   },
   {
     year: "2019",
@@ -36,7 +36,7 @@ export const timeline: TimelineEntry[] = [
     year: "2026",
     title: "1,400+ distribution groups globally",
     description:
-      "Today, RepPro X powers field automation, inventory distribution, and payment collection processes for major FMCG, pharmaceutical, and wholesale leaders globally.",
+      "Today, RepProX powers field automation, inventory distribution, and payment collection processes for major FMCG, pharmaceutical, and wholesale leaders globally.",
   },
 ];
 
@@ -69,7 +69,7 @@ export const companyValues: ValueProp[] = [
 
 export const companyFaqs: FaqItem[] = [
   {
-    question: "Where is the RepPro X team located?",
+    question: "Where is the RepProX team located?",
     answer:
       "We are headquartered in Austin, Texas, with engineering and implementation teams spread across North America, Europe, and Asia to support global distribution groups.",
   },
@@ -81,6 +81,6 @@ export const companyFaqs: FaqItem[] = [
   {
     question: "Are your platforms SOC 2 compliant?",
     answer:
-      "Yes. RepPro X undergoes annual independent audits to maintain SOC 2 Type II compliance, verifying our security controls, data encryption standards, and platform reliability.",
+      "Yes. RepProX undergoes annual independent audits to maintain SOC 2 Type II compliance, verifying our security controls, data encryption standards, and platform reliability.",
   },
 ];

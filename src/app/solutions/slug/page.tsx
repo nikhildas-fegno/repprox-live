@@ -97,7 +97,7 @@ export default async function SolutionPage({ params }: PageProps) {
               {/* After Column */}
               <div className="flex flex-col gap-4 bg-slate-50 p-8">
                 <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-accent-ink">
-                  After · With RepPro X
+                  After · With RepProX
                 </span>
                 <p className="text-sm leading-relaxed text-ink font-semibold">
                   {sol.after}

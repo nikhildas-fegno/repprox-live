@@ -13,7 +13,7 @@ import Container from "@/components/layout/container";
 export const metadata: Metadata = buildMetadata({
   title: "Pricing",
   description:
-    "Simple, per-user pricing for RepPro X — Foundation, Operating System, and Enterprise plans. No setup fees on standard plans, and every plan includes the core ERP modules.",
+    "Simple, per-user pricing for RepProX — Foundation, Operating System, and Enterprise plans. No setup fees on standard plans, and every plan includes the core ERP modules.",
   path: "/pricing",
 });
 

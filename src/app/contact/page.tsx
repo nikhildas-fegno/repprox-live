@@ -11,7 +11,7 @@ import Container from "@/components/layout/container";
 export const metadata: Metadata = buildMetadata({
   title: "Contact",
   description:
-    "Get in touch with the RepPro X team — request a demo, ask about pricing, or talk through whether RepPro X fits your operation. We respond within one business day.",
+    "Get in touch with the RepProX team — request a demo, ask about pricing, or talk through whether RepProX fits your operation. We respond within one business day.",
   path: "/contact",
 });
 
@@ -45,7 +45,7 @@ export default function ContactPage() {
             <SectionHeading
               eyebrow="Contact"
               title="Tell us where it's breaking down. We'll show you what changes."
-              description="Whether you're evaluating ERPs for the first time or replacing a system that's stopped scaling with you, the fastest way to know if RepPro X fits is to talk to someone who's configured it for a business like yours."
+              description="Whether you're evaluating ERPs for the first time or replacing a system that's stopped scaling with you, the fastest way to know if RepProX fits is to talk to someone who's configured it for a business like yours."
             />
             <Reveal delay={0.1}>
               <ul className="flex flex-col gap-6 border-t border-ink/10 pt-8">
