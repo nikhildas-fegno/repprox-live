@@ -67,7 +67,8 @@ export function MobileAppExperience() {
           <SectionHeading
             align="center"
             eyebrow="Mobile app"
-            title={<span id="mobile-app-heading" className="text-white">Everything Your Sales Team Needs In One Mobile App</span>}
+            tone="paper"
+            title={<span id="mobile-app-heading">Everything Your Sales Team Needs In One Mobile App</span>}
             description="Empower field representatives with a mobile-first platform that keeps sales, collections, customer information, inventory visibility, and performance insights at their fingertips."
           />
         </div>

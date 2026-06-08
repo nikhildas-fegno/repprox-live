@@ -13,9 +13,11 @@ export function Footer() {
         <div className="grid gap-16 lg:grid-cols-[1.4fr_2fr]">
           <div className="flex flex-col gap-6">
             <Link href="/" className="flex items-center gap-2.5 self-start">
-              <span className="flex size-9 items-center justify-center rounded-sm border border-ink/20 bg-ink text-paper">
-                <span className="font-mono text-sm font-semibold">X</span>
-              </span>
+              <img
+                src="/logo.png"
+                alt="RepPro X Logo"
+                className="size-9 object-contain rounded-sm"
+              />
               <span className="font-display text-lg font-bold tracking-tight">{SITE_NAME}</span>
             </Link>
             <p className="max-w-sm text-sm leading-relaxed text-ink-soft">

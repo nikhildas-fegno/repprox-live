@@ -33,9 +33,11 @@ export function Navbar() {
           href="/"
           className="group flex items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 rounded-sm"
         >
-          <span className="flex size-9 items-center justify-center rounded-sm border border-ink/20 bg-ink text-paper transition-colors group-hover:border-accent group-hover:bg-accent">
-            <span className="font-mono text-sm font-semibold">X</span>
-          </span>
+          <img
+            src="/logo.png"
+            alt="RepPro X Logo"
+            className="size-9 object-contain rounded-sm"
+          />
           <span className="flex flex-col leading-none">
             <span className="font-display text-lg font-[#0f172a] font-bold tracking-tight">RepPro X</span>
             <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-ink-soft">

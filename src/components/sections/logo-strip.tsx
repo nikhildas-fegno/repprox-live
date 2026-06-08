@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Container from "@/components/layout/container";
 
 const companies = [
@@ -39,6 +39,44 @@ const successMetrics = [
 
 export function LogoStrip() {
   const marqueeItems = [...companies, ...companies];
+  const marqueeRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const element = marqueeRef.current;
+    if (!element) return;
+
+    // Run GPU-accelerated smooth infinite scroll via Web Animations API
+    const animation = element.animate(
+      [
+        { transform: "translateX(0)" },
+        { transform: "translateX(-50%)" }
+      ],
+      {
+        duration: 25000, // Speedy default (25 seconds per full cycle)
+        iterations: Infinity,
+        easing: "linear",
+      }
+    );
+
+    const handleMouseEnter = () => {
+      // Smoothly scale down speed to a slow glide (25% of speedy rate)
+      animation.updatePlaybackRate(0.2);
+    };
+
+    const handleMouseLeave = () => {
+      // Smoothly restore speedy rate (100% speed)
+      animation.updatePlaybackRate(1);
+    };
+
+    element.addEventListener("mouseenter", handleMouseEnter);
+    element.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      animation.cancel();
+      element.removeEventListener("mouseenter", handleMouseEnter);
+      element.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, []);
 
   return (
     <section aria-label="Success metrics & partners" className="border-b border-ink/10 bg-paper-soft py-16 lg:py-20">
@@ -50,11 +88,14 @@ export function LogoStrip() {
             Trusted by Modern Distribution Teams
           </p>
           <div className="group relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
-            <div className="flex w-max animate-marquee gap-16 group-hover:[animation-duration:100s] transition-all duration-700 motion-reduce:animate-none">
+            <div 
+              ref={marqueeRef}
+              className="flex w-max gap-16 motion-reduce:animate-none"
+            >
               {marqueeItems.map((name, i) => (
                 <span
                   key={`${name}-${i}`}
-                  className="font-display text-lg font-bold tracking-tight text-slate-300 whitespace-nowrap hover:text-slate-600 transition-colors cursor-default"
+                  className="font-display text-lg font-bold tracking-tight text-slate-300 whitespace-nowrap hover:text-slate-500 hover:scale-105 transition-all duration-300 cursor-default"
                 >
                   {name}
                 </span>

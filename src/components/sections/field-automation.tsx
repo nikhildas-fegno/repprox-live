@@ -69,7 +69,7 @@ export function FieldAutomation() {
       setActiveStep((prev) => (prev + 1) % automationSteps.length);
     }, 3500);
     return () => clearInterval(interval);
-  }, [reduceMotion]);
+  }, [activeStep, reduceMotion]);
 
   return (
     <section aria-labelledby="automation-heading" className="relative border-b border-ink/10 bg-paper py-20 lg:py-24">
@@ -93,7 +93,7 @@ export function FieldAutomation() {
         {/* Desktop Pipeline (Horizontal stepper on lg screens) */}
         <div className="hidden lg:grid grid-cols-6 gap-6 relative">
           {/* Connecting Line */}
-          <div className="absolute top-14 left-[8%] right-[8%] h-[2px] bg-slate-200 pointer-events-none">
+          <div className="absolute top-8 left-[8%] right-[8%] h-[2px] bg-slate-200 pointer-events-none">
             {/* Glowing Active Progress Bar */}
             <motion.div 
               className="h-full bg-gradient-to-r from-[#1d4ed8] to-[#ff9800]"
