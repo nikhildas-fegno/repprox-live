@@ -1,0 +1,76 @@
+import type { LucideIcon } from "lucide-react";
+
+export interface NavLink {
+  label: string;
+  href: string;
+  description?: string;
+}
+
+export interface NavGroup {
+  label: string;
+  href: string;
+  items: NavLink[];
+}
+
+export interface FeatureModule {
+  index: string;
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  points: string[];
+  href: string;
+}
+
+export interface Industry {
+  slug: string;
+  name: string;
+  summary: string;
+  stats: { label: string; value: string }[];
+  useCases: string[];
+}
+
+export interface PricingPlan {
+  name: string;
+  tagline: string;
+  price: string;
+  cadence: string;
+  description: string;
+  features: string[];
+  href: string;
+  highlighted?: boolean;
+}
+
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+export interface Testimonial {
+  quote: string;
+  name: string;
+  role: string;
+  company: string;
+}
+
+export interface Solution {
+  slug: string;
+  audience: string;
+  title: string;
+  summary: string;
+  before: string;
+  after: string;
+  outcomes: string[];
+  modules: string[];
+}
+
+export interface ValueProp {
+  index: string;
+  title: string;
+  description: string;
+}
+
+export interface TimelineEntry {
+  year: string;
+  title: string;
+  description: string;
+}
