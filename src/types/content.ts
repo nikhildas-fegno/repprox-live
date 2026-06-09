@@ -1,4 +1,5 @@
 import type { LucideIcon } from "lucide-react";
+import { StaticImageData } from "next/image";
 
 export interface NavLink {
   label: string;
@@ -50,6 +51,7 @@ export interface Testimonial {
   name: string;
   role: string;
   company: string;
+  avatar: StaticImageData;
 }
 
 export interface Solution {

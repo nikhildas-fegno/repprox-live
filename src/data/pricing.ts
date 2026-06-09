@@ -1,4 +1,6 @@
 import type { FaqItem, PricingPlan, Testimonial, ValueProp } from "@/types/content";
+import avatarFemale from "@/public/home/testimonials/avatar-female.png"
+import avatarMale from "@/public/home/testimonials/avatar-male.png"
 
 export const pricingPlans: PricingPlan[] = [
   {
@@ -57,64 +59,34 @@ export const pricingPlans: PricingPlan[] = [
 
 export const pricingFaqs: FaqItem[] = [
   {
-    question: "How long does implementation typically take?",
+    question: "What is RepPro X?",
     answer:
-      "For standard implementations, onboarding takes 3 to 4 weeks, which includes setting up territories, uploading products, and importing customer lists. Enterprise integrations with ERPs like SAP Business One or NetSuite typically take 6 to 8 weeks, led by a dedicated implementation manager.",
+      "RepPro X is an AI-powered Field Force Automation and Distribution Management platform that helps businesses streamline sales, collections, inventory management, route planning, customer visits, and field operations from a single platform.",
   },
   {
-    question: "How does the ERP integration work?",
+    question: "Which industries can benefit from RepPro X?",
     answer:
-      "RepProX offers pre-built connectors for SAP Business One, Oracle NetSuite, Microsoft Dynamics, and major accounting software. Synchronization is bidirectional: pricing and inventory flow from your ERP to RepProX, and orders, invoices, and payment collections sync back to the ERP automatically in real time.",
+      "RepPro X is designed for FMCG distributors, food & beverage suppliers, pharmaceutical companies, building material distributors, wholesale businesses, consumer goods companies, and logistics organizations that manage field teams and distribution operations.",
   },
   {
-    question: "Does the mobile app support offline usage?",
+    question: "Does RepPro X work on both Android and iOS devices?",
     answer:
-      "Yes. The RepProX mobile app is built offline-first. Field sales representatives can access customer lists, view inventory balances, apply promotions, and capture orders without internet connectivity. Once a signal is restored, all data synchronizes with the management portal automatically.",
+      "Yes. RepPro X is built using Flutter technology and is available on both Android and iOS, enabling field representatives to work seamlessly across devices.",
   },
   {
-    question: "Is client data secure on the platform?",
+    question: "Can RepPro X integrate with our existing ERP system?",
     answer:
-      "Security is our highest priority. All data is encrypted in transit using TLS 1.3 and at rest using AES-256 encryption. We host our infrastructure in secure, SOC 2 Type II certified data centers. We also enforce role-based access, device verification, and immutable log trails on all transactions.",
+      "Yes. RepPro X supports integration with ERP platforms such as SAP Business One and other ERP systems, allowing synchronization of customers, products, inventory, pricing, transactions, and collections.",
   },
   {
-    question: "What is your pricing structure?",
+    question: "How does AI Smart Ordering help my business?",
     answer:
-      "We charge on a per-user, per-month basis billed annually. A user is any field representative, delivery driver, or portal administrator. There are no hidden fees for standard features. High-volume SMS messaging or custom ERP setup may involve one-time implementation costs.",
+      "AI Smart Ordering analyzes customer purchasing behavior, buying patterns, and historical transactions to recommend optimal orders, identify sales opportunities, reduce stock-outs, and improve revenue growth.",
   },
   {
-    question: "Can I scale users up or down during the year?",
+    question: "Can managers monitor field teams in real time?",
     answer:
-      "Yes. You can add new user licenses at any time during your contract period, prorated for the remainder of your billing cycle. License reductions can be requested at your annual contract renewal.",
-  },
-  {
-    question: "What platforms does the mobile app run on?",
-    answer:
-      "The RepProX mobile application is fully optimized for iOS and Android devices, supporting both smartphones and tablets. It is lightweight, respects battery consumption, and is designed for quick navigation in the field.",
-  },
-  {
-    question: "How does AI Smart Ordering make recommendations?",
-    answer:
-      "Our AI engine analyzes the individual customer's transaction history, ordering cadence, seasonality, and product stock levels at the nearest warehouse. It generates recommended ordering quantities to prevent stockouts and highlights cross-selling opportunities based on similar customer segments.",
-  },
-  {
-    question: "Can we track GPS location and verify visits?",
-    answer:
-      "Yes. The app utilizes GPS validation. When a representative checks into a customer account, the app verifies their location against the customer's coordinates. It also logs check-out times, tracking route compliance and visit duration in real time.",
-  },
-  {
-    question: "What kind of support is included?",
-    answer:
-      "Essential plans include email support with a 24-hour response time. Professional plans upgrade to priority email and live chat support with a 4-hour SLA. Enterprise plans receive 24/7/365 coverage, a dedicated Slack channel, and a direct phone escalation hotline.",
-  },
-  {
-    question: "Can we run promotions and discounts in the field?",
-    answer:
-      "Absolutely. Through the Web Management Portal, you can configure volume discounts, customer-specific contract pricing, promotional codes, and buy-one-get-one (BOGO) campaigns. These are downloaded to the mobile app and enforced automatically.",
-  },
-  {
-    question: "Do you support multi-currency and multi-branch setups?",
-    answer:
-      "Yes. RepProX allows groups to manage multiple branches, distribution networks, and warehouses under a single billing account. Branch managers can view data isolated to their territory, while executives access consolidated analytics.",
+      "Absolutely. RepPro X provides real-time visibility into customer visits, route execution, GPS tracking, collections, productivity metrics, KPI achievement, and overall field performance through its web management portal.",
   },
 ];
 
@@ -151,7 +123,8 @@ export const testimonials: Testimonial[] = [
       "RepProX helped us transition to 100% digital invoices in the field. Our collections efficiency is up 30%, and cash flow reconciliation is instantaneous.",
     name: "Priya Raman",
     role: "VP of Finance",
-    company: "Solace FMCG Distribution",
+    company: "Solace",
+    avatar: avatarFemale 
   },
   {
     quote:
@@ -159,12 +132,14 @@ export const testimonials: Testimonial[] = [
     name: "Daniel Ortega",
     role: "COO",
     company: "Northbound Wholesalers",
+    avatar: avatarMale
   },
   {
     quote:
       "AI Smart Ordering recommendations increased our average order value by 25%. Our sales representatives are far more productive on every single visit.",
     name: "Jamie Whitfield",
-    role: "Director of Field Sales",
-    company: "Alder Pharmaceutical Supplies",
+    role: "CEO",
+    company: "AlderSupplies",
+    avatar: avatarMale
   },
 ];

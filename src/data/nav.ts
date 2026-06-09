@@ -19,18 +19,30 @@ export const secondaryNav: NavLink[] = [
   { label: "Industries", href: "/industries" },
   { label: "Pricing", href: "/pricing" },
   { label: "Company", href: "/company" },
-  { label: "Contact Us", href: "/contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const footerNav: NavGroup[] = [
   {
-    label: "Product",
+    label: "Solutions",
+    href: "/solutions",
+    items: [
+      { label: "Sales Force Automation", href: "/solutions#sales-force-automation" },
+      { label: "Distribution & Van Sales", href: "/solutions#distribution-van-sales" },
+      { label: "Route Planning & GPS", href: "/solutions#route-planning-gps" },
+      { label: "Task & Survey Management", href: "/solutions#task-survey-management" },
+      { label: "Promotions & Pricing", href: "/solutions#promotions-pricing" },
+    ],
+  },
+  {
+    label: "Features",
     href: "/features",
     items: [
-      { label: "Solutions", href: "/solutions" },
-      { label: "Features", href: "/features" },
-      { label: "Pricing", href: "/pricing" },
-      { label: "Industries", href: "/industries" },
+      { label: "AI Smart Ordering", href: "/features#ai-ordering" },
+      { label: "KPI Management", href: "/features#kpi-management" },
+      { label: "Web Portal", href: "/features#web-portal" },
+      { label: "Reporting & Analytics", href: "/features#analytics" },
+      { label: "ERP Integration", href: "/features#erp-integration" },
     ],
   },
   {
@@ -48,17 +60,8 @@ export const footerNav: NavGroup[] = [
     href: "/company",
     items: [
       { label: "About Us", href: "/company" },
-      { label: "Contact Us", href: "/contact" },
-      { label: "Careers", href: "/company#careers" },
-    ],
-  },
-  {
-    label: "Resources",
-    href: "/contact",
-    items: [
+      { label: "Contact", href: "/contact" },
       { label: "Blog", href: "/company#blog" },
-      { label: "Documentation", href: "/contact#docs" },
-      { label: "Support", href: "/contact" },
     ],
   },
 ];

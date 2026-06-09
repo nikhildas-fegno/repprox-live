@@ -4,9 +4,9 @@ export const solutions: Solution[] = [
   {
     slug: "sales-force-automation",
     audience: "Field Sales Reps & Operations Managers",
-    title: "Automate quotations, orders, invoices, and collections",
+    title: "Sales Force Automation",
     summary:
-      "Empower your field teams to close sales, capture digital signatures, issue digital invoices, and record collections directly from their mobile app — fully integrated with your back-office ERP.",
+      "Digitize the complete sales process from customer visits and quotations to orders, invoicing, and collections. Empower sales representatives with real-time access to customer and sales data.",
     before:
       "Sales reps write orders on paper carbon pads, call the warehouse to check stock, and collect checks that sit in vehicles for days before registration.",
     after:
@@ -21,9 +21,9 @@ export const solutions: Solution[] = [
   {
     slug: "distribution-van-sales",
     audience: "Van Sales Drivers & Warehouse Controllers",
-    title: "End-to-end van inventory and mobile distribution control",
+    title: "Distribution & Van Sales",
     summary:
-      "Track mobile warehouse stock, manage loading, handle stock transfers, and enable direct store delivery (DSD) and sales from delivery vans with complete reconciliation.",
+      "Manage inventory movement, warehouse synchronization, stock transfers, and van sales operations from a single platform. Ensure accurate stock visibility across field and warehouse operations.",
     before:
       "Delivery drivers load vans without system records, handle cash transactions, and return with damaged items that take days to reconcile.",
     after:
@@ -38,9 +38,9 @@ export const solutions: Solution[] = [
   {
     slug: "route-planning-gps",
     audience: "Distribution Managers & Route Planners",
-    title: "Optimize route execution and monitor field compliance",
+    title: "Route Planning & GPS Tracking",
     summary:
-      "Leverage GPS-enabled routing to verify customer visits, structure daily routes, and reduce transit time for improved customer coverage and lower fuel costs.",
+      "Optimize daily routes, monitor field activities, and verify customer visits through GPS-enabled tracking. Improve productivity, accountability, and customer coverage.",
     before:
       "Drivers follow random paths, skip scheduled visits due to traffic, and route compliance is impossible for management to verify.",
     after:
@@ -55,9 +55,9 @@ export const solutions: Solution[] = [
   {
     slug: "task-survey-management",
     audience: "Trade Merchandisers & Compliance Inspectors",
-    title: "Standardize audits, field surveys, and tasks",
+    title: "Task & Survey Management",
     summary:
-      "Assign field audits, capture photo evidence, execute compliance surveys, and track retail execution standards during site visits.",
+      "Assign tasks, conduct surveys, perform audits, and track field execution in real time. Ensure operational activities are completed consistently across teams.",
     before:
       "Merchandisers send photos via WhatsApp, compile survey results in Excel, and display shelf share reports weeks too late.",
     after:
@@ -72,9 +72,9 @@ export const solutions: Solution[] = [
   {
     slug: "promotions-pricing",
     audience: "Commercial Managers & Sales Heads",
-    title: "Drive revenue with intelligent pricing and promotions",
+    title: "Promotions & Pricing",
     summary:
-      "Configure customer-specific pricing tiers, volume discounts, buy-one-get-one promotions, and credit limits enforced at the point of sale.",
+      "Create flexible pricing strategies, promotional campaigns, and customer-specific offers to drive revenue growth. Improve sales performance with smarter pricing and discount management.",
     before:
       "Sales reps apply incorrect discounts, calculate promotions by hand, and take orders for customers over their credit limit.",
     after:

@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Geist } from "next/font/google";
 import { SITE_NAME, defaultMetadata } from "@/lib/seo";
 import { OrganizationJsonLd } from "@/components/seo/json-ld";
 import { CursorDot } from "@/components/cursor-dot";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { SmoothScroll } from "@/components/providers/smooth-scroll";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const inter = Inter({
   variable: "--font-inter",
@@ -30,7 +34,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} h-full antialiased`}
+      className={cn("h-full", "antialiased", inter.variable, "font-sans", geist.variable)}
     >
       <body className="min-h-full flex flex-col bg-paper text-ink selection:bg-accent/30 selection:text-ink">
         <a
@@ -39,13 +43,15 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <OrganizationJsonLd />
-        <CursorDot />
-        <Navbar />
-        <main id="main-content" className="flex-1">
-          {children}
-        </main>
-        <Footer />
+        <SmoothScroll>
+          <OrganizationJsonLd />
+          <CursorDot />
+          <Navbar />
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );

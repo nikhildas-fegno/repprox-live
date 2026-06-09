@@ -78,7 +78,7 @@ export function Navbar() {
     >
       <Container
         className={cn(
-          "flex items-center justify-between gap-6 transition-all duration-300 h-18 4xl:h-20",
+          "flex items-center justify-between gap-6 transition-all duration-300 h-20 4xl:h-22",
         )}
       >
         <Link
@@ -88,10 +88,10 @@ export function Navbar() {
           <img
             src="/logo.png"
             alt="RepPro X Logo"
-            className="size-12 object-contain rounded-sm"
+            className="size-16 object-contain rounded-sm"
           />
           <span className="flex flex-col leading-none">
-            <span className="font-display text-lg font-extrabold tracking-tight text-ink">
+            <span className="font-display text-[#1D6BD9] text-xl font-extrabold tracking-tight">
               RepProX
             </span>
           </span>
@@ -110,7 +110,7 @@ export function Navbar() {
                 aria-expanded={productOpen}
                 aria-haspopup="true"
                 onClick={() => setProductOpen((open) => !open)}
-                className="flex items-center gap-1.5 rounded-sm px-4 py-2.5 font-display text-[14px] font-bold capitalize tracking-wider text-ink-soft transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40"
+                className="flex items-center gap-1.5 rounded-sm px-4 py-2.5 font-display text-[16px] font-bold capitalize tracking-wider text-ink-soft transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40"
               >
                 {group.label}
                 <ChevronDown
@@ -160,7 +160,7 @@ export function Navbar() {
               key={link.href}
               href={link.href}
               className={cn(
-                "rounded-sm px-4 py-2.5 font-display text-[14px] font-bold capitalize tracking-wider transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40",
+                "rounded-sm px-4 py-2.5 font-display text-[16px] font-bold capitalize tracking-wider transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40",
                 pathname === link.href ? "text-ink" : "text-ink-soft",
               )}
             >
@@ -173,7 +173,7 @@ export function Navbar() {
           <Button
             asChild
             variant="accent"
-            size="sm"
+            size="default"
             className="
     font-display
     font-bold

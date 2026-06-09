@@ -1,13 +1,14 @@
 "use client";
 
 import React from "react";
-import { motion, useReducedMotion, type TargetAndTransition, type Transition } from "motion/react";
+import { motion, AnimatePresence, useReducedMotion, type TargetAndTransition, type Transition } from "motion/react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import {
   CalendarRange,
   MapPin,
   Database,
-  Sparkles,
-  CheckSquare,
+  ShoppingCart,
+  WifiOff,
   RefreshCw,
 } from "lucide-react";
 
@@ -56,48 +57,48 @@ const automationSteps = [
     step: "01",
     icon: CalendarRange,
     title: "Visit Scheduled",
-    description: "Daily queues populated based on optimized route rules and visit frequencies.",
-    subtext: "System Autopilot",
+    description: "Admin assigns visits, deliveries, collections, and field tasks.",
+    subtext: "TASK ASSIGNED",
     color: "#0ea5ff",
   },
   {
     step: "02",
     icon: MapPin,
     title: "GPS Verification",
-    description: "App verifies representative is present at geofenced customer coordinates.",
-    subtext: "Location Validated",
+    description: "Representative's arrival is verified through GPS and geofencing.",
+    subtext: "LOCATION VALIDATED",
     color: "#1d4ed8",
   },
   {
     step: "03",
     icon: Database,
     title: "Customer Data",
-    description: "Transaction history, credit balances, and buying profiles load instantly.",
-    subtext: "Profile Retrieved",
+    description: "Order history, balances, and customer details are instantly available.",
+    subtext: "CUSTOMER PROFILE",
     color: "#6366f1",
   },
   {
     step: "04",
-    icon: Sparkles,
-    title: "AI Opportunity",
-    description: "AI recommendations suggest optimal orders and cross-selling bundles.",
-    subtext: "Predictive Uplift",
+    icon: ShoppingCart,
+    title: "Sales Execution",
+    description: "Create orders, collect payments, and capture signatures.",
+    subtext: "ORDER & COLLECTION",
     color: "#a855f7",
   },
   {
     step: "05",
-    icon: CheckSquare,
-    title: "Order & Collection",
-    description: "Take orders, register collections, capture digital invoice signatures.",
-    subtext: "Payment Settled",
+    icon: WifiOff,
+    title: "Work Anywhere",
+    description: "Continue sales activities even without an internet connection.",
+    subtext: "OFFLINE OPERATION",
     color: "#22c55e",
   },
   {
     step: "06",
     icon: RefreshCw,
-    title: "Data Synced",
-    description: "Portal and ERP databases update in real time with all visit logs.",
-    subtext: "Ledger Reconciled",
+    title: "Real-Time Updates",
+    description: "Data automatically syncs to the portal and ERP when online.",
+    subtext: "DATA SYNCED",
     color: "#ff9800",
   },
 ];

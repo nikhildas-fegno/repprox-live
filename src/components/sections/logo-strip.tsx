@@ -16,17 +16,17 @@ const companies = [
 
 const successMetrics = [
   {
-    value: "50%",
+    value: "75%",
     label: "Faster Order Processing",
     description: "Orders instantly queued for warehouse dispatch",
   },
   {
-    value: "30%",
+    value: "65%",
     label: "Higher Collection Efficiency",
     description: "Real-time mobile payment logging & reconciliation",
   },
   {
-    value: "40%",
+    value: "80%",
     label: "Improved Route Compliance",
     description: "GPS-verified visit tracking and sequencing",
   },

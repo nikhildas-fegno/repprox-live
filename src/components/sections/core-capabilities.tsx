@@ -10,6 +10,7 @@ const capabilityBlocks = [
   {
     id: "sales",
     title: "Sales Operations",
+    description: "Capture orders, invoices, and collections from the field in real time.",
     icon: ShoppingBag,
     color: "#1d4ed8",
     items: [
@@ -22,8 +23,9 @@ const capabilityBlocks = [
   {
     id: "dist",
     title: "Distribution",
+    description: "Manage van stock, transfers, and warehouse sync across all operations.",
     icon: Truck,
-    color: "#ff9800",
+    color: "#1d4ed8",
     items: [
       "Van Inventory",
       "Stock Transfers",
@@ -34,8 +36,9 @@ const capabilityBlocks = [
   {
     id: "field",
     title: "Field Execution",
+    description: "Verify visits, plan routes, and track field teams with GPS precision.",
     icon: Map,
-    color: "#0ea5ff",
+    color: "#1d4ed8",
     items: [
       "GPS Tracking",
       "Route Planning",
@@ -46,8 +49,9 @@ const capabilityBlocks = [
   {
     id: "insights",
     title: "Analytics & AI",
+    description: "Turn field data into actionable insights with dashboards and AI recommendations.",
     icon: LineChart,
-    color: "#06b6d4",
+    color: "#1d4ed8",
     items: [
       "Executive Dashboards",
       "KPI Management",
@@ -254,17 +258,20 @@ export function CoreCapabilities() {
                       className="p-2.5 rounded-xl bg-slate-900 border border-white/10"
                       style={{ color: block.color }}
                     >
-                      <Icon className="size-5" />
+                      <Icon className="size-5 text-[#ff9800]" />
                     </div>
                     <h3 className="font-display text-lg font-bold text-white">
                       {block.title}
                     </h3>
                   </div>
+                  <p className="text-sm text-slate-400 leading-relaxed mb-4">
+                    {block.description}
+                  </p>
                   <div className="flex flex-wrap gap-2.5">
                     {block.items.map((item) => (
                       <span
                         key={item}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono font-medium"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-mono font-medium"
                         style={{
                           background: "rgba(255,255,255,0.05)",
                           backdropFilter: "blur(10px)",
@@ -331,19 +338,22 @@ export function CoreCapabilities() {
                       className="p-2.5 rounded-xl bg-slate-900 border border-white/10"
                       style={{ color: block.color }}
                     >
-                      <Icon className="size-5" />
+                      <Icon className="size-5 text-[#ff9800]" />
                     </div>
                     <h3 className="font-display text-lg font-bold text-white">
                       {block.title}
                     </h3>
                   </div>
+                  <p className="text-sm text-slate-400 leading-relaxed mb-4">
+                    {block.description}
+                  </p>
                   <div className="flex flex-wrap gap-2.5">
                     {block.items.map((item) => {
                       const isAI = item === "AI Smart Ordering";
                       return (
                         <span
                           key={item}
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono font-medium transition-colors duration-200"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-mono font-medium transition-colors duration-200"
                           style={{
                             background: isAI
                               ? "rgba(14,165,255,0.12)"
