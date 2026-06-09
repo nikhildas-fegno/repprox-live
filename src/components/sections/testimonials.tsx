@@ -37,7 +37,7 @@ export function Testimonials({ items }: { items: Testimonial[] }) {
 
              <div className="relative z-10">
                <blockquote className="text-slate-800 leading-relaxed font-medium mb-10 text-base md:text-lg">
-                 "{item.quote}"
+                 &quot;{item.quote}&quot;
                </blockquote>
              </div>
              

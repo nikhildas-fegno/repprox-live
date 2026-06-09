@@ -1,10 +1,17 @@
 import type { Solution } from "@/types/content";
 
+import salesForceAutomation from "@/public/solutions/solution1.png";
+import distributionVanSales from "@/public/solutions/solution2.png";
+import routePlanningGps from "@/public/solutions/solution3.png";
+import taskSurveyManagement from "@/public/solutions/solution4.png";
+import promotionsPricing from "@/public/solutions/solution5.png";
+
 export const solutions: Solution[] = [
   {
     slug: "sales-force-automation",
     audience: "Field Sales Reps & Operations Managers",
     title: "Sales Force Automation",
+    image: salesForceAutomation,
     summary:
       "Digitize the complete sales process from customer visits and quotations to orders, invoicing, and collections. Empower sales representatives with real-time access to customer and sales data.",
     before:
@@ -22,6 +29,7 @@ export const solutions: Solution[] = [
     slug: "distribution-van-sales",
     audience: "Van Sales Drivers & Warehouse Controllers",
     title: "Distribution & Van Sales",
+    image: distributionVanSales,
     summary:
       "Manage inventory movement, warehouse synchronization, stock transfers, and van sales operations from a single platform. Ensure accurate stock visibility across field and warehouse operations.",
     before:
@@ -39,6 +47,7 @@ export const solutions: Solution[] = [
     slug: "route-planning-gps",
     audience: "Distribution Managers & Route Planners",
     title: "Route Planning & GPS Tracking",
+    image: routePlanningGps,
     summary:
       "Optimize daily routes, monitor field activities, and verify customer visits through GPS-enabled tracking. Improve productivity, accountability, and customer coverage.",
     before:
@@ -56,6 +65,7 @@ export const solutions: Solution[] = [
     slug: "task-survey-management",
     audience: "Trade Merchandisers & Compliance Inspectors",
     title: "Task & Survey Management",
+    image: taskSurveyManagement,
     summary:
       "Assign tasks, conduct surveys, perform audits, and track field execution in real time. Ensure operational activities are completed consistently across teams.",
     before:
@@ -73,6 +83,7 @@ export const solutions: Solution[] = [
     slug: "promotions-pricing",
     audience: "Commercial Managers & Sales Heads",
     title: "Promotions & Pricing",
+    image: promotionsPricing,
     summary:
       "Create flexible pricing strategies, promotional campaigns, and customer-specific offers to drive revenue growth. Improve sales performance with smarter pricing and discount management.",
     before:

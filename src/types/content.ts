@@ -58,6 +58,7 @@ export interface Solution {
   slug: string;
   audience: string;
   title: string;
+  image: StaticImageData;
   summary: string;
   before: string;
   after: string;

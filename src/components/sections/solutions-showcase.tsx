@@ -57,7 +57,7 @@ export function SolutionsShowcase() {
             return (
               <motion.div
                 key={sol.slug}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 1, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
@@ -112,11 +112,11 @@ export function SolutionsShowcase() {
                   <div className="order-1 lg:order-2 w-full h-full flex items-center">
                     <div className="relative w-full aspect-video 2xl:aspect-4/3 rounded-3xl overflow-hidden shadow-2xl border border-slate-200/50 bg-[#f8fafc] group">
                       <Image
-                        src={`/solutions/${sol.slug}.png`}
+                        src={sol.image}
                         alt={sol.title}
                         fill
                         sizes="(max-width: 768px) 100vw, 50vw"
-                        className="object-cover mix-blend-multiply transition-transform duration-1000 group-hover:scale-105"
+                        className="object-cover mix-blend-multiply transition-transform duration-1000"
                       />
                       <div className="absolute inset-0 ring-1 ring-inset ring-slate-900/5 rounded-3xl pointer-events-none" />
                     </div>

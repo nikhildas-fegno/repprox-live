@@ -1,7 +1,42 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import { animate, useInView } from "motion/react";
 import Container from "@/components/layout/container";
+
+function AnimatedCounter({ value }: { value: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+
+  useEffect(() => {
+    if (isInView && ref.current) {
+      const match = value.match(/^(\d+)(.*)$/);
+      if (!match) {
+        ref.current.textContent = value;
+        return;
+      }
+      
+      const num = parseInt(match[1], 10);
+      const suffix = match[2];
+      
+      const controls = animate(0, num, {
+        duration: 2,
+        ease: "easeOut",
+        onUpdate: (latest) => {
+          if (ref.current) {
+            ref.current.textContent = `${Math.floor(latest)}${suffix}`;
+          }
+        }
+      });
+      return controls.stop;
+    }
+  }, [isInView, value]);
+
+  const match = value.match(/^(\d+)(.*)$/);
+  const startVal = match ? `0${match[2]}` : value;
+
+  return <span ref={ref}>{startVal}</span>;
+}
 
 const companies = [
   "Solace FMCG",
@@ -112,7 +147,7 @@ export function LogoStrip() {
               className="bg-white border border-slate-200/80 p-6 rounded-xl shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-300 flex flex-col gap-2.5 text-center sm:text-left"
             >
               <span className="font-display text-4xl lg:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-[#1d4ed8] to-[#0ea5ff] bg-clip-text text-transparent">
-                {metric.value}
+                <AnimatedCounter value={metric.value} />
               </span>
               <div className="flex flex-col gap-1">
                 <h3 className="font-display text-sm font-bold text-ink leading-snug">
