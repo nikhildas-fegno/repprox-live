@@ -19,11 +19,11 @@ export function Footer() {
           {/* Brand Column */}
           <div className="flex flex-col gap-8">
             <Link href="/" className="flex items-center gap-3 self-start group">
-              <div className="relative flex items-center justify-center bg-white p-1.5 rounded-lg">
+              <div className="relative flex items-center justify-center rounded-lg">
                 <img
                   src="/logo.png"
                   alt="RepProX Logo"
-                  className="size-8 object-contain"
+                  className="size-15 object-contain"
                 />
               </div>
               <span className="font-display text-2xl font-bold tracking-tight text-white group-hover:text-slate-200 transition-colors">
