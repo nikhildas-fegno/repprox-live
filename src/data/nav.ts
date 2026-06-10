@@ -18,7 +18,7 @@ export const secondaryNav: NavLink[] = [
   { label: "Features", href: "/features" },
   { label: "Industries", href: "/industries" },
   { label: "Pricing", href: "/pricing" },
-  { label: "Company", href: "/company" },
+  { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -57,11 +57,11 @@ export const footerNav: NavGroup[] = [
   },
   {
     label: "Company",
-    href: "/company",
+    href: "/about",
     items: [
-      { label: "About Us", href: "/company" },
+      { label: "About", href: "/about" },
       { label: "Contact", href: "/contact" },
-      { label: "Blog", href: "/company#blog" },
+      { label: "Blog", href: "/about#blog" },
     ],
   },
 ];
