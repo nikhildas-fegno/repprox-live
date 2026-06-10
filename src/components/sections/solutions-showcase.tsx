@@ -35,7 +35,7 @@ const solutionIconMap: Record<string, React.ComponentType<{ className?: string }
 
 export function SolutionsShowcase() {
   return (
-    <section aria-labelledby="solutions-heading" className="border-b border-ink/10 bg-paper py-4">
+    <section aria-labelledby="solutions-heading" className="border-b border-ink/10 bg-paper py-4 mt-5 lg:mt-8">
       <Container>
         {/* Section Header */}
         <div className="mb-14 flex flex-col gap-6 lg:mb-16 lg:flex-row lg:items-end lg:justify-between">

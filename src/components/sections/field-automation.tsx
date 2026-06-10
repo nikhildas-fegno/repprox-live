@@ -275,7 +275,7 @@ export function FieldAutomation() {
         {/* ── Mobile View (Vertical timeline) ── */}
         <div className="lg:hidden flex flex-col gap-3 relative pl-9">
           {/* Vertical track */}
-          <div className="absolute left-3 top-5 bottom-5 w-[2px] bg-ink/8 rounded-full overflow-hidden">
+          <div className="absolute left-4.5 top-5 bottom-5 w-0.5 bg-ink/8 rounded-full overflow-hidden">
             <motion.div
               className="w-full rounded-full"
               style={{
@@ -304,7 +304,7 @@ export function FieldAutomation() {
               >
                 {/* Timeline node dot */}
                 <span
-                  className="absolute -left-[25px] top-[18px] size-4 rounded-full border-2 border-white flex items-center justify-center z-10 transition-all duration-400"
+                  className="absolute -left-[21px] top-[18px] size-2 rounded-full border-2 border-white flex items-center justify-center z-10 transition-all duration-400"
                   style={{
                     background: isActive ? stepData.color : "#e2e8f0",
                     boxShadow: isCurrent

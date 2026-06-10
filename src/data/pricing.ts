@@ -59,24 +59,24 @@ export const pricingPlans: PricingPlan[] = [
 
 export const pricingFaqs: FaqItem[] = [
   {
-    question: "What is RepPro X?",
+    question: "What is RepProX?",
     answer:
-      "RepPro X is an AI-powered Field Force Automation and Distribution Management platform that helps businesses streamline sales, collections, inventory management, route planning, customer visits, and field operations from a single platform.",
+      "RepProX is an AI-powered Field Force Automation and Distribution Management platform that helps businesses streamline sales, collections, inventory management, route planning, customer visits, and field operations from a single platform.",
   },
   {
-    question: "Which industries can benefit from RepPro X?",
+    question: "Which industries can benefit from RepProX?",
     answer:
-      "RepPro X is designed for FMCG distributors, food & beverage suppliers, pharmaceutical companies, building material distributors, wholesale businesses, consumer goods companies, and logistics organizations that manage field teams and distribution operations.",
+      "RepProX is designed for FMCG distributors, food & beverage suppliers, pharmaceutical companies, building material distributors, wholesale businesses, consumer goods companies, and logistics organizations that manage field teams and distribution operations.",
   },
   {
-    question: "Does RepPro X work on both Android and iOS devices?",
+    question: "Does RepProX work on both Android and iOS devices?",
     answer:
-      "Yes. RepPro X is built using Flutter technology and is available on both Android and iOS, enabling field representatives to work seamlessly across devices.",
+      "Yes. RepProX is built using Flutter technology and is available on both Android and iOS, enabling field representatives to work seamlessly across devices.",
   },
   {
-    question: "Can RepPro X integrate with our existing ERP system?",
+    question: "Can RepProX integrate with our existing ERP system?",
     answer:
-      "Yes. RepPro X supports integration with ERP platforms such as SAP Business One and other ERP systems, allowing synchronization of customers, products, inventory, pricing, transactions, and collections.",
+      "Yes. RepProX supports integration with ERP platforms such as SAP Business One and other ERP systems, allowing synchronization of customers, products, inventory, pricing, transactions, and collections.",
   },
   {
     question: "How does AI Smart Ordering help my business?",
@@ -86,7 +86,7 @@ export const pricingFaqs: FaqItem[] = [
   {
     question: "Can managers monitor field teams in real time?",
     answer:
-      "Absolutely. RepPro X provides real-time visibility into customer visits, route execution, GPS tracking, collections, productivity metrics, KPI achievement, and overall field performance through its web management portal.",
+      "Absolutely. RepProX provides real-time visibility into customer visits, route execution, GPS tracking, collections, productivity metrics, KPI achievement, and overall field performance through its web management portal.",
   },
 ];
 

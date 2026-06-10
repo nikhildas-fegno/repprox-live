@@ -48,7 +48,7 @@ export function MobileAppExperience() {
   const [activeScreen, setActiveScreen] = React.useState<"order" | "route" | "offline">("order");
 
   return (
-    <section aria-labelledby="mobile-app-heading" className="relative border-b border-white/5 bg-[#070a13] py-24 lg:py-28">
+    <section aria-labelledby="mobile-app-heading" className="relative border-b border-white/5 bg-[#070a13] py-24 lg:py-28 overflow-hidden">
       {/* Background radial gradient decoration */}
       <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[400px] h-[400px] bg-[#1d4ed8] opacity-5 blur-[100px] pointer-events-none rounded-full" />
       
@@ -69,7 +69,7 @@ export function MobileAppExperience() {
           {/* Left: Mobile App Mockup (5 Cols) */}
           <div className="lg:col-span-5 flex flex-col items-center">
             {/* Screen toggle controls */}
-            <div className="flex bg-slate-900/60 p-1.5 border border-white/5 rounded-full mb-6 font-mono text-[11px] uppercase tracking-wider">
+            <div className="flex w-fit max-w-full bg-slate-900/60 p-1.5 border border-white/5 rounded-full mb-6 font-mono text-[11px] uppercase tracking-wider">
               <button 
                 onClick={() => setActiveScreen("order")} 
                 className={`cursor-pointer px-4 py-1.5 rounded-full transition-colors ${activeScreen === "order" ? "bg-[#0ea5ff] text-white" : "text-slate-400 hover:text-white"}`}

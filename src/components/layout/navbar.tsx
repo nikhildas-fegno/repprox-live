@@ -2,67 +2,53 @@
 
 import * as React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
-import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
+import { ArrowUpRight, ChevronDown, Menu, X, ShoppingBag, Truck, Navigation, ClipboardList, TrendingUp } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { primaryNav, secondaryNav } from "@/data/nav";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/layout/container";
 
+const solutionIcons: Record<string, React.ComponentType<{ className?: string }>> = {
+  "/solutions#sales-force-automation": ShoppingBag,
+  "/solutions#distribution-van-sales": Truck,
+  "/solutions#route-planning-gps": Navigation,
+  "/solutions#task-survey-management": ClipboardList,
+  "/solutions#promotions-pricing": TrendingUp,
+};
+
 export function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [productOpen, setProductOpen] = React.useState(false);
+  const [mobileSolutionsOpen, setMobileSolutionsOpen] = React.useState(false);
   const [isVisible, setIsVisible] = React.useState(true);
   const [isScrolled, setIsScrolled] = React.useState(false);
   const lastScrollY = React.useRef(0);
 
-  // Track scroll position and direction
   React.useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
-      // Check if scrolled past threshold
-      if (currentScrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-
-      // If mobile nav is open, keep header visible
-      if (mobileOpen) {
-        setIsVisible(true);
-        return;
-      }
-
-      // Check scroll direction to toggle visibility
-      if (currentScrollY < 60) {
-        setIsVisible(true);
-      } else if (currentScrollY > lastScrollY.current) {
-        // Scrolling down - hide
-        setIsVisible(false);
-      } else {
-        // Scrolling up - show
-        setIsVisible(true);
-      }
-
+      setIsScrolled(currentScrollY > 20);
+      if (mobileOpen) { setIsVisible(true); return; }
+      if (currentScrollY < 60) setIsVisible(true);
+      else if (currentScrollY > lastScrollY.current) setIsVisible(false);
+      else setIsVisible(true);
       lastScrollY.current = currentScrollY;
     };
-
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [mobileOpen]);
 
-  // Reset open menus on navigation. Adjusting state during render (rather than
-  // in an effect) avoids the extra commit-then-rerender cascade — see
-  // https://react.dev/learn/you-might-not-need-an-effect#adjusting-some-state-when-a-prop-changes
   const [lastPathname, setLastPathname] = React.useState(pathname);
   if (pathname !== lastPathname) {
     setLastPathname(pathname);
     setMobileOpen(false);
     setProductOpen(false);
+    setMobileSolutionsOpen(false);
     setIsVisible(true);
   }
 
@@ -72,32 +58,24 @@ export function Navbar() {
         "sticky top-0 z-50 w-full transition-all duration-300 ease-in-out border-b",
         isVisible ? "translate-y-0" : "-translate-y-full",
         isScrolled
-          ? "bg-white/80 backdrop-blur-md border-ink/5 shadow-xs"
-          : "bg-paper border-transparent",
+          ? "bg-white/90 backdrop-blur-lg border-slate-200/60 shadow-sm"
+          : "bg-white border-transparent",
       )}
     >
-      <Container
-        className={cn(
-          "flex items-center justify-between gap-6 transition-all duration-300 h-20 4xl:h-22",
-        )}
-      >
+      <Container className="flex items-center justify-between gap-6 h-[5rem]">
+        {/* Logo */}
         <Link
           href="/"
-          className="group flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 rounded-sm"
+          className="group flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1d4ed8]/40 rounded-lg"
         >
-          <img
-            src="/logo.png"
-            alt="RepPro X Logo"
-            className="size-16 object-contain rounded-sm"
-          />
-          <span className="flex flex-col leading-none">
-            <span className="font-display text-[#1D6BD9] text-xl font-extrabold tracking-tight">
-              RepProX
-            </span>
+          <Image src="/logo.png" alt="RepPro X Logo" width={60} height={60} className="object-contain" />
+          <span className="font-display text-[#1D6BD9] text-[1.15rem] font-extrabold tracking-tight">
+            RepProX
           </span>
         </Link>
 
-        <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">
+        {/* Desktop nav */}
+        <nav aria-label="Primary" className="hidden items-center gap-0.5 lg:flex">
           {primaryNav.map((group) => (
             <div
               key={group.label}
@@ -109,59 +87,78 @@ export function Navbar() {
                 type="button"
                 aria-expanded={productOpen}
                 aria-haspopup="true"
-                onClick={() => setProductOpen((open) => !open)}
-                className="flex items-center gap-1.5 rounded-sm px-4 py-2.5 font-display text-[16px] font-bold capitalize tracking-wider text-ink-soft transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40"
+                onClick={() => setProductOpen((o) => !o)}
+                className={cn(
+                  "flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-base font-semibold transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1d4ed8]/30",
+                  productOpen
+                    ? "bg-slate-100 text-[#2A58DA]"
+                    : "text-slate-600 hover:bg-slate-100 hover:text-slate-900",
+                )}
               >
                 {group.label}
                 <ChevronDown
                   aria-hidden="true"
                   className={cn(
-                    "size-3.5 transition-transform duration-200",
-                    productOpen && "rotate-180",
+                    "size-3.5 text-slate-400 transition-transform duration-200",
+                    productOpen && "rotate-180 text-slate-600",
                   )}
                 />
               </button>
+
               <AnimatePresence>
                 {productOpen && (
                   <motion.div
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 8 }}
-                    transition={{ duration: 0.16, ease: "easeOut" }}
-                    className="absolute left-0 top-full w-80 overflow-hidden rounded-md border border-ink/12 bg-card shadow-xl shadow-ink/[0.06]"
+                    initial={{ opacity: 0, y: 6, scale: 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 6, scale: 0.98 }}
+                    transition={{ duration: 0.14, ease: "easeOut" }}
+                    className="absolute left-0 top-full mt-1.5 w-[24rem] overflow-hidden rounded-xl border border-slate-200/80 bg-white shadow-xl shadow-slate-900/10"
                   >
                     <ul role="menu" className="p-2">
-                      {group.items.map((item) => (
-                        <li key={item.href} role="none">
-                          <Link
-                            role="menuitem"
-                            href={item.href}
-                            className="block rounded-sm px-4 py-3 transition-colors hover:bg-paper-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40"
-                          >
-                            <span className="block font-display text-base font-bold text-ink">
-                              {item.label}
-                            </span>
-                            {item.description && (
-                              <span className="mt-0.5 block text-[13px] leading-snug text-muted-foreground">
-                                {item.description}
-                              </span>
-                            )}
-                          </Link>
-                        </li>
-                      ))}
+                      {group.items.map((item) => {
+                        const Icon = solutionIcons[item.href];
+                        return (
+                          <li key={item.href} role="none">
+                            <Link
+                              role="menuitem"
+                              href={item.href}
+                              className="group/item flex items-center gap-3 rounded-lg px-3 py-2.5 transition-colors hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1d4ed8]/30"
+                            >
+                              {Icon && (
+                                <div className="size-8 shrink-0 rounded-lg bg-slate-100 flex items-center justify-center text-slate-500 group-hover/item:bg-[#1d4ed8]/10 group-hover/item:text-[#1d4ed8] transition-colors duration-150">
+                                  <Icon className="size-4" />
+                                </div>
+                              )}
+                              <div>
+                                <span className="block text-[13.5px] font-semibold text-slate-800 group-hover/item:text-[#1d4ed8] transition-colors duration-150">
+                                  {item.label}
+                                </span>
+                                {item.description && (
+                                  <span className="mt-0.5 block text-[12px] leading-snug text-slate-400">
+                                    {item.description}
+                                  </span>
+                                )}
+                              </div>
+                            </Link>
+                          </li>
+                        );
+                      })}
                     </ul>
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
           ))}
+
           {secondaryNav.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={cn(
-                "rounded-sm px-4 py-2.5 font-display text-[16px] font-bold capitalize tracking-wider transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40",
-                pathname === link.href ? "text-ink" : "text-ink-soft",
+                "rounded-lg px-3.5 py-2 text-base font-semibold transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1d4ed8]/30",
+                pathname === link.href
+                  ? "bg-slate-100 text-slate-900"
+                  : "text-slate-600 hover:bg-slate-100 hover:text-[#2A58DA]",
               )}
             >
               {link.label}
@@ -169,54 +166,57 @@ export function Navbar() {
           ))}
         </nav>
 
+        {/* Desktop CTA */}
         <div className="hidden items-center gap-3 lg:flex">
           <Button
             asChild
             variant="accent"
             size="default"
-            className="
-    font-display
-    font-bold
-    px-6
-    rounded-full
-    bg-gradient-to-r
-    from-accent
-    to-accent/80
-    shadow-lg
-    shadow-accent/25
-    hover:shadow-xl
-    hover:shadow-accent/40
-    hover:-translate-y-0.5
-    transition-all
-    duration-300
-  "
+            className="font-semibold px-5 rounded-full shadow-md shadow-accent/20 hover:shadow-lg hover:shadow-accent/30 hover:-translate-y-px transition-all duration-200"
           >
             <Link href="/contact">
               Request a demo
-              <ArrowUpRight
-                aria-hidden="true"
-                className="transition-transform duration-300 group-hover/button:translate-x-1 group-hover/button:-translate-y-1"
-              />
+              <ArrowUpRight aria-hidden="true" className="size-4" />
             </Link>
           </Button>
         </div>
 
+        {/* Mobile hamburger */}
         <button
           type="button"
-          onClick={() => setMobileOpen((open) => !open)}
+          onClick={() => setMobileOpen((o) => !o)}
           aria-expanded={mobileOpen}
           aria-controls="mobile-nav"
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          className="flex size-11 items-center justify-center rounded-sm border border-ink/15 text-ink lg:hidden"
+          className="flex size-9 items-center justify-center rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-50 transition-colors lg:hidden"
         >
-          {mobileOpen ? (
-            <X aria-hidden="true" className="size-5" />
-          ) : (
-            <Menu aria-hidden="true" className="size-5" />
-          )}
+          <AnimatePresence mode="wait" initial={false}>
+            {mobileOpen ? (
+              <motion.span
+                key="x"
+                initial={{ rotate: -45, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: 45, opacity: 0 }}
+                transition={{ duration: 0.15 }}
+              >
+                <X aria-hidden="true" className="size-4" />
+              </motion.span>
+            ) : (
+              <motion.span
+                key="menu"
+                initial={{ rotate: 45, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: -45, opacity: 0 }}
+                transition={{ duration: 0.15 }}
+              >
+                <Menu aria-hidden="true" className="size-4" />
+              </motion.span>
+            )}
+          </AnimatePresence>
         </button>
       </Container>
 
+      {/* Mobile nav panel */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -224,31 +224,93 @@ export function Navbar() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.22, ease: "easeOut" }}
-            className="overflow-hidden border-t border-ink/10 bg-paper lg:hidden"
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="overflow-hidden border-t border-slate-100 bg-white lg:hidden"
           >
             <Container>
-              <nav aria-label="Mobile" className="flex flex-col gap-1 py-6">
-                {primaryNav
-                  .flatMap((group) => group.items)
-                  .concat(secondaryNav)
-                  .map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className="rounded-sm px-3 py-3 font-display text-lg font-semibold transition-colors hover:text-accent"
-                    >
-                      {link.label}
-                    </Link>
+              <nav aria-label="Mobile" className="flex flex-col py-4 pb-7">
+                <ul className="flex flex-col gap-0.5">
+                  {/* Solutions — collapsible */}
+                  {primaryNav.map((group) => (
+                    <li key={group.label}>
+                      <button
+                        type="button"
+                        onClick={() => setMobileSolutionsOpen((o) => !o)}
+                        className={cn(
+                          "flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-[15px] font-semibold transition-colors",
+                          mobileSolutionsOpen
+                            ? "bg-slate-50 text-slate-900"
+                            : "text-slate-700 hover:bg-slate-50",
+                        )}
+                      >
+                        <span>{group.label}</span>
+                        <ChevronDown
+                          aria-hidden="true"
+                          className={cn(
+                            "size-4 text-slate-400 transition-transform duration-200",
+                            mobileSolutionsOpen && "rotate-180 text-[#1d4ed8]",
+                          )}
+                        />
+                      </button>
+
+                      <AnimatePresence initial={false}>
+                        {mobileSolutionsOpen && (
+                          <motion.ul
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.18, ease: "easeOut" }}
+                            className="overflow-hidden ml-3 mt-0.5 pl-3 flex flex-col gap-0.5"
+                          >
+                            {group.items.map((item) => (
+                              <li key={item.href}>
+                                <Link
+                                  href={item.href}
+                                  className={cn(
+                                    "block rounded-lg px-3 py-2 text-[14px] font-medium transition-colors hover:bg-slate-50",
+                                    pathname === item.href
+                                      ? "text-[#1d4ed8]"
+                                      : "text-slate-600 hover:text-slate-900",
+                                  )}
+                                >
+                                  {item.label}
+                                </Link>
+                              </li>
+                            ))}
+                          </motion.ul>
+                        )}
+                      </AnimatePresence>
+                    </li>
                   ))}
-                <div className="mt-4 flex flex-col gap-3">
-                  <Button asChild variant="outline">
-                    <Link href="/contact">Sign in</Link>
-                  </Button>
-                  <Button asChild variant="accent">
+
+                  {/* Secondary links */}
+                  {secondaryNav.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className={cn(
+                          "block rounded-lg px-3 py-2.5 text-[15px] font-semibold transition-colors hover:bg-slate-50",
+                          pathname === link.href
+                            ? "text-[#1d4ed8]"
+                            : "text-slate-700 hover:text-slate-900",
+                        )}
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* CTA */}
+                <div className="mt-5 pt-4 border-t border-slate-100">
+                  <Button
+                    asChild
+                    variant="accent"
+                    className="w-full font-semibold rounded-full shadow-md shadow-accent/20"
+                  >
                     <Link href="/contact">
                       Request a demo
-                      <ArrowUpRight aria-hidden="true" />
+                      <ArrowUpRight aria-hidden="true" className="size-4" />
                     </Link>
                   </Button>
                 </div>
