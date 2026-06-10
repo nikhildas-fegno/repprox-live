@@ -23,14 +23,13 @@ export default function PricingPage() {
       <BreadcrumbJsonLd items={[{ name: "Home", path: "/" }, { name: "Pricing", path: "/pricing" }]} />
       <FaqJsonLd items={pricingFaqs} />
 
-      <section className="relative overflow-hidden border-b border-ink/10 bg-paper">
-        <div className="bp-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_70%_50%_at_50%_0%,black,transparent)]" />
+      <section className="relative overflow-hidden bg-paper">
         <Container className="relative pt-20 pb-16 lg:pt-28 lg:pb-20">
           <SectionHeading
             eyebrow="Pricing"
             align="center"
-            title="Straightforward, per-user pricing — no surprise modules to unlock"
-            description="Every plan starts with the core financial, inventory, and reporting modules. You upgrade when your operation grows in complexity — not because basic functionality was held back."
+            title="Simple, Transparent Pricing for Every Stage of Growth"
+            description="From essential field sales digitization to enterprise-grade AI and analytics — choose the plan that fits your team today and upgrade as you scale."
           />
         </Container>
       </section>

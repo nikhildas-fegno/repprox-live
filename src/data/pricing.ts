@@ -5,59 +5,117 @@ import avatarMale from "@/public/home/testimonials/avatar-male.png"
 export const pricingPlans: PricingPlan[] = [
   {
     name: "Essential",
-    tagline: "For growing regional distributors",
+    tagline: "Ideal for organizations digitizing field sales and distribution operations.",
     price: "$32",
-    cadence: "per user / month, billed annually",
+    cadence: "Starting from / user / month",
     description:
-      "Core field operations, mobile order booking, GPS check-ins, and standard pricing rules.",
+      "Core sales automation, customer management, order processing, collections, and mobile execution.",
     features: [
-      "Mobile order entry & offline booking",
-      "GPS check-in & route tracking",
-      "Standard pricing & discount configuration",
-      "Basic payment collections logging",
-      "Web portal user management",
-      "Email support, 24-hour response",
+      "Customer, Product & Price Management",
+      "Sales Quotations, Orders, Invoices & Returns",
+      "Collection Management & Customer Visit Tracking",
+      "Warehouse & Inventory Operations",
+      "Mobile Sales App (Android & iOS)",
+      "GPS Tracking & Mobile Reporting",
+      "ERP Integration & Data Synchronization",
     ],
     href: "/contact",
+    ctaLabel: "Talk to Sales",
   },
   {
     name: "Professional",
-    tagline: "For dynamic multi-branch organizations",
+    tagline: "Designed for growing distributors requiring route optimization, inventory visibility, and performance management.",
     price: "$42",
-    cadence: "per user / month, billed annually",
+    cadence: "per user / month",
     description:
-      "Everything in Essential, plus AI recommendations, advanced van sales, and full route optimization.",
+      "Everything in Essential, plus advanced distribution, territory, and performance management capabilities.",
     features: [
       "Everything in Essential",
-      "AI Smart Ordering & upselling recommendations",
-      "Van Sales & Mobile Warehouse inventory control",
-      "Automated route planning & compliance alerts",
-      "Task & retail survey management",
-      "Priority email & chat support, 4-hour response",
+      "Route Planning, Optimization & Territory Management",
+      "Stock Requests, Transfers & Inventory Counting",
+      "Promotions, Bundle Pricing & Pricing Rules",
+      "Tasks, Surveys & Incident Management",
+      "KPI, Target & Seasonal Performance Management",
+      "Route Compliance, Missing Customer Analysis & Advanced Reports",
     ],
     href: "/contact",
     highlighted: true,
+    ctaLabel: "Talk to Sales",
   },
   {
     name: "Enterprise",
-    tagline: "For high-volume distribution groups",
+    tagline: "Built for large-scale distribution groups requiring AI, advanced analytics, governance, and enterprise-grade controls.",
     price: "Custom",
     cadence: "tailored annual contract",
     description:
-      "Dedicated hosting, custom ERP connectors, and 24/7 technical assistance for large operations.",
+      "Everything in Professional, plus AI-powered intelligence and enterprise governance.",
     features: [
       "Everything in Professional",
-      "Bidirectional SAP & NetSuite ERP integration",
-      "Dedicated server environment & 99.9% uptime SLA",
-      "Custom analytics dashboards & raw data exports",
-      "Dedicated implementation manager & onboarding support",
-      "24/7 priority phone support & escalation",
+      "AI Smart Ordering & Demand Prediction",
+      "Purchase Pattern & Sales Intelligence Analytics",
+      "Executive Dashboards & Enterprise Reporting",
+      "Customer & Product Profitability Analysis",
+      "Advanced Workflows, Multi-Level Approvals & Governance",
+      "Enterprise Security, Automated Notifications & Priority SLA Support",
     ],
     href: "/contact",
+    ctaLabel: "Talk to Sales",
+  },
+  {
+    name: "Web User License",
+    tagline: "For managers, supervisors, and executives who need complete visibility into field operations.",
+    price: "$10",
+    cadence: "Starting from / user / month",
+    description:
+      "Full management visibility across teams, territories, and operations from any device.",
+    features: [
+      "Real-Time Operational Dashboards",
+      "Business Reports & Analytics",
+      "KPI & Performance Monitoring",
+      "User & Role Management",
+      "Administration Portal Access",
+      "Management Visibility Across Teams & Territories",
+      "Executive Insights & Decision Support Tools",
+    ],
+    href: "/contact",
+    ctaLabel: "Talk to Sales",
   },
 ];
 
 export const pricingFaqs: FaqItem[] = [
+  {
+    question: "How is RepPro X pricing calculated?",
+    answer:
+      "RepPro X is priced on a per-user, per-month basis. The Essential plan starts from $32/user/month and the Professional plan starts from $42/user/month. Web User Licenses for managers and supervisors start from $10/user/month. Enterprise pricing is customized based on your team size and requirements.",
+  },
+  {
+    question: "What billing cycles are available?",
+    answer:
+      "RepPro X is available on annual billing, which offers the best value. Monthly billing options may be available upon request. All prices displayed are based on annual contracts.",
+  },
+  {
+    question: "Can I upgrade or downgrade my plan later?",
+    answer:
+      "Yes. You can upgrade from Essential to Professional or Enterprise at any time as your business grows. Our team will assist with a smooth transition, ensuring no disruption to your field operations.",
+  },
+  {
+    question: "Are there any setup or implementation fees?",
+    answer:
+      "Implementation and onboarding are included on every plan. This covers initial system configuration, ERP integration setup, data migration support, and training for your team to get up and running quickly.",
+  },
+  {
+    question: "What support is included with each plan?",
+    answer:
+      "All plans include standard support. The Enterprise plan includes Priority Support with a dedicated SLA, ensuring faster response times and a named support contact for your organization.",
+  },
+  {
+    question: "Is a free trial or product demo available?",
+    answer:
+      "We offer a guided product demo tailored to your industry and use case. Contact our team to schedule a walkthrough — we'll show you exactly how RepPro X fits your specific distribution or field service operations.",
+  },
+];
+
+export const homefaq: FaqItem[] = [
   {
     question: "What is RepProX?",
     answer:

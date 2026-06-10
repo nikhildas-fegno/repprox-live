@@ -20,7 +20,7 @@ export function CtaSection({
   secondary = { label: "Contact Sales", href: "/contact" },
 }: CtaSectionProps) {
   return (
-    <section className="bg-white py-24 lg:py-32">
+    <section className="bg-white py-12 lg:py-24">
       <Container>
         <Reveal>
           {/* Ticket Stub Card Layout: Minimal & Unique */}
@@ -32,11 +32,11 @@ export function CtaSection({
                 {eyebrow}
               </span>
               
-              <h2 className="text-balance font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight">
+              <h2 className="text-balance font-display text-4xl sm:text-5xl lg:text-5xl font-bold leading-[1.1] tracking-tight">
                 {title}
               </h2>
               
-              <p className="max-w-xl text-balance text-lg leading-relaxed text-slate-400">
+              <p className="max-w-2xl text-balance text-lg leading-relaxed text-slate-400">
                 {description}
               </p>
             </div>

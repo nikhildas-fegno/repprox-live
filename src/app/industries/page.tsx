@@ -37,6 +37,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import Container from "@/components/layout/container";
 import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/ui/button";
+import { CounterMetric } from "@/components/ui/counter-metric";
 
 export const metadata: Metadata = buildMetadata({
   title: "Industries",
@@ -130,10 +131,10 @@ const benefits = [
 ];
 
 const metrics = [
-  { value: "30%", label: "Increase in Sales Productivity" },
-  { value: "25%", label: "Faster Collections" },
-  { value: "40%", label: "Better Route Efficiency" },
-  { value: "20%", label: "Reduction in Operational Costs" }
+  { value: "85%", label: "Increase in Sales Productivity" },
+  { value: "70%", label: "Faster Collections" },
+  { value: "80%", label: "Better Route Efficiency" },
+  { value: "45%", label: "Reduction in Operational Costs" }
 ];
 
 const innerOrbitNodes = [
@@ -194,7 +195,7 @@ export default function IndustriesPage() {
       <BreadcrumbJsonLd items={[{ name: "Home", path: "/" }, { name: "Industries", path: "/industries" }]} />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#F8FAFF] via-[#EEF5FF] to-white pt-24 pb-20 lg:pt-32 lg:pb-28">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#F8FAFF] via-[#EEF5FF] to-white lg:py-6 4xl:py-24">
         {/* Advanced Ambient Lighting Ecosystem */}
         <style>{`
           @keyframes glow-breathe {
@@ -248,7 +249,7 @@ export default function IndustriesPage() {
               </Reveal>
               <Reveal delay={0.1}>
                 <h1 className="mb-6 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl lg:text-6xl leading-[1.1]">
-                  Built for <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Every Industry</span> We Serve
+                  Built for <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Every Industry</span> We Serve
                 </h1>
               </Reveal>
               <Reveal delay={0.2}>
@@ -268,7 +269,7 @@ export default function IndustriesPage() {
               </Reveal>
 
               <Reveal delay={0.4} className="flex flex-col items-center justify-start gap-3 sm:flex-row w-full sm:w-auto">
-                <Button asChild size="lg" className="group w-full sm:w-auto rounded-full bg-[#1d4ed8] hover:bg-[#1d4ed8]/90 text-white font-semibold px-7 shadow-lg shadow-[#1d4ed8]/30 hover:shadow-xl hover:shadow-[#1d4ed8]/40 hover:-translate-y-px transition-all duration-200">
+                <Button asChild size="lg" className="group w-full sm:w-auto rounded-full bg-linear-to-r from-[#1d4ed8] to-[#0ea5ff] hover:bg-[#1d4ed8]/90 text-white font-semibold px-7 shadow-lg shadow-[#1d4ed8]/30 hover:shadow-xl hover:shadow-[#1d4ed8]/40 hover:-translate-y-px transition-all duration-200">
                   <Link href="/contact" className="flex items-center gap-2">
                     Request a Demo
                     <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
@@ -392,10 +393,7 @@ export default function IndustriesPage() {
                   <div className="relative flex h-36 w-36 items-center justify-center rounded-full border border-white/70 bg-white/90 shadow-[0_8px_30px_rgba(59,130,246,0.15)] backdrop-blur-md p-4 text-center">
                     <div className="absolute inset-1.5 rounded-full border border-blue-100 bg-gradient-to-br from-blue-50/50 to-indigo-50/50"></div>
                     <div className="relative z-10">
-                      <span className="block font-display text-[10px] font-bold tracking-widest text-blue-500/70 uppercase mb-1">Ecosystem</span>
-                      <span className="block font-display text-sm font-extrabold tracking-tight bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 bg-clip-text text-transparent leading-snug">
-                        Industries We Serve
-                      </span>
+                   <img src="logo.png" alt="" />
                     </div>
                   </div>
                 </div>
@@ -560,7 +558,7 @@ export default function IndustriesPage() {
 
       {/* Industries Grid */}
       {/* Industries Grid */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#F8FAFF] via-[#F2F7FF] to-[#EDF4FF] py-20 lg:py-32">
+      <section id="industries-grid" className="relative overflow-hidden bg-gradient-to-b from-[#F8FAFF] via-[#F2F7FF] to-[#EDF4FF] py-20 lg:py-32">
         {/* Soft Animated Background Gradients & Motion */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808006_1px,transparent_1px),linear-gradient(to_bottom,#80808006_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_50%,#000_70%,transparent_100%)]"></div>
         <div className="pointer-events-none absolute -left-1/4 -top-1/4 h-[1000px] w-[1000px] rounded-full bg-blue-200/40 opacity-70 blur-[140px] mix-blend-multiply animate-[pulse_6s_ease-in-out_infinite]"></div>
@@ -637,7 +635,7 @@ export default function IndustriesPage() {
           `}</style>
 
           {/* Glassmorphism wrapper for the whole grid area */}
-          <div className="relative rounded-[40px] border border-white/40 bg-white/30 p-4 shadow-[0_8px_32px_rgba(59,130,246,0.05)] backdrop-blur-xl sm:p-8 lg:p-12">
+          <div id="industries">
             <Reveal>
               <div className="mx-auto mb-16 max-w-4xl text-center lg:mb-24 flex flex-col items-center">
                 <div className="mb-4 inline-flex items-center rounded-full border border-blue-200/50 bg-white/80 px-4 py-1.5 text-sm font-semibold tracking-wide text-blue-700 backdrop-blur-md shadow-sm">
@@ -771,11 +769,7 @@ export default function IndustriesPage() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {metrics.map((metric, index) => (
               <Reveal key={index} delay={index * 0.1}>
-                <div className="group relative flex h-full flex-col items-center justify-center overflow-hidden rounded-[24px] border border-ink/5 bg-white p-8 text-center shadow-[0_2px_12px_rgba(0,0,0,0.02)] transition-all duration-300 hover:-translate-y-2 hover:border-blue-100 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)]">
-                  <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-500 to-blue-400 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
-                  <div className="mb-3 font-display text-4xl font-bold text-blue-600 md:text-5xl">{metric.value}</div>
-                  <div className="text-sm font-medium uppercase tracking-wider text-ink/80">{metric.label}</div>
-                </div>
+                <CounterMetric value={metric.value} label={metric.label} />
               </Reveal>
             ))}
           </div>
@@ -783,22 +777,48 @@ export default function IndustriesPage() {
       </section>
 
       {/* CTA */}
-      <section className="relative overflow-hidden bg-blue-50 py-16 lg:py-20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-100/50 via-transparent to-transparent"></div>
+      <section className="relative overflow-hidden bg-linear-to-br from-[#eff6ff] via-[#f8faff] to-[#eef2ff] border-t border-slate-200/60 py-20 lg:py-28 2xl:py-32">
+        {/* Radial blue glow centre */}
+        <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-175 h-70 rounded-full bg-[#1d4ed8]/10 blur-[90px]" />
+        {/* Top-right accent blob */}
+        <div className="pointer-events-none absolute -top-20 -right-20 w-96 h-96 rounded-full bg-[#6366f1]/8 blur-[80px]" />
+        {/* Bottom-left accent blob */}
+        <div className="pointer-events-none absolute -bottom-16 -left-16 w-72 h-72 rounded-full bg-[#0ea5ff]/8 blur-[70px]" />
+        {/* Dot grid */}
+        <div className="pointer-events-none absolute inset-0 opacity-30 [mask-image:radial-gradient(ellipse_80%_70%_at_50%_50%,black,transparent)]">
+          <svg className="absolute inset-0 h-full w-full" fill="none">
+            <defs>
+              <pattern id="cta-dots" width="24" height="24" patternUnits="userSpaceOnUse">
+                <circle cx="1.5" cy="1.5" r="0.9" fill="#93c5fd" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#cta-dots)" />
+          </svg>
+        </div>
+        {/* Decorative large ring */}
+        <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] h-[520px] rounded-full border border-[#1d4ed8]/8" />
+        <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] rounded-full border border-[#1d4ed8]/12" />
+
         <Container className="relative z-10">
           <Reveal>
-            <div className="mx-auto max-w-3xl text-center">
-              <h2 className="mb-6 font-display text-3xl font-bold text-ink md:text-4xl lg:text-5xl">
-                Ready to Transform Your Industry Operations?
-              </h2>
-              <p className="mb-8 text-lg text-ink/70">
-                Discover how our platform helps businesses streamline operations, increase productivity, and drive sustainable growth.
+            <div className="mx-auto max-w-2xl text-center">
+              <p className="mb-4 font-mono text-[11px] font-bold uppercase tracking-widest text-[#1d4ed8]">
+                Get Started
               </p>
-              <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <Button asChild size="lg" className="w-full sm:w-auto bg-blue-600 text-white hover:bg-blue-700 hover:text-white border-none shadow-sm">
-                  <Link href="/contact">Schedule a Demo</Link>
+              <h2 className="mb-5 font-display text-3xl font-bold text-slate-900 md:text-4xl lg:text-[2.75rem] leading-tight">
+                Ready to Transform Your<br className="hidden sm:block" /> Industry Operations?
+              </h2>
+              <p className="mb-10 text-base leading-relaxed text-slate-500 max-w-xl mx-auto">
+                Discover how RepProX helps businesses streamline operations, increase productivity, and drive sustainable growth.
+              </p>
+              <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
+                <Button asChild size="lg" className="group w-full sm:w-auto rounded-full bg-[#1d4ed8] hover:bg-[#1d4ed8]/90 text-white font-semibold px-8 shadow-lg shadow-[#1d4ed8]/25 hover:shadow-xl hover:shadow-[#1d4ed8]/35 hover:-translate-y-px transition-all duration-200 border-none">
+                  <Link href="/contact" className="flex items-center gap-2">
+                    Schedule a Demo
+                    <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+                  </Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="w-full sm:w-auto border-blue-200 text-blue-700 bg-white hover:bg-blue-50 hover:text-blue-800 shadow-sm">
+                <Button asChild size="lg" variant="outline" className="w-full sm:w-auto rounded-full border-slate-200 bg-white text-slate-700 font-semibold px-8 hover:border-[#1d4ed8]/30 hover:text-[#1d4ed8] hover:bg-[#1d4ed8]/5 transition-all duration-200 shadow-sm">
                   <Link href="/contact">Talk to an Expert</Link>
                 </Button>
               </div>

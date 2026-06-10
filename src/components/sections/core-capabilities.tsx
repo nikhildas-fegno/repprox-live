@@ -200,7 +200,7 @@ export function CoreCapabilities() {
   return (
     <section
       aria-labelledby="capabilities-heading"
-      className="relative border-b border-white/5 bg-[#070a13] py-28 lg:py-36"
+      className="relative border-b border-white/5 bg-[#070a13] py-12 lg:py-24"
     >
       {/* Dot texture */}
       <div

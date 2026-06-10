@@ -39,6 +39,7 @@ export interface PricingPlan {
   features: string[];
   href: string;
   highlighted?: boolean;
+  ctaLabel?: string;
 }
 
 export interface FaqItem {

@@ -89,9 +89,9 @@ export function Navbar() {
                 aria-haspopup="true"
                 onClick={() => setProductOpen((o) => !o)}
                 className={cn(
-                  "flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-base font-semibold transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1d4ed8]/30",
+                  "flex items-center gap-1.5 cursor-pointer rounded-lg px-3.5 py-2 text-base font-semibold transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1d4ed8]/30",
                   productOpen
-                    ? "bg-slate-100 text-[#2A58DA]"
+                    ? "text-[#2A58DA]"
                     : "text-slate-600 hover:bg-slate-100 hover:text-slate-900",
                 )}
               >
@@ -112,7 +112,7 @@ export function Navbar() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 6, scale: 0.98 }}
                     transition={{ duration: 0.14, ease: "easeOut" }}
-                    className="absolute left-0 top-full mt-1.5 w-[24rem] overflow-hidden rounded-xl border border-slate-200/80 bg-white shadow-xl shadow-slate-900/10"
+                    className="absolute left-0 top-full mt-1.5 w-[26rem] overflow-hidden rounded-xl border border-slate-200/80 bg-white shadow-xl shadow-slate-900/10"
                   >
                     <ul role="menu" className="p-2">
                       {group.items.map((item) => {
@@ -122,19 +122,19 @@ export function Navbar() {
                             <Link
                               role="menuitem"
                               href={item.href}
-                              className="group/item flex items-center gap-3 rounded-lg px-3 py-2.5 transition-colors hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1d4ed8]/30"
+                              className="group/item flex items-center gap-3 lg:gap-4 rounded-lg px-3 py-3.5 transition-colors hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1d4ed8]/30"
                             >
                               {Icon && (
-                                <div className="size-8 shrink-0 rounded-lg bg-slate-100 flex items-center justify-center text-slate-500 group-hover/item:bg-[#1d4ed8]/10 group-hover/item:text-[#1d4ed8] transition-colors duration-150">
-                                  <Icon className="size-4" />
+                                <div className="size-10 shrink-0 rounded-lg bg-slate-100 flex items-center justify-center text-slate-500 group-hover/item:bg-[#1d4ed8]/10 group-hover/item:text-[#1d4ed8] transition-colors duration-150">
+                                  <Icon className="size-6" />
                                 </div>
                               )}
                               <div>
-                                <span className="block text-[13.5px] font-semibold text-slate-800 group-hover/item:text-[#1d4ed8] transition-colors duration-150">
+                                <span className="block text-[15.5px] font-semibold text-slate-800 group-hover/item:text-[#1d4ed8] transition-colors duration-150">
                                   {item.label}
                                 </span>
                                 {item.description && (
-                                  <span className="mt-0.5 block text-[12px] leading-snug text-slate-400">
+                                  <span className="mt-0.5 block text-[14px] leading-snug text-slate-400">
                                     {item.description}
                                   </span>
                                 )}
@@ -157,8 +157,8 @@ export function Navbar() {
               className={cn(
                 "rounded-lg px-3.5 py-2 text-base font-semibold transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1d4ed8]/30",
                 pathname === link.href
-                  ? "bg-slate-100 text-slate-900"
-                  : "text-slate-600 hover:bg-slate-100 hover:text-[#2A58DA]",
+                  ? "text-[#2A58DA]"
+                  : "text-slate-600  hover:text-[#2A58DA]",
               )}
             >
               {link.label}
@@ -171,12 +171,12 @@ export function Navbar() {
           <Button
             asChild
             variant="accent"
-            size="default"
-            className="font-semibold px-5 rounded-full shadow-md shadow-accent/20 hover:shadow-lg hover:shadow-accent/30 hover:-translate-y-px transition-all duration-200"
+            size="lg"
+            className="h-12 w-full sm:w-auto border-0 bg-linear-to-r from-[#1d4ed8] to-[#0ea5ff] font-bold text-white shadow-lg shadow-[#1d4ed8]/25 transition-all duration-300 rounded-full hover:from-[#2563eb] hover:to-[#38bdf8]"
           >
-            <Link href="/contact">
-              Request a demo
-              <ArrowUpRight aria-hidden="true" className="size-4" />
+            <Link href="/contact" className="flex items-center gap-2">
+              Request Demo
+              <ArrowUpRight className="size-4.5 transition-transform duration-300" />
             </Link>
           </Button>
         </div>
