@@ -53,6 +53,8 @@ export interface Testimonial {
   role: string;
   company: string;
   avatar: StaticImageData;
+  tagline?: string;
+  industry?: string;
 }
 
 export interface Solution {

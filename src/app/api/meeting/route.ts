@@ -1,12 +1,10 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 
-import { contactFormSchema } from "@/lib/validations";
+import { meetingSchema } from "@/lib/validations";
 
 export const runtime = "nodejs";
 
-// Simple in-memory rate limit per IP. Resets on deploy/restart — adequate for
-// deterring casual abuse on a marketing contact form without adding infra.
 const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX_REQUESTS = 5;
 const requestLog = new Map<string, number[]>();
@@ -36,7 +34,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid request body." }, { status: 400 });
   }
 
-  const result = contactFormSchema.safeParse(body);
+  const result = meetingSchema.safeParse(body);
   if (!result.success) {
     return NextResponse.json(
       { error: "Validation failed.", issues: z.flattenError(result.error).fieldErrors },
@@ -46,25 +44,16 @@ export async function POST(request: Request) {
 
   const { company_website, ...submission } = result.data;
 
-  // Honeypot tripped — silently report success so bots don't learn to adapt.
   if (company_website) {
     return NextResponse.json({ ok: true });
   }
 
-  // In production this would enqueue a CRM/email notification. Logging keeps
-  // the marketing site self-contained without requiring third-party secrets.
-  console.info("[contact] new inquiry", {
-    firstName: submission.firstName,
-    lastName: submission.lastName,
+  console.info("[meeting] new booking request", {
     company: submission.company,
-    teamSize: submission.teamSize,
-    itAgents: submission.itAgents,
-    painPoints: submission.painPoints,
-    country: submission.country,
     email: submission.email,
-    timezone: submission.timezone,
     date: submission.date,
     time: submission.time,
+    timezone: submission.timezone,
   });
 
   return NextResponse.json({ ok: true });

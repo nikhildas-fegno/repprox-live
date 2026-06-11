@@ -1,55 +1,59 @@
 import type { Testimonial } from "@/types/content";
 import Image from "next/image";
-import { Quote } from "lucide-react";
+
+function TestimonialCard({ item }: { item: Testimonial }) {
+  return (
+    <div
+      className="group relative flex w-[340px] shrink-0 flex-col justify-between gap-8 rounded-3xl border border-slate-200/60 bg-white p-8 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/5 md:w-[420px]"
+    >
+      <blockquote className="text-[15px] leading-relaxed text-slate-700 md:text-[16px]">
+        &ldquo;{item.quote}&rdquo;
+      </blockquote>
+
+      <div className="flex flex-col gap-5">
+        <div className="h-px w-full bg-linear-to-r from-slate-100 to-transparent" />
+
+        <div className="flex items-start gap-4">
+          <div className="relative size-12 shrink-0 overflow-hidden rounded-full ring-2 ring-slate-50">
+            <Image src={item.avatar} alt={item.name} fill className="object-cover" />
+          </div>
+          <div className="flex min-w-0 flex-col gap-0.5">
+            <span className="text-[15px] font-bold text-slate-900 truncate">{item.name}</span>
+            <span className="text-[13px] font-medium text-slate-500 truncate">
+              {item.role} at {item.company}
+            </span>
+            {item.tagline && (
+              <span className="mt-1 text-[13px] leading-relaxed text-slate-400">
+                {item.tagline}
+              </span>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export function Testimonials({ items }: { items: Testimonial[] }) {
   const baseItems = items.length < 4 ? [...items, ...items, ...items] : items;
   const duplicatedItems = [...baseItems, ...baseItems];
 
   return (
-    <div className="relative w-full overflow-hidden py-12">
+    <div className="relative w-full overflow-hidden py-4">
       {/* Fade masks */}
-      <div className="absolute left-0 top-0 z-10 h-full w-24 md:w-48 bg-linear-to-r from-paper to-transparent pointer-events-none" />
-      <div className="absolute right-0 top-0 z-10 h-full w-24 md:w-48 bg-linear-to-l from-paper to-transparent pointer-events-none" />
+      <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-linear-to-r from-paper to-transparent md:w-48" />
+      <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-linear-to-l from-paper to-transparent md:w-48" />
 
-      {/* CSS-driven marquee — runs entirely on compositor thread */}
+      {/* CSS-driven marquee */}
       <div
-        className="flex w-max gap-6 lg:gap-8"
+        className="flex w-max gap-5 lg:gap-6"
         style={{
-          animation: "marquee-scroll 45s linear infinite",
+          animation: "marquee-scroll 55s linear infinite",
           willChange: "transform",
         }}
       >
         {duplicatedItems.map((item, i) => (
-          <div
-            key={`${item.name}-${i}`}
-            className="w-[320px] md:w-110 shrink-0 rounded-3xl border border-slate-200/60 bg-white p-7 md:p-10 shadow-sm flex flex-col justify-between relative overflow-hidden"
-            style={{ contain: "layout style" }}
-          >
-            {/* Decorative quote mark */}
-            <Quote className="absolute top-5 right-5 size-20 text-slate-100 -rotate-12 pointer-events-none" />
-
-            <blockquote className="relative z-10 text-slate-700 leading-relaxed font-medium mb-8 text-sm md:text-base">
-              &quot;{item.quote}&quot;
-            </blockquote>
-
-            <div className="flex items-center gap-3 border-t border-slate-100 pt-5 relative z-10">
-              <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-white bg-slate-50">
-                <Image
-                  src={item.avatar}
-                  alt={item.name}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="flex flex-col gap-0.5 min-w-0">
-                <span className="font-bold text-slate-900 text-sm truncate">{item.name}</span>
-                <span className="font-mono text-[10px] uppercase tracking-wider text-slate-400 truncate">
-                  {item.role} · {item.company}
-                </span>
-              </div>
-            </div>
-          </div>
+          <TestimonialCard key={`${item.name}-${i}`} item={item} />
         ))}
       </div>
 

@@ -34,9 +34,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("h-full", "antialiased", inter.variable, "font-sans", geist.variable)}
+      className={cn("antialiased", inter.variable, "font-sans", geist.variable)}
     >
-      <body className="min-h-full flex flex-col bg-paper text-ink selection:bg-accent/30 selection:text-ink">
+      <body className="min-h-screen flex flex-col bg-paper text-ink selection:bg-accent/30 selection:text-ink">
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-100 focus:rounded-md focus:bg-ink focus:px-4 focus:py-2 focus:text-paper focus:font-mono focus:text-sm"

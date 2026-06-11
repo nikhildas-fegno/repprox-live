@@ -245,8 +245,8 @@ export function HeroDashboard() {
             </div>
           </header>
 
-          {/* Scrollable body */}
-          <div className="flex-1 overflow-y-auto p-4 lg:p-8">
+          {/* Dashboard body */}
+          <div className="flex-1 overflow-hidden p-4 lg:p-8">
             {/* Welcome row */}
             <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
               <div>
@@ -382,7 +382,7 @@ export function HeroDashboard() {
                 {/* Routing Lists Table Card */}
                 <div className="bg-white rounded-xl shadow-sm p-6">
                   <h3 className="text-xl font-medium text-ink mb-6">Routing Lists</h3>
-                  <div className="w-full overflow-x-auto">
+                  <div className="w-full overflow-x-auto scrollbar-thin pb-2">
                     <table className="w-full text-left text-sm whitespace-nowrap">
                       <thead>
                         <tr className="border-b border-ink/5">
@@ -395,10 +395,6 @@ export function HeroDashboard() {
                       <tbody className="divide-y divide-ink/5">
                         {[
                           { name: "Zayn Alvi", comment: "Visit Al Noor Grocery, deliver FMCG products, verify stock levels, and collect feedback on fast-moving items." },
-                          { name: "Omar Khalid", comment: "Deliver pending order to Al Madina Supermarket, check shelf availability, and discuss next week's replenishment requirements." },
-                          { name: "Yusuf Kareem", comment: "Conduct a new product introduction at Al Baraka Stores, place promotional materials, and confirm stock receipt." },
-                          { name: "Faisal Rahman", comment: "Visit Green Palm Market, deliver products, verify invoice against received goods, and collect outstanding payment details." },
-                          { name: "Hamza Nasser", comment: "Visit Desert Star Trading, inspect product display arrangement, deliver replenishment stock, and record competitor activity." },
                         ].map((row, i) => (
                           <tr key={i} className="hover:bg-slate-50 transition-colors cursor-pointer">
                             <td className="py-4"><div className="size-4 rounded border border-ink/20" /></td>

@@ -1,6 +1,7 @@
 import type { FaqItem, PricingPlan, Testimonial, ValueProp } from "@/types/content";
-import avatarFemale from "@/public/home/testimonials/avatar-female.png"
-import avatarMale from "@/public/home/testimonials/avatar-male.png"
+import avatar1 from "@/public/home/testimonials/testimonial1.png";
+import avatar2 from "@/public/home/testimonials/testimonial2.png";
+import avatar3 from "@/public/home/testimonials/testimonial3.png";
 
 export const pricingPlans: PricingPlan[] = [
   {
@@ -178,26 +179,32 @@ export const valueProps: ValueProp[] = [
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "RepProX helped us transition to 100% digital invoices in the field. Our collections efficiency is up 30%, and cash flow reconciliation is instantaneous.",
-    name: "Priya Raman",
-    role: "VP of Finance",
-    company: "Solace",
-    avatar: avatarFemale 
-  },
-  {
-    quote:
-      "Route compliance increased from 65% to 98% with RepProX route planning. Drivers save hours of drive time and we've reduced transit fuel costs by 20%.",
-    name: "Daniel Ortega",
-    role: "COO",
-    company: "Northbound Wholesalers",
-    avatar: avatarMale
-  },
-  {
-    quote:
-      "AI Smart Ordering recommendations increased our average order value by 25%. Our sales representatives are far more productive on every single visit.",
-    name: "Jamie Whitfield",
+      "RepPro X gave us complete visibility across sales, collections, inventory, and customer visits. We moved from reactive management to data-driven decision making. The platform quickly became a critical part of our daily operations.",
+    name: "Salar Al Khalidi",
     role: "CEO",
-    company: "AlderSupplies",
-    avatar: avatarMale
+    company: "Smart Electronics",
+    avatar: avatar1,
+    tagline: "Leading Consumer Electronics Distributor",
+    industry: "Distribution",
+  },
+  {
+    quote:
+      "The visibility we gained into field activities, route execution, and inventory movement significantly improved operational efficiency. What impressed us most was how quickly our teams adopted the platform.",
+    name: "Mustafa Class",
+    role: "Chief Operating Officer",
+    company: "Al Matajir Al Thalath",
+    avatar: avatar2,
+    tagline: "Wholesale Distribution Company",
+    industry: "Wholesale",
+  },
+  {
+    quote:
+      "We reduced missed customer visits and improved route compliance within the first few weeks. RepPro X gave us the operational control we were previously missing.",
+    name: "Mamdouh Al Doughly",
+    role: "Operations Manager",
+    company: "Emirati Land",
+    avatar: avatar3,
+    tagline: "Consumer Goods Distributor",
+    industry: "Consumer Goods",
   },
 ];

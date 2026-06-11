@@ -59,7 +59,7 @@ export function Navbar() {
         isVisible ? "translate-y-0" : "-translate-y-full",
         isScrolled
           ? "bg-white/90 backdrop-blur-lg border-slate-200/60 shadow-sm"
-          : "bg-white border-transparent",
+          : "bg-white/10 border-transparent",
       )}
     >
       <Container className="flex items-center justify-between gap-6 h-[5rem]">
@@ -69,13 +69,24 @@ export function Navbar() {
           className="group flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1d4ed8]/40 rounded-lg"
         >
           <Image src="/logo.png" alt="RepPro X Logo" width={60} height={60} className="object-contain" />
-          <span className="font-display text-[#1D6BD9] text-[1.15rem] font-extrabold tracking-tight">
+          <span className="font-display text-[#1D6BD9] text-[1.25rem] lg:text-[1.5rem] font-extrabold tracking-tight">
             RepProX
           </span>
         </Link>
 
         {/* Desktop nav */}
         <nav aria-label="Primary" className="hidden items-center gap-0.5 lg:flex">
+          <Link
+            href="/"
+            className={cn(
+              "rounded-lg px-3.5 py-2 text-base font-semibold transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1d4ed8]/30",
+              pathname === "/"
+                ? "text-[#2A58DA]"
+                : "text-slate-600 hover:text-[#2A58DA]",
+            )}
+          >
+            Home
+          </Link>
           {primaryNav.map((group) => (
             <div
               key={group.label}
@@ -170,9 +181,17 @@ export function Navbar() {
         <div className="hidden items-center gap-3 lg:flex">
           <Button
             asChild
+            variant="outline"
+            size="lg"
+            className="h-12 rounded-full border-[#1d4ed8]/25 font-semibold text-[#1d4ed8] hover:text-[#1d4ed8] transition-all duration-200 hover:border-[#1d4ed8]/50 hover:bg-[#1d4ed8]/6 hover:shadow-sm"
+          >
+            <Link target="_blank" href={process.env.NEXT_PUBLIC_LOGIN_URL || "/login"}>Log In</Link>
+          </Button>
+          <Button
+            asChild
             variant="accent"
             size="lg"
-            className="h-12 w-full sm:w-auto border-0 bg-linear-to-r from-[#1d4ed8] to-[#0ea5ff] font-bold text-white shadow-lg shadow-[#1d4ed8]/25 transition-all duration-300 rounded-full hover:from-[#2563eb] hover:to-[#38bdf8]"
+            className="h-12 w-full sm:w-auto border-0 bg-linear-to-r from-[#1d4ed8] to-[#0ea5ff] font-bold text-white shadow-lg shadow-[#1d4ed8]/25 transition-all duration-600 rounded-full hover:from-[#2563eb] hover:to-[#38bdf8]"
           >
             <Link href="/contact" className="flex items-center gap-2">
               Request Demo
@@ -230,6 +249,21 @@ export function Navbar() {
             <Container>
               <nav aria-label="Mobile" className="flex flex-col py-4 pb-7">
                 <ul className="flex flex-col gap-0.5">
+                  {/* Home */}
+                  <li>
+                    <Link
+                      href="/"
+                      className={cn(
+                        "block rounded-lg px-3 py-2.5 text-[15px] font-semibold transition-colors hover:bg-slate-50",
+                        pathname === "/"
+                          ? "text-[#1d4ed8]"
+                          : "text-slate-700 hover:text-slate-900",
+                      )}
+                    >
+                      Home
+                    </Link>
+                  </li>
+
                   {/* Solutions — collapsible */}
                   {primaryNav.map((group) => (
                     <li key={group.label}>
