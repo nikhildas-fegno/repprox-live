@@ -92,7 +92,7 @@ export default function FeaturesClient() {
             </motion.div>
             <motion.h1
               variants={fadeUp}
-              className="text-[40px] md:text-[56px] font-extrabold tracking-tight mb-6 text-balance leading-[1.1] text-[#0B1736]"
+              className="text-[40px] md:text-[56px] font-bold tracking-tight mb-6 text-balance leading-[1.1] text-[#0B1736]"
             >
               Everything Your Sales Team Needs. <br className="hidden md:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500">In One Platform.</span>
@@ -255,7 +255,7 @@ export default function FeaturesClient() {
                         ].map((metric, i) => (
                           <div key={i} className="flex-1 bg-white/80 backdrop-blur border border-white shadow-[0_4px_15px_rgba(0,0,0,0.05)] rounded-xl p-3 flex flex-col group-hover:shadow-[0_8px_20px_rgba(255,138,42,0.1)] transition-shadow">
                             <span className="text-[10px] font-bold text-[#64748B] uppercase tracking-wider mb-1">{metric.label}</span>
-                            <span className="text-sm font-extrabold text-[#0B1736]">{metric.value}</span>
+                            <span className="text-sm font-bold text-[#0B1736]">{metric.value}</span>
                             <span className="text-[10px] font-bold text-[#FF8A2A] mt-0.5">{metric.trend}</span>
                           </div>
                         ))}
@@ -296,7 +296,7 @@ export default function FeaturesClient() {
                               <circle cx="50" cy="50" r="40" stroke="#FF8A2A" strokeWidth="12" fill="transparent" strokeDasharray="251.2" strokeDashoffset="251.2" className="group-hover:animate-[fillDonut_1.5s_ease-out_forwards]" />
                             </svg>
                             <div className="absolute inset-0 flex flex-col items-center justify-center">
-                              <span className="text-sm font-extrabold text-[#0B1736] tracking-tighter">72%</span>
+                              <span className="text-sm font-bold text-[#0B1736] tracking-tighter">72%</span>
                             </div>
                           </div>
                           <span className="text-[10px] font-bold text-[#64748B] mt-2 uppercase tracking-wider">Score</span>
@@ -348,9 +348,9 @@ export default function FeaturesClient() {
                         <div className="absolute inset-0 bg-[#18C7E6] opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
                         <Network className="w-8 h-8 relative z-10" />
                       </div>
-                      <div className="text-sm font-extrabold text-[#18C7E6] bg-[#18C7E6]/10 px-4 py-1.5 rounded-full border border-[#18C7E6]/20 shadow-sm lg:hidden">05</div>
+                      <div className="text-sm font-bold text-[#18C7E6] bg-[#18C7E6]/10 px-4 py-1.5 rounded-full border border-[#18C7E6]/20 shadow-sm lg:hidden">05</div>
                     </div>
-                    <h3 className="text-3xl font-extrabold mb-4 text-[#0B1736] group-hover:text-[#18C7E6] transition-colors tracking-tight">ERP Integration</h3>
+                    <h3 className="text-3xl font-bold mb-4 text-[#0B1736] group-hover:text-[#18C7E6] transition-colors tracking-tight">ERP Integration</h3>
                     <p className="text-[#64748B] mb-8 leading-relaxed text-base">Seamlessly connect RepPro X with your ERP ecosystem and synchronize business-critical data in real time.</p>
 
 

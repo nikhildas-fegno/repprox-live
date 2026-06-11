@@ -21,7 +21,7 @@ export default function ConnectedEcosystem() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl lg:text-5xl xl:text-[56px] lg:whitespace-nowrap font-extrabold tracking-tight text-[#0B1736] mb-6"
+            className="text-3xl md:text-4xl lg:text-5xl xl:text-[56px] font-bold tracking-tight text-[#0B1736] mb-6"
           >
             One Platform Connecting Every Business Function
           </motion.h2>
@@ -38,29 +38,29 @@ export default function ConnectedEcosystem() {
 
         {/* Mobile Vertical Ecosystem (hidden on md and up) */}
         <div className="md:hidden flex flex-col items-center py-6 w-full relative">
-          
+
           {/* Vertical Glowing Line */}
           <div className="absolute top-24 bottom-10 left-1/2 -translate-x-1/2 w-1 bg-gradient-to-b from-blue-400 via-purple-400 to-cyan-400 rounded-full z-0 opacity-50"></div>
-          
+
           {/* Animated dot on mobile */}
-          <motion.div 
+          <motion.div
             className="absolute left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-[#18C7E6] rounded-full z-10 shadow-[0_0_12px_#18C7E6]"
             animate={{ top: ["15%", "90%", "15%"] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           />
 
           {/* Central Core at the Top */}
-          <motion.div 
+          <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
             className="relative z-30 w-36 h-36 bg-white rounded-full shadow-[0_15px_40px_rgba(24,199,230,0.2)] border-[3px] border-[#18C7E6]/40 flex flex-col items-center justify-center mb-10"
           >
             <div className="absolute inset-0 rounded-full border-[2px] border-[#18C7E6]/50 animate-ping opacity-20" style={{ animationDuration: '4s' }}></div>
-            <motion.img 
+            <motion.img
               animate={{ y: [0, -4, 0] }}
               transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-              src="/logo.png" alt="RepPro X Core" className="w-20 h-auto object-contain z-10" 
+              src="/logo.png" alt="RepPro X Core" className="w-20 h-auto object-contain z-10"
             />
           </motion.div>
 
@@ -87,21 +87,9 @@ export default function ConnectedEcosystem() {
 
         {/* Desktop Horizontal Ecosystem Illustration */}
         <div className="hidden md:flex relative w-full max-w-[1000px] h-[500px] items-center justify-center">
-          
-          {/* Glowing Connection Paths Base */}
-          <div className="absolute top-1/2 left-[10%] right-[10%] h-1 bg-slate-100 -translate-y-1/2 z-0 rounded-full"></div>
-          
-          {/* Animated Connecting Line */}
-          <motion.div 
-            initial={{ width: "0%" }}
-            whileInView={{ width: "80%" }}
-            viewport={{ once: true }}
-            transition={{ duration: 2, ease: "easeInOut" }}
-            className="absolute top-1/2 left-[10%] h-1 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 -translate-y-1/2 z-0 rounded-full"
-          ></motion.div>
 
           {/* Central RepPro X Core */}
-          <motion.div 
+          <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
@@ -111,11 +99,11 @@ export default function ConnectedEcosystem() {
             {/* Pulsing Core Rings */}
             <div className="absolute inset-0 rounded-full border-[2px] border-[#18C7E6]/50 animate-ping opacity-20" style={{ animationDuration: '4s' }}></div>
             <div className="absolute inset-0 bg-[#18C7E6]/5 blur-xl rounded-full"></div>
-            
-            <motion.img 
+
+            <motion.img
               animate={{ y: [0, -5, 0] }}
               transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-              src="/logo.png" alt="RepPro X Core" className="w-32 h-auto object-contain z-10" 
+              src="/logo.png" alt="RepPro X Core" className="w-32 h-auto object-contain z-10"
             />
           </motion.div>
 
@@ -129,7 +117,7 @@ export default function ConnectedEcosystem() {
               const cy = `calc(50% + ${Math.sin(angle) * distance}px)`;
 
               return (
-                <motion.div 
+                <motion.div
                   key={module.id}
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -138,8 +126,8 @@ export default function ConnectedEcosystem() {
                   className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-auto group"
                   style={{ left: cx, top: cy }}
                 >
-                  <motion.div 
-                    animate={{ y: [0, -8, 0] }} 
+                  <motion.div
+                    animate={{ y: [0, -8, 0] }}
                     transition={{ repeat: Infinity, duration: 3, delay: i * 0.2, ease: "easeInOut" }}
                     className="flex flex-col items-center"
                   >

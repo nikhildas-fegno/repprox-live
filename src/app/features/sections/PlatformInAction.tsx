@@ -82,7 +82,7 @@ export default function PlatformInAction() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-extrabold tracking-tight text-[#0B1736] mb-6 lg:whitespace-nowrap"
+            className="text-4xl md:text-5xl font-bold  text-[#0B1736] mb-6"
           >
             One Connected Platform Complete Sales Visibility.
           </motion.h2>

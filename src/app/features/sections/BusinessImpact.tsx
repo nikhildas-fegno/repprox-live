@@ -119,7 +119,7 @@ export default function BusinessImpact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 mb-6 leading-tight lg:whitespace-nowrap"
+            className="text-4xl md:text-6xl font-bold tracking-tight text-slate-900 mb-6 leading-tight lg:whitespace-nowrap"
           >
             Beyond Sales Automation
           </motion.h2>

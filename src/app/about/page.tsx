@@ -177,91 +177,86 @@ export default function CompanyPage() {
               </Reveal>
             </div>
 
-            {/* Right — premium contact card */}
-            <Reveal delay={0.2}>
-              <div className="group relative">
-                {/* Card glow */}
+            {/* Right — Company Highlights / Bento */}
+            <Reveal delay={0.2} className="h-full">
+              <div className="group relative h-full">
+                {/* Background glow */}
                 <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-[#1d4ed8] to-[#0ea5ff] opacity-15 blur-lg transition duration-500 group-hover:opacity-30" />
-
-                <div className="relative flex flex-col gap-8 rounded-3xl border border-white bg-white/95 p-8 shadow-2xl backdrop-blur-xl lg:p-12">
-
-                  {/* Header */}
-                  <div className="flex items-center gap-5 border-b border-slate-100 pb-8">
-                    <div className="flex size-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#1d4ed8] to-[#0ea5ff] shadow-inner">
-                      <Building2 className="size-8 text-white" />
-                    </div>
+                
+                <div className="relative grid h-full gap-4 sm:grid-cols-2">
+                  
+                  {/* Highlight 1 */}
+                  <div className="flex flex-col justify-between rounded-3xl border border-white/60 bg-white/80 p-7 shadow-xl backdrop-blur-xl">
                     <div>
-                      <p className="font-display text-2xl font-bold text-ink tracking-wide">ALLE TECH</p>
-                      <p className="text-[14px] text-[#1d4ed8] font-medium mt-1">Technology Consulting & Software</p>
+                      <div className="mb-5 flex size-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#1d4ed8] to-[#0ea5ff] shadow-inner">
+                        <Globe2 className="size-6 text-white" />
+                      </div>
+                      <h3 className="font-display text-lg font-bold text-ink">Global Standards</h3>
+                      <p className="mt-2 text-[14px] leading-relaxed text-slate-600">
+                        Headquartered in Dubai, UAE, we bring localized expertise and international best practices to every project.
+                      </p>
                     </div>
                   </div>
 
-                  {/* Contact details */}
-                  <ul className="flex flex-col gap-6">
-                    <li className="flex items-start gap-4">
-                      <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[#eff6ff] border border-blue-100">
-                        <MapPin className="size-4 text-[#1d4ed8]" />
+                  {/* Highlight 2 */}
+                  <div className="flex flex-col justify-between rounded-3xl border border-white/60 bg-white/80 p-7 shadow-xl backdrop-blur-xl">
+                    <div>
+                      <div className="mb-5 flex size-12 items-center justify-center rounded-2xl border border-blue-100 bg-[#eff6ff]">
+                        <Cpu className="size-6 text-[#1d4ed8]" />
                       </div>
-                      <div className="pt-1.5">
-                        <p className="text-[14px] font-semibold text-ink">Dubai, United Arab Emirates</p>
-                        <p className="mt-1 text-[13px] leading-relaxed text-slate-500">
-                          Meydan Grandstand, 604<br />Dubai, UAE
+                      <h3 className="font-display text-lg font-bold text-ink">Deep Tech Stack</h3>
+                      <p className="mt-2 text-[14px] leading-relaxed text-slate-600">
+                        From legacy ERP integration to modern web and mobile apps, our technical capabilities cover the entire spectrum.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Highlight 3: Core Mission */}
+                  <div className="relative sm:col-span-2 overflow-hidden rounded-3xl border border-blue-400/30 bg-gradient-to-br from-[#1d4ed8] to-[#0ea5ff] p-8 shadow-xl sm:p-10">
+                    <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
+                    <div className="absolute -bottom-10 -left-10 h-40 w-40 rounded-full bg-blue-900/20 blur-2xl" />
+                    
+                    <div className="relative z-10 flex h-full flex-col justify-between">
+                      <div>
+                        <div className="mb-6 flex items-center gap-4">
+                          <div className="flex size-12 items-center justify-center rounded-xl border border-white/20 bg-white/20 backdrop-blur-sm shadow-inner">
+                            <Building2 className="size-6 text-white" />
+                          </div>
+                          <span className="font-display text-2xl font-bold tracking-wide text-white">ALLE TECH</span>
+                        </div>
+                        
+                        <p className="mb-8 max-w-lg text-[15px] leading-relaxed text-blue-50">
+                          We don&apos;t just write code. We partner with organizations to rethink their processes, digitize their operations, and unlock new avenues for growth through purpose-built technology.
                         </p>
                       </div>
-                    </li>
-                    <li className="flex items-center gap-4">
-                      <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[#eff6ff] border border-blue-100">
-                        <Phone className="size-4 text-[#1d4ed8]" />
-                      </div>
-                      <a
-                        href="tel:+971585168818"
-                        className="text-[15px] font-medium text-ink hover:text-[#1d4ed8] transition-colors"
-                      >
-                        +971 58 516 8818
-                      </a>
-                    </li>
-                    <li className="flex items-center gap-4">
-                      <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[#eff6ff] border border-blue-100">
-                        <Mail className="size-4 text-[#1d4ed8]" />
-                      </div>
-                      <div className="flex flex-col gap-1.5">
-                        <a
-                          href="mailto:yazan@alle-tech.com"
-                          className="flex items-center text-[14px] font-medium text-ink hover:text-[#1d4ed8] transition-colors"
-                        >
-                          info@alle-tech.com
-                  
-                        </a>
-                      </div>
-                    </li>
-                    <li className="flex items-center gap-4">
-                      <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[#eff6ff] border border-blue-100">
-                        <ExternalLink className="size-4 text-[#1d4ed8]" />
-                      </div>
-                      <a
-                        href="https://www.alle-tech.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[15px] font-medium text-ink hover:text-[#1d4ed8] transition-colors underline decoration-slate-200 underline-offset-4"
-                      >
-                        www.alle-tech.com
-                      </a>
-                    </li>
-                  </ul>
-
-                  {/* Contact person */}
-                  <div className="mt-4 flex items-center justify-between rounded-2xl border border-blue-100 bg-[#eff6ff]/50 px-5 py-4">
-                    <div className="flex items-center gap-4">
-                      <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-white shadow-sm border border-blue-100">
-                        <Users className="size-5 text-[#1d4ed8]" />
-                      </div>
-                      <div>
-                        <p className="text-[14px] font-bold text-ink">Yazan Hidmi</p>
-                        <p className="text-[12px] text-[#1d4ed8]">Sales</p>
+                      
+                      <div className="flex flex-wrap gap-2.5">
+                        {["Digital Transformation", "Custom Software", "System Integration", "Process Automation"].map((tag) => (
+                          <span key={tag} className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-[13px] font-medium text-white backdrop-blur-md">
+                            {tag}
+                          </span>
+                        ))}
                       </div>
                     </div>
-                    <a href="mailto:yazan@alle-tech.com" className="flex size-10 items-center justify-center rounded-full bg-[#1d4ed8] text-white hover:bg-[#0ea5ff] transition-colors shadow-sm">
-                      <Mail className="size-4" />
+                  </div>
+
+                  {/* Highlight 4: Simple Contact Strip */}
+                  <div className="flex flex-col sm:flex-row items-center justify-between gap-4 rounded-3xl border border-white/60 bg-white/80 p-5 shadow-xl backdrop-blur-xl sm:col-span-2">
+                    <div className="flex items-center gap-4">
+                      <div className="flex size-10 items-center justify-center rounded-xl border border-blue-100 bg-[#eff6ff]">
+                        <Mail className="size-4 text-[#1d4ed8]" />
+                      </div>
+                      <div>
+                        <p className="text-[13px] font-medium text-slate-500">Want to learn more?</p>
+                        <a href="mailto:info@alle-tech.com" className="text-[14px] font-bold text-ink transition-colors hover:text-[#1d4ed8]">
+                          info@alle-tech.com
+                        </a>
+                      </div>
+                    </div>
+                    
+                    <a href="https://www.alle-tech.com" target="_blank" rel="noopener noreferrer" className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-[13px] font-semibold text-ink transition-all hover:border-[#1d4ed8]/30 hover:bg-[#eff6ff] hover:text-[#1d4ed8]">
+                      Visit Website
+                      <ExternalLink className="size-3.5" />
                     </a>
                   </div>
 
@@ -437,7 +432,7 @@ export default function CompanyPage() {
 
           {/* Integration flow */}
           <div className="mx-auto max-w-5xl">
-            <div className="grid items-stretch gap-5 md:grid-cols-[1fr_auto_1fr]">
+            <div className="grid items-center gap-5 md:grid-cols-[1fr_auto_1fr]">
 
               {/* Field Operations */}
               <Reveal>
