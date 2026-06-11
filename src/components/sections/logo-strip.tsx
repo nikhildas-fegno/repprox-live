@@ -80,7 +80,6 @@ export function LogoStrip() {
     const element = marqueeRef.current;
     if (!element) return;
 
-    // Run GPU-accelerated smooth infinite scroll via Web Animations API
     const animation = element.animate(
       [
         { transform: "translateX(0)" },
