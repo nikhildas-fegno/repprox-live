@@ -5,11 +5,31 @@ export const primaryNav: NavGroup[] = [
     label: "Solutions",
     href: "/solutions",
     items: [
-      { label: "Sales Force Automation", href: "/solutions#sales-force-automation", description: "Digitize quotations, orders, invoices, collections" },
-      { label: "Distribution & Van Sales", href: "/solutions#distribution-van-sales", description: "Manage inventory, stock transfers, field distribution" },
-      { label: "Route Planning & GPS Tracking", href: "/solutions#route-planning-gps", description: "Optimize routes, monitor compliance, and coverage" },
-      { label: "Task & Survey Management", href: "/solutions#task-survey-management", description: "Execute field tasks, audits, and surveys" },
-      { label: "Promotions & Pricing", href: "/solutions#promotions-pricing", description: "Drive revenue with pricing and active discounts" },
+      {
+        label: "Sales Force Automation",
+        href: "/solutions/sales-force-automation",
+        description: "Digitize quotations, orders, invoices, collections",
+      },
+      {
+        label: "Distribution & Van Sales",
+        href: "/solutions/distribution",
+        description: "Manage inventory, stock transfers, field distribution",
+      },
+      {
+        label: "Route Planning & GPS Tracking",
+        href: "/solutions/route-planning",
+        description: "Optimize routes, monitor compliance, and coverage",
+      },
+      {
+        label: "Task & Survey Management",
+        href: "/solutions/task-survey",
+        description: "Execute field tasks, audits, and surveys",
+      },
+      {
+        label: "Promotions & Pricing",
+        href: "/solutions/promotion-pricing",
+        description: "Drive revenue with pricing and active discounts",
+      },
     ],
   },
 ];
@@ -27,11 +47,14 @@ export const footerNav: NavGroup[] = [
     label: "Solutions",
     href: "/solutions",
     items: [
-      { label: "Sales Force Automation", href: "/solutions#sales-force-automation" },
-      { label: "Distribution & Van Sales", href: "/solutions#distribution-van-sales" },
-      { label: "Route Planning & GPS", href: "/solutions#route-planning-gps" },
-      { label: "Task & Survey Management", href: "/solutions#task-survey-management" },
-      { label: "Promotions & Pricing", href: "/solutions#promotions-pricing" },
+      {
+        label: "Sales Force Automation",
+        href: "/solutions/sales-force-automation",
+      },
+      { label: "Distribution & Van Sales", href: "/solutions/distribution" },
+      { label: "Route Planning & GPS", href: "/solutions/route-planning" },
+      { label: "Task & Survey Management", href: "/solutions/task-survey" },
+      { label: "Promotions & Pricing", href: "/solutions/promotion-pricing" },
     ],
   },
   {

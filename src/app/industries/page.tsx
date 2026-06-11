@@ -29,7 +29,10 @@ import {
   BarChart,
   Utensils,
   Construction,
-  Tv
+  Tv,
+  Wrench,
+  Cpu,
+  Radio
 } from "lucide-react";
 
 import { buildMetadata } from "@/lib/seo";
@@ -109,6 +112,38 @@ const industriesList = [
     color: "blue",
     capabilities: ["Job Dispatching", "Technician Tracking", "Digital Signatures", "Service History"],
     metrics: [{ label: "First-Time Fix", value: "85%" }, { label: "Tech Utilization", value: "30%" }]
+  },
+  {
+    icon: Construction,
+    title: "Building Materials",
+    description: "Manage dealer networks, monitor inventory movement, streamline order fulfillment, and improve field sales execution across territories.",
+    color: "orange",
+    capabilities: ["Dealer Management", "Inventory Visibility", "Order Fulfillment", "Territory Coverage"],
+    metrics: [{ label: "Order Accuracy", value: "96%" }, { label: "Sales Growth", value: "28%" }]
+  },
+  {
+    icon: Wrench,
+    title: "Facility Management",
+    description: "Coordinate service teams, schedule maintenance activities, track work completion, and ensure service-level compliance.",
+    color: "blue",
+    capabilities: ["Service Scheduling", "Workforce Tracking", "SLA Monitoring", "Asset Management"],
+    metrics: [{ label: "SLA Compliance", value: "98%" }, { label: "Response Time", value: "-35%" }]
+  },
+  {
+    icon: Cpu,
+    title: "Engineering Services",
+    description: "Manage field engineers, track project activities, capture service reports, and improve operational accountability.",
+    color: "violet",
+    capabilities: ["Project Tracking", "Engineer Dispatch", "Service Reporting", "Job Management"],
+    metrics: [{ label: "First-Visit Resolution", value: "88%" }, { label: "Productivity", value: "+40%" }]
+  },
+  {
+    icon: Radio,
+    title: "Telecom Field Operations",
+    description: "Deploy and monitor field technicians, manage installation requests, track service tickets, and improve response times.",
+    color: "green",
+    capabilities: ["Technician Dispatch", "Ticket Management", "Installation Tracking", "Network Monitoring"],
+    metrics: [{ label: "Response Time", value: "-50%" }, { label: "Install Accuracy", value: "99%" }]
   }
 ];
 
