@@ -1,0 +1,41 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: repprox_postgres_dev
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: repprox
+      POSTGRES_USER: repprox
+      POSTGRES_PASSWORD: repprox_secret
+    volumes:
+      - postgres_dev_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U repprox -d repprox"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  migrate:
+    image: node:22-alpine
+    container_name: repprox_migrate_dev
+    working_dir: /app
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      DATABASE_URL: postgresql://repprox:repprox_secret@postgres:5432/repprox
+    command: >
+      sh -c "
+        npm install &&
+        npx prisma generate &&
+        npx prisma migrate deploy &&
+        npx tsx prisma/seed.ts
+      "
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  postgres_dev_data:

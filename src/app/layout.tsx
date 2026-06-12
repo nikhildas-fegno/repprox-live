@@ -1,15 +1,10 @@
 import type { Metadata } from "next";
 import { Inter, Geist } from "next/font/google";
 import { SITE_NAME, defaultMetadata } from "@/lib/seo";
-import { OrganizationJsonLd } from "@/components/seo/json-ld";
-import { CursorDot } from "@/components/cursor-dot";
-import { Navbar } from "@/components/layout/navbar";
-import { Footer } from "@/components/layout/footer";
-import { SmoothScroll } from "@/components/providers/smooth-scroll";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 const inter = Inter({
   variable: "--font-inter",
@@ -26,32 +21,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={cn("antialiased", inter.variable, "font-sans", geist.variable)}
-    >
+    <html lang="en" className={cn("antialiased", inter.variable, "font-sans", geist.variable)}>
       <body className="min-h-screen flex flex-col bg-paper text-ink selection:bg-accent/30 selection:text-ink">
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-100 focus:rounded-md focus:bg-ink focus:px-4 focus:py-2 focus:text-paper focus:font-mono focus:text-sm"
-        >
-          Skip to content
-        </a>
-        <SmoothScroll>
-          <OrganizationJsonLd />
-          <CursorDot />
-          <Navbar />
-          <main id="main-content" className="flex-1">
-            {children}
-          </main>
-          <Footer />
-        </SmoothScroll>
+        {children}
       </body>
     </html>
   );

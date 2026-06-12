@@ -32,6 +32,22 @@ export const primaryNav: NavGroup[] = [
       },
     ],
   },
+  {
+    label: "Resources",
+    href: "/resources/blogs",
+    items: [
+      {
+        label: "Blog & Articles",
+        href: "/resources/blogs",
+        description: "Expert advice, updates, and automation strategies",
+      },
+      {
+        label: "Case Studies",
+        href: "/resources/case-studies",
+        description: "Real results from real field operations",
+      },
+    ],
+  },
 ];
 
 export const secondaryNav: NavLink[] = [
@@ -84,7 +100,8 @@ export const footerNav: NavGroup[] = [
     items: [
       { label: "About", href: "/about" },
       { label: "Contact", href: "/contact" },
-      { label: "Blog", href: "/about#blog" },
+      { label: "Blog", href: "/resources/blogs" },
+      { label: "Case Studies", href: "/resources/case-studies" },
     ],
   },
 ];

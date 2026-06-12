@@ -1,0 +1,134 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model AdminUser {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String   @default("Admin")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Blog {
+  id          String        @id @default(cuid())
+  title       String
+  slug        String        @unique
+  content     String
+  excerpt     String?
+  imageUrl    String?
+  imageAlt    String?
+  author      String
+  publishedAt DateTime?
+  status      String        @default("DRAFT")
+  featured    Boolean       @default(false)
+  categoryId  String?
+  category    Category?     @relation(fields: [categoryId], references: [id])
+  blogTags    BlogTag[]
+  relatedFrom RelatedBlog[] @relation("BlogRelatedFrom")
+  relatedTo   RelatedBlog[] @relation("BlogRelatedTo")
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+model RelatedBlog {
+  blogId        String
+  relatedBlogId String
+  blog          Blog   @relation("BlogRelatedFrom", fields: [blogId], references: [id], onDelete: Cascade)
+  relatedBlog   Blog   @relation("BlogRelatedTo", fields: [relatedBlogId], references: [id], onDelete: Cascade)
+
+  @@id([blogId, relatedBlogId])
+}
+
+model Category {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  description String?
+  blogs       Blog[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Tag {
+  id        String    @id @default(cuid())
+  name      String
+  slug      String    @unique
+  blogTags  BlogTag[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model BlogTag {
+  blogId String
+  tagId  String
+  blog   Blog   @relation(fields: [blogId], references: [id], onDelete: Cascade)
+  tag    Tag    @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([blogId, tagId])
+}
+
+model CaseStudy {
+  id          String             @id @default(cuid())
+  title       String
+  slug        String             @unique
+  imageUrl    String?
+  clientName  String
+  industry    String
+  content     String
+  featured    Boolean            @default(false)
+  relatedFrom RelatedCaseStudy[] @relation("CaseStudyRelatedFrom")
+  relatedTo   RelatedCaseStudy[] @relation("CaseStudyRelatedTo")
+  createdAt   DateTime           @default(now())
+  updatedAt   DateTime           @updatedAt
+}
+
+model RelatedCaseStudy {
+  caseStudyId        String
+  relatedCaseStudyId String
+  caseStudy          CaseStudy @relation("CaseStudyRelatedFrom", fields: [caseStudyId], references: [id], onDelete: Cascade)
+  relatedCaseStudy   CaseStudy @relation("CaseStudyRelatedTo", fields: [relatedCaseStudyId], references: [id], onDelete: Cascade)
+
+  @@id([caseStudyId, relatedCaseStudyId])
+}
+
+model Faq {
+  id        String   @id @default(cuid())
+  question  String
+  answer    String
+  pages     String?
+  order     Int      @default(0)
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ClientLogo {
+  id        String   @id @default(cuid())
+  name      String
+  logoUrl   String
+  order     Int      @default(0)
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Testimonial {
+  id          String   @id @default(cuid())
+  name        String
+  designation String
+  company     String
+  tagline     String?
+  industry    String?
+  review      String
+  photoUrl    String?
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
