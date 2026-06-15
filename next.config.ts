@@ -1,8 +1,6 @@
-import path from "node:path";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: process.env.VERCEL ? undefined : "standalone",
   reactStrictMode: true,
   poweredByHeader: false,
   images: {
@@ -14,11 +12,6 @@ const nextConfig: NextConfig = {
         pathname: "/repprox/**",
       },
     ],
-  },
-  turbopack: {
-    // Pin the workspace root — a parent directory also contains a lockfile
-    // which would otherwise make Next.js guess wrong.
-    root: path.join(__dirname),
   },
 };
 
