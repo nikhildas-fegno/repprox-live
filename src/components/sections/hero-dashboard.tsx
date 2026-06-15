@@ -504,7 +504,7 @@ export function HeroDashboard() {
                 </div>
 
                 {/* Bar chart */}
-                <div className="bg-white p-6 rounded-xl border border-ink/5 shadow-sm mb-4 -mt-8">
+                <div className="bg-white p-6 rounded-xl border border-ink/5 shadow-sm mb-4">
                   <div className="flex justify-between items-start mb-6">
                     <div>
                       <h3 className="text-sm font-bold text-ink uppercase tracking-wider mb-1">Sales Status</h3>
