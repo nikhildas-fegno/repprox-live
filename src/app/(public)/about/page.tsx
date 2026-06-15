@@ -61,7 +61,7 @@ export default function CompanyPage() {
       />
 
       {/* ─── 1. HERO ─────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden border-b border-ink/10 bg-paper">
+      <section className="relative overflow-hidden bg-paper h-svh flex items-center justify-center">
         {/* Dot grid */}
         <div
           className="pointer-events-none absolute inset-0"
@@ -88,7 +88,7 @@ export default function CompanyPage() {
             style={{ animationDuration: "13s", animationDelay: "1s" }}
           />
         </div>
-        <Container className="relative pt-24 pb-20 lg:pt-32 lg:pb-28">
+        <Container className="relative">
           <div className="mx-auto flex max-w-4xl flex-col items-center gap-7 text-center">
 
             <Reveal>
@@ -119,7 +119,7 @@ export default function CompanyPage() {
         </Container>
       </section>
       {/* ─── 4. ALLE TECH — THE COMPANY BEHIND REPPROX ──────────────── */}
-      <section className="relative overflow-hidden border-b border-ink/10 bg-slate-50/50 py-24 lg:py-32">
+      <section className="relative overflow-hidden border-b border-ink/10 bg-slate-50/50 py-12 lg:py-24">
         <div className="bp-grid pointer-events-none absolute inset-0 opacity-40 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,black,transparent)]" />
 
         {/* Glow effects */}
@@ -182,9 +182,9 @@ export default function CompanyPage() {
               <div className="group relative h-full">
                 {/* Background glow */}
                 <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-[#1d4ed8] to-[#0ea5ff] opacity-15 blur-lg transition duration-500 group-hover:opacity-30" />
-                
+
                 <div className="relative grid h-full gap-4 sm:grid-cols-2">
-                  
+
                   {/* Highlight 1 */}
                   <div className="flex flex-col justify-between rounded-3xl border border-white/60 bg-white/80 p-7 shadow-xl backdrop-blur-xl">
                     <div>
@@ -215,21 +215,18 @@ export default function CompanyPage() {
                   <div className="relative sm:col-span-2 overflow-hidden rounded-3xl border border-blue-400/30 bg-gradient-to-br from-[#1d4ed8] to-[#0ea5ff] p-8 shadow-xl sm:p-10">
                     <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
                     <div className="absolute -bottom-10 -left-10 h-40 w-40 rounded-full bg-blue-900/20 blur-2xl" />
-                    
+
                     <div className="relative z-10 flex h-full flex-col justify-between">
                       <div>
                         <div className="mb-6 flex items-center gap-4">
-                          <div className="flex size-12 items-center justify-center rounded-xl border border-white/20 bg-white/20 backdrop-blur-sm shadow-inner">
-                            <Building2 className="size-6 text-white" />
-                          </div>
-                          <span className="font-display text-2xl font-bold tracking-wide text-white">ALLE TECH</span>
+                          <img src="/alletech.jpg" alt="" className="h-12 w-12 lg:h-25 lg:w-25 rounded-sm" />
                         </div>
-                        
+
                         <p className="mb-8 max-w-lg text-[15px] leading-relaxed text-blue-50">
                           We don&apos;t just write code. We partner with organizations to rethink their processes, digitize their operations, and unlock new avenues for growth through purpose-built technology.
                         </p>
                       </div>
-                      
+
                       <div className="flex flex-wrap gap-2.5">
                         {["Digital Transformation", "Custom Software", "System Integration", "Process Automation"].map((tag) => (
                           <span key={tag} className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-[13px] font-medium text-white backdrop-blur-md">
@@ -253,7 +250,7 @@ export default function CompanyPage() {
                         </a>
                       </div>
                     </div>
-                    
+
                     <a href="https://www.alle-tech.com" target="_blank" rel="noopener noreferrer" className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-[13px] font-semibold text-ink transition-all hover:border-[#1d4ed8]/30 hover:bg-[#eff6ff] hover:text-[#1d4ed8]">
                       Visit Website
                       <ExternalLink className="size-3.5" />
@@ -274,7 +271,6 @@ export default function CompanyPage() {
             <div>
               <SectionHeading
                 eyebrow="Built by ERP Experts"
-                align="center"
                 title="Decades of enterprise experience, productized."
                 description="RepProX isn't built by software generalists. Every design decision comes from teams who have spent years implementing and optimizing ERP systems for complex distribution and field operations businesses."
                 className="lg:items-start lg:text-left"

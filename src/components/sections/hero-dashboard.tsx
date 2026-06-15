@@ -110,7 +110,7 @@ export function HeroDashboard() {
               </div>
               <div className="absolute bottom-0 right-0 size-4 bg-emerald-500 border-2 border-white rounded-full" />
             </div>
-            <h3 className="font-semibold text-ink">Zayn</h3>
+            <h3 className="font-semibold text-ink">Mike</h3>
             <p className="text-xs text-ink-soft mt-0.5">Admin</p>
           </div>
 
@@ -221,10 +221,10 @@ export function HeroDashboard() {
               <Menu className="size-5 text-ink-soft md:hidden cursor-pointer" />
               <div className="hidden md:flex items-center gap-4 text-sm font-medium text-ink-soft">
                 <div className="flex items-center gap-1.5 cursor-pointer hover:text-ink transition-colors">
-                  My Account : zayn.sale@cv.com <ChevronDown className="size-4" />
+                  My Account : Mike.sale@cv.com <ChevronDown className="size-4" />
                 </div>
                 <div className="h-4 w-px bg-ink/10" />
-                <div className="text-ink font-semibold">Zayn Sales Dashboard</div>
+                <div className="text-ink font-semibold">Mike Sales Dashboard</div>
                 <Settings className="size-4.5 ml-2 cursor-pointer hover:text-ink transition-colors" />
               </div>
             </div>
@@ -251,7 +251,7 @@ export function HeroDashboard() {
             <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
               <div>
                 <h2 className="text-2xl font-bold text-ink">
-                  {activeTab === "dashboard" ? "Hi, welcome back Zayn! 👋" : "Hi, welcome back!"}
+                  {activeTab === "dashboard" ? "Hi, welcome back Mike! 👋" : "Hi, welcome back!"}
                 </h2>
                 <p className="text-sm text-ink-soft mt-1">
                   {activeTab === "dashboard" ? "Here's what's happening with your sales today." : "Reports monitoring dashboard."}
@@ -259,7 +259,7 @@ export function HeroDashboard() {
               </div>
               {activeTab === "dashboard" && (
                 <div className="flex items-center gap-2 text-sm font-medium text-ink-soft bg-white px-3 py-1.5 rounded-lg border border-ink/10 cursor-pointer hover:bg-slate-50 transition-colors">
-                  Currency: <span className="text-ink font-bold">IQD</span> <ChevronDown className="size-4 ml-1" />
+                  Currency: <span className="text-ink font-bold">USD</span> <ChevronDown className="size-4 ml-1" />
                 </div>
               )}
             </div>
@@ -394,7 +394,7 @@ export function HeroDashboard() {
                       </thead>
                       <tbody className="divide-y divide-ink/5">
                         {[
-                          { name: "Zayn Alvi", comment: "Visit Al Noor Grocery, deliver FMCG products, verify stock levels, and collect feedback on fast-moving items." },
+                          { name: "Mike Alvi", comment: "Visit Al Noor Grocery, deliver FMCG products, verify stock levels, and collect feedback on fast-moving items." },
                         ].map((row, i) => (
                           <tr key={i} className="hover:bg-slate-50 transition-colors cursor-pointer">
                             <td className="py-4"><div className="size-4 rounded border border-ink/20" /></td>
@@ -457,10 +457,10 @@ export function HeroDashboard() {
                 {/* Stat cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-6">
                   {[
-                    { label: "Total Sales Today", value: "12,450 IQD", pct: "18.6%", from: "#3b82f6", to: "#2563eb", shadow: "shadow-blue-500/20", Icon: LineChart, wave: "M0,50 C320,100 420,0 740,50 C1060,100 1160,0 1440,50 L1440,100 L0,100 Z" },
-                    { label: "Total Cash Today", value: "8,750 IQD", pct: "12.4%", from: "#f43f5e", to: "#e11d48", shadow: "shadow-rose-500/20", Icon: Wallet, wave: "M0,30 C320,80 420,20 740,50 C1060,80 1160,20 1440,30 L1440,100 L0,100 Z" },
-                    { label: "Total Sales This Month", value: "215,680 IQD", pct: "24.7%", from: "#10b981", to: "#059669", shadow: "shadow-emerald-500/20", Icon: BarChart3, wave: "M0,60 C320,20 420,80 740,50 C1060,20 1160,80 1440,60 L1440,100 L0,100 Z" },
-                    { label: "Total Cash This Month", value: "31,540 IQD", pct: "21.3%", from: "#f97316", to: "#ea580c", shadow: "shadow-orange-500/20", Icon: CircleDollarSign, wave: "M0,40 C320,90 420,10 740,40 C1060,90 1160,10 1440,40 L1440,100 L0,100 Z" },
+                    { label: "Total Sales Today", value: "485 USD", pct: "18.6%", from: "#3b82f6", to: "#2563eb", shadow: "shadow-blue-500/20", Icon: LineChart, wave: "M0,50 C320,100 420,0 740,50 C1060,100 1160,0 1440,50 L1440,100 L0,100 Z" },
+                    { label: "Total Cash Today", value: "386 USD", pct: "12.4%", from: "#f43f5e", to: "#e11d48", shadow: "shadow-rose-500/20", Icon: Wallet, wave: "M0,30 C320,80 420,20 740,50 C1060,80 1160,20 1440,30 L1440,100 L0,100 Z" },
+                    { label: "Total Sales This Month", value: "9372 USD", pct: "24.7%", from: "#10b981", to: "#059669", shadow: "shadow-emerald-500/20", Icon: BarChart3, wave: "M0,60 C320,20 420,80 740,50 C1060,20 1160,80 1440,60 L1440,100 L0,100 Z" },
+                    { label: "Total Cash This Month", value: "8331 USD", pct: "21.3%", from: "#f97316", to: "#ea580c", shadow: "shadow-orange-500/20", Icon: CircleDollarSign, wave: "M0,40 C320,90 420,10 740,40 C1060,90 1160,10 1440,40 L1440,100 L0,100 Z" },
                   ].map(({ label, value, pct, from, to, shadow, Icon, wave }) => (
                     <div key={label} className={`relative rounded-xl overflow-hidden text-white p-5 shadow-lg ${shadow} group hover:-translate-y-1 transition-transform duration-300 cursor-pointer`} style={{ background: `linear-gradient(to bottom right, ${from}, ${to})` }}>
                       <div className="relative z-10 flex justify-between items-start">
@@ -486,8 +486,8 @@ export function HeroDashboard() {
                 {/* Small metric strip */}
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8 bg-white p-4 rounded-xl border border-ink/5 shadow-sm">
                   {[
-                    { icon: ShoppingBag, value: "42", label: "Orders Today", bg: "bg-blue-50", color: "text-blue-600" },
-                    { icon: Users, value: "18", label: "New Customers", bg: "bg-rose-50", color: "text-rose-600" },
+                    { icon: ShoppingBag, value: "72", label: "Orders Today", bg: "bg-blue-50", color: "text-blue-600" },
+                    { icon: Users, value: "28", label: "New Customers", bg: "bg-rose-50", color: "text-rose-600" },
                     { icon: FileText, value: "7", label: "Pending Collections", bg: "bg-emerald-50", color: "text-emerald-600" },
                     { icon: Percent, value: "96.2%", label: "Collection Efficiency", bg: "bg-orange-50", color: "text-orange-600" },
                   ].map(({ icon: Icon, value, label, bg, color }, i, arr) => (
@@ -515,13 +515,13 @@ export function HeroDashboard() {
 
                   <div className="flex items-center gap-8 mb-8">
                     <div>
-                      <div className="text-lg font-bold text-ink">12,450 IQD</div>
+                      <div className="text-lg font-bold text-ink">485 USD</div>
                       <div className="flex items-center gap-2 text-[10px] font-bold text-ink-soft mt-1">
-                        <div className="size-2.5 rounded-[2px] bg-blue-600" /> TOTAL SALES
+                        <div className="size-2.5 rounded-[2px] 386-600" /> TOTAL SALES
                       </div>
                     </div>
                     <div>
-                      <div className="text-lg font-bold text-ink">8,750 IQD</div>
+                      <div className="text-lg font-bold text-ink">386 USD</div>
                       <div className="flex items-center gap-2 text-[10px] font-bold text-ink-soft mt-1">
                         <div className="size-2.5 rounded-[2px] bg-rose-600" /> TOTAL CASH
                       </div>

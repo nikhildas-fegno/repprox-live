@@ -8,7 +8,7 @@ import { Metadata } from "next";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> | { slug: string } }): Promise<Metadata> {
   const { slug } = await params;
-  const blog = await db.blog.findUnique({ where: { slug } });
+  const blog = await db.blog.findUnique({ where: { slug } }).catch(() => null);
   if (!blog) return { title: "Not Found" };
 
   return {
@@ -30,7 +30,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const blog = await db.blog.findUnique({
     where: { slug },
     include: { category: true, blogTags: { include: { tag: true } } },
-  });
+  }).catch(() => null);
 
   if (!blog || blog.status !== "PUBLISHED") {
     notFound();

@@ -301,7 +301,7 @@ export default function HomePage() {
       {/* SECTION 8 — ERP INTEGRATION */}
       <section
         aria-labelledby="erp-heading"
-        className="relative border-b border-slate-100 bg-slate-50/40 py-20 lg:py-32"
+        className="relative border-b border-slate-100 bg-slate-50/40 py-12 lg:py-24"
       >
         <Container>
           {/* Header */}
@@ -362,32 +362,6 @@ export default function HomePage() {
               </Reveal>
             ))}
           </div>
-
-          {/* Sync Data Showcase */}
-          <Reveal delay={0.12}>
-            <div className="rounded-2xl border border-slate-200 bg-white p-8 lg:p-10">
-              <div className="mb-8 flex flex-col items-center gap-2 text-center">
-                <div className="flex items-center gap-2.5 rounded-full border border-[#1d4ed8]/20 bg-[#eff6ff] px-4 py-1.5">
-                  <RefreshCw className="size-3.5 text-[#1d4ed8]" />
-                  <span className="text-[11px] font-bold uppercase tracking-widest text-[#1d4ed8]">Real-Time Bidirectional Sync</span>
-                </div>
-                <p className="mt-1 text-sm text-slate-400">Every data object flows seamlessly between your ERP and field teams</p>
-              </div>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                {erpSyncItems.map((item) => (
-                  <div
-                    key={item}
-                    className="flex flex-col items-center gap-3 rounded-xl border border-slate-100 bg-slate-50/60 p-5 text-center"
-                  >
-                    <div className="size-9 rounded-full bg-[#eff6ff] flex items-center justify-center">
-                      <RefreshCw className="size-4 text-[#1d4ed8]" />
-                    </div>
-                    <span className="text-sm font-semibold text-slate-700">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Reveal>
         </Container>
       </section>
 

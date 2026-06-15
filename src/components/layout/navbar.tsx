@@ -29,6 +29,85 @@ const resourcesGroup = primaryNav.find((g) => g.label === "Resources")!;
 const midLinks = secondaryNav.slice(0, -1);   // Features, Industries, Pricing, About
 const lastLink = secondaryNav[secondaryNav.length - 1]; // Contact
 
+type NavGroup = typeof solutionsGroup;
+
+function DropdownGroup({
+  group,
+  openGroup,
+  setOpenGroup,
+}: {
+  group: NavGroup;
+  openGroup: string | null;
+  setOpenGroup: (v: string | null) => void;
+}) {
+  const isOpen = openGroup === group.label;
+  return (
+    <div
+      className="relative"
+      onMouseEnter={() => setOpenGroup(group.label)}
+      onMouseLeave={() => setOpenGroup(null)}
+    >
+      <button
+        type="button"
+        aria-expanded={isOpen}
+        aria-haspopup="true"
+        onClick={() => setOpenGroup(isOpen ? null : group.label)}
+        className={cn(
+          "flex items-center gap-1.5 cursor-pointer rounded-lg px-3.5 py-2 text-base font-semibold transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1d4ed8]/30",
+          isOpen ? "text-[#2A58DA]" : "text-slate-600 hover:bg-slate-100 hover:text-slate-900",
+        )}
+      >
+        {group.label}
+        <ChevronDown
+          aria-hidden="true"
+          className={cn("size-3.5 text-slate-400 transition-transform duration-200", isOpen && "rotate-180 text-slate-600")}
+        />
+      </button>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: 6, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 6, scale: 0.98 }}
+            transition={{ duration: 0.14, ease: "easeOut" }}
+            className="absolute left-0 top-full w-[26rem] overflow-hidden rounded-xl border border-slate-200/80 bg-white shadow-xl shadow-slate-900/10"
+          >
+            <ul role="menu" className="p-2">
+              {group.items.map((item) => {
+                const Icon = solutionIcons[item.href];
+                return (
+                  <li key={item.href} role="none">
+                    <Link
+                      role="menuitem"
+                      href={item.href}
+                      className="group/item flex items-center gap-3 lg:gap-4 rounded-lg px-3 py-3.5 transition-colors hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1d4ed8]/30"
+                    >
+                      {Icon && (
+                        <div className="size-10 shrink-0 rounded-lg bg-slate-100 flex items-center justify-center text-slate-500 group-hover/item:bg-[#1d4ed8]/10 group-hover/item:text-[#1d4ed8] transition-colors duration-150">
+                          <Icon className="size-6" />
+                        </div>
+                      )}
+                      <div>
+                        <span className="block text-[15.5px] font-semibold text-slate-800 group-hover/item:text-[#1d4ed8] transition-colors duration-150">
+                          {item.label}
+                        </span>
+                        {item.description && (
+                          <span className="mt-0.5 block text-[14px] leading-snug text-slate-400">{item.description}</span>
+                        )}
+                      </div>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
 export function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -38,19 +117,39 @@ export function Navbar() {
   const [isVisible, setIsVisible] = React.useState(true);
   const [isScrolled, setIsScrolled] = React.useState(false);
   const lastScrollY = React.useRef(0);
+  const idleTimer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+  const openGroupRef = React.useRef<string | null>(null);
 
   React.useEffect(() => {
+    openGroupRef.current = openGroup;
+  }, [openGroup]);
+
+  React.useEffect(() => {
+    const clearIdle = () => {
+      if (idleTimer.current) clearTimeout(idleTimer.current);
+    };
+    const startIdle = () => {
+      clearIdle();
+      idleTimer.current = setTimeout(() => {
+        if (window.scrollY > 60 && !mobileOpen && !openGroupRef.current) setIsVisible(false);
+      }, 3000);
+    };
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       setIsScrolled(currentScrollY > 20);
-      if (mobileOpen) { setIsVisible(true); return; }
-      if (currentScrollY < 60) setIsVisible(true);
-      else if (currentScrollY > lastScrollY.current) setIsVisible(false);
-      else setIsVisible(true);
+      if (mobileOpen) { setIsVisible(true); clearIdle(); return; }
+      if (currentScrollY < 60) { setIsVisible(true); clearIdle(); }
+      else if (currentScrollY > lastScrollY.current) { setIsVisible(false); clearIdle(); }
+      else { setIsVisible(true); startIdle(); }
       lastScrollY.current = currentScrollY;
     };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      clearIdle();
+    };
   }, [mobileOpen]);
 
   const [lastPathname, setLastPathname] = React.useState(pathname);
@@ -63,79 +162,10 @@ export function Navbar() {
     setIsVisible(true);
   }
 
-  function DropdownGroup({ group }: { group: typeof solutionsGroup }) {
-    const isOpen = openGroup === group.label;
-    return (
-      <div
-        className="relative"
-        onMouseEnter={() => setOpenGroup(group.label)}
-        onMouseLeave={() => setOpenGroup(null)}
-      >
-        <button
-          type="button"
-          aria-expanded={isOpen}
-          aria-haspopup="true"
-          onClick={() => setOpenGroup(isOpen ? null : group.label)}
-          className={cn(
-            "flex items-center gap-1.5 cursor-pointer rounded-lg px-3.5 py-2 text-base font-semibold transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1d4ed8]/30",
-            isOpen ? "text-[#2A58DA]" : "text-slate-600 hover:bg-slate-100 hover:text-slate-900",
-          )}
-        >
-          {group.label}
-          <ChevronDown
-            aria-hidden="true"
-            className={cn("size-3.5 text-slate-400 transition-transform duration-200", isOpen && "rotate-180 text-slate-600")}
-          />
-        </button>
-
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: 6, scale: 0.98 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 6, scale: 0.98 }}
-              transition={{ duration: 0.14, ease: "easeOut" }}
-              className="absolute left-0 top-full w-[26rem] overflow-hidden rounded-xl border border-slate-200/80 bg-white shadow-xl shadow-slate-900/10"
-            >
-              <ul role="menu" className="p-2">
-                {group.items.map((item) => {
-                  const Icon = solutionIcons[item.href];
-                  return (
-                    <li key={item.href} role="none">
-                      <Link
-                        role="menuitem"
-                        href={item.href}
-                        className="group/item flex items-center gap-3 lg:gap-4 rounded-lg px-3 py-3.5 transition-colors hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1d4ed8]/30"
-                      >
-                        {Icon && (
-                          <div className="size-10 shrink-0 rounded-lg bg-slate-100 flex items-center justify-center text-slate-500 group-hover/item:bg-[#1d4ed8]/10 group-hover/item:text-[#1d4ed8] transition-colors duration-150">
-                            <Icon className="size-6" />
-                          </div>
-                        )}
-                        <div>
-                          <span className="block text-[15.5px] font-semibold text-slate-800 group-hover/item:text-[#1d4ed8] transition-colors duration-150">
-                            {item.label}
-                          </span>
-                          {item.description && (
-                            <span className="mt-0.5 block text-[14px] leading-snug text-slate-400">{item.description}</span>
-                          )}
-                        </div>
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    );
-  }
-
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-300 ease-in-out border-b",
+        "fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ease-in-out border-b",
         isVisible ? "translate-y-0" : "-translate-y-full",
         isScrolled
           ? "bg-white/90 backdrop-blur-lg border-slate-200/60 shadow-sm"
@@ -166,7 +196,7 @@ export function Navbar() {
             Home
           </Link>
 
-          <DropdownGroup group={solutionsGroup} />
+          <DropdownGroup group={solutionsGroup} openGroup={openGroup} setOpenGroup={setOpenGroup} />
 
           {midLinks.map((link) => (
             <Link
@@ -181,7 +211,7 @@ export function Navbar() {
             </Link>
           ))}
 
-          <DropdownGroup group={resourcesGroup} />
+          <DropdownGroup group={resourcesGroup} openGroup={openGroup} setOpenGroup={setOpenGroup} />
 
           <Link
             href={lastLink.href}
@@ -199,7 +229,7 @@ export function Navbar() {
           <Button
             asChild
             variant="outline"
-            size="lg"
+            size="default"
             className="h-12 rounded-full border-[#1d4ed8]/25 font-semibold text-[#1d4ed8] hover:text-[#1d4ed8] transition-all duration-200 hover:border-[#1d4ed8]/50 hover:bg-[#1d4ed8]/6 hover:shadow-sm"
           >
             <Link target="_blank" href={process.env.NEXT_PUBLIC_LOGIN_URL || "/login"}>Log In</Link>
@@ -207,7 +237,7 @@ export function Navbar() {
           <Button
             asChild
             variant="accent"
-            size="lg"
+            size="default"
             className="h-12 w-full sm:w-auto border-0 bg-linear-to-r from-[#1d4ed8] to-[#0ea5ff] font-bold text-white shadow-lg shadow-[#1d4ed8]/25 transition-all duration-600 rounded-full hover:from-[#2563eb] hover:to-[#38bdf8]"
           >
             <Link href="/contact" className="flex items-center gap-2">

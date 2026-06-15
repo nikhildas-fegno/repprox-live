@@ -8,7 +8,7 @@ import { Metadata } from "next";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> | { slug: string } }): Promise<Metadata> {
   const { slug } = await params;
-  const cs = await db.caseStudy.findUnique({ where: { slug } });
+  const cs = await db.caseStudy.findUnique({ where: { slug } }).catch(() => null);
   if (!cs) return { title: "Not Found" };
 
   return {
@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function CaseStudyPage({ params }: { params: Promise<{ slug: string }> | { slug: string } }) {
   const { slug } = await params;
-  const cs = await db.caseStudy.findUnique({ where: { slug } });
+  const cs = await db.caseStudy.findUnique({ where: { slug } }).catch(() => null);
 
   if (!cs) notFound();
 

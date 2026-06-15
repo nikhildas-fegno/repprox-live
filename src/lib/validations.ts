@@ -1,12 +1,46 @@
 import { z } from "zod";
 
 export const painPointOptions = [
-  { value: "tickets", label: "Tickets, Tasks & Knowledge Base" },
-  { value: "employee-lifecycle", label: "Employee Lifecycle" },
-  { value: "providers-vendors", label: "Providers & Vendors" },
-  { value: "asset-inventory", label: "Asset & Inventory Management" },
-  { value: "contracts-amcs", label: "Contracts, AMCs & Contract" },
-  { value: "reporting-analytics", label: "Reporting & Analytics" },
+  {
+    value: "kpi-management",
+    label: "KPI & Performance Management",
+  },
+  {
+    value: "route-planning",
+    label: "Route Planning & Territory Management",
+  },
+  {
+    value: "attendance",
+    label: "Attendance & Check-In Management",
+  },
+  {
+    value: "gps-tracking",
+    label: "GPS Tracking & Live Location Monitoring",
+  },
+  {
+    value: "sales-cycle",
+    label: "Sales Cycle & Lead Management",
+  },
+  {
+    value: "order-management",
+    label: "Order Booking & Distribution Management",
+  },
+  {
+    value: "survey-audits",
+    label: "Surveys, Audits & Compliance Checks",
+  },
+  {
+    value: "promotions",
+    label: "Promotions & Trade Marketing Execution",
+  },
+  {
+    value: "merchandising",
+    label: "Merchandising & Retail Execution",
+  },
+  {
+    value: "reporting",
+    label: "Reports, Analytics & Dashboards",
+  },
 ];
 
 export const itAgentOptions = [

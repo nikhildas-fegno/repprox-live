@@ -230,7 +230,7 @@ export default function IndustriesPage() {
       <BreadcrumbJsonLd items={[{ name: "Home", path: "/" }, { name: "Industries", path: "/industries" }]} />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#F8FAFF] via-[#EEF5FF] to-white lg:py-6 4xl:py-24">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#F8FAFF] via-[#EEF5FF] to-white flex items-center justify-center h-svh">
         {/* Advanced Ambient Lighting Ecosystem */}
         <style>{`
           @keyframes glow-breathe {

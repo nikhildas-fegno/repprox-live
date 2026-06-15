@@ -37,7 +37,7 @@ export function Hero() {
   ];
 
   return (
-    <section className="relative overflow-hidden border-b border-ink/10 bg-paper pt-10 pb-14 sm:pt-16 sm:pb-24 lg:pt-20 lg:pb-32">
+    <section className="relative overflow-hidden border-b border-ink/10 bg-paper pt-24 pb-14 sm:pt-16 sm:pb-24 lg:pt-32 lg:pb-32">
       <div className="absolute inset-0">
         <DotField
           dotRadius={2}
@@ -55,7 +55,7 @@ export function Hero() {
         />
       </div>
 
-      <Container className="relative flex flex-col items-center text-center z-10 gap-6 lg:gap-4">
+      <Container className="relative flex flex-col items-center text-center z-10 gap-6 lg:gap-2">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}

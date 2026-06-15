@@ -16,7 +16,7 @@ export const metadata: Metadata = buildMetadata({
 
 const trustBadges = [
   { icon: Clock, text: "Responds within 1 business day" },
-  { icon: Users, text: "250+ enterprise deployments" },
+  { icon: Users, text: "100+ enterprise deployments" },
   { icon: Zap, text: "Onboard in days, not months" },
 ];
 
@@ -31,7 +31,7 @@ export default function ContactPage() {
       />
 
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden border-b border-ink/10 bg-paper py-20 lg:py-24">
+      <section className="relative overflow-hidden bg-paper py-20 lg:py-24">
         {/* Dot grid */}
         <div className="bp-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,black,transparent)]" />
 
@@ -76,7 +76,7 @@ export default function ContactPage() {
       </section>
 
       {/* ── Form ── */}
-      <section className="bg-paper py-14 lg:py-20">
+      <section className="bg-paper pb-14 lg:pb-20">
         <Container>
           <Reveal
             delay={0.05}

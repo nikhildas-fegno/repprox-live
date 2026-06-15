@@ -551,7 +551,7 @@ export function UnifiedContactForm() {
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="flex flex-col gap-1.5">
             <Label htmlFor="teamSize" className="text-[13px] font-medium text-slate-600">
-              Number of Employees
+              Number of Field User
             </Label>
             <OptionSelect
               id="teamSize"
@@ -575,34 +575,11 @@ export function UnifiedContactForm() {
               <p className="text-[12px] text-red-500">{errors.teamSize.message}</p>
             )}
           </div>
-          <div className="flex flex-col gap-1.5">
-            <Label htmlFor="itAgents" className="text-[13px] font-medium text-slate-600">
-              Number of IT Agents
-            </Label>
-            <OptionSelect
-              id="itAgents"
-              options={itAgentOptions}
-              value={itAgentsVal ?? ""}
-              onChange={(v) =>
-                setValue(
-                  "itAgents",
-                  v as ContactFormValues["itAgents"],
-                  { shouldValidate: true },
-                )
-              }
-              placeholder="Select agent count…"
-              hasError={!!errors.itAgents}
-              icon={Cpu}
-            />
-            {errors.itAgents && (
-              <p className="text-[12px] text-red-500">{errors.itAgents.message}</p>
-            )}
-          </div>
         </div>
 
         {/* Pain points */}
         <div className="flex flex-col gap-2">
-          <Label className="text-[13px] font-medium text-slate-600">
+          <Label className="text-[13px] font-medium text-slate-600 mb-2">
             Main Pain Point{" "}
             <span className="font-normal text-slate-400">(select all that apply)</span>
           </Label>
@@ -845,15 +822,15 @@ export function UnifiedContactForm() {
                 icon: Mail,
                 bg: "bg-blue-50 text-blue-600",
                 label: "Sales Inquiries",
-                value: "sales@repprox.com",
-                href: "mailto:sales@repprox.com",
+                value: "yazan@alle-tech.com",
+                href: "mailto:yazan@alle-tech.com",
               },
               {
                 icon: Headset,
                 bg: "bg-green-50 text-green-600",
                 label: "Customer Support",
-                value: "support@repprox.com",
-                href: "mailto:support@repprox.com",
+                value: "Info@alle-tech.com",
+                href: "mailto:Info@alle-tech.com",
               },
               {
                 icon: Clock,
