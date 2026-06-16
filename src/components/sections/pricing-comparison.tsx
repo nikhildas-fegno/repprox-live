@@ -275,7 +275,7 @@ export function PricingComparison() {
                                 i !== plans.length - 1 && !plan.isPopular && "border-r"
                               )}
                             >
-                              {value === true || value === "Included" ? (
+                              {value ? (
                                 <Check className="w-5 h-5 text-emerald-500 mx-auto" />
                               ) : (
                                 <X className="w-5 h-5 text-red-500 mx-auto" />
