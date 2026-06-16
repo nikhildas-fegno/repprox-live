@@ -39,7 +39,7 @@ import {
 
 import avatar from "@/public/home/avatar.png";
 import logo from "@/../public/logo.png";
-import trackingMap from "@/public/home/tracking.png";
+import trackingMap from "@/public/home/tracking.jpg";
 
 const SALES_REPORTS = [
   { title: "SALES CONSOLIDATE", desc: "Summarizes sales data from various sources." },
