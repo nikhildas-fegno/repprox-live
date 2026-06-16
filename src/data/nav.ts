@@ -51,8 +51,8 @@ export const primaryNav: NavGroup[] = [
 ];
 
 export const secondaryNav: NavLink[] = [
-  { label: "Features", href: "#" },
-  { label: "Industries", href: "#" },
+  { label: "Features", href: "/features" },
+  { label: "Industries", href: "/industries" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
