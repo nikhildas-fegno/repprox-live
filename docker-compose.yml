@@ -17,20 +17,6 @@ services:
       timeout: 5s
       retries: 10
 
-  migrate:
-    build: .
-    container_name: repprox_migrate
-    environment:
-      DATABASE_URL: postgresql://repprox:repprox_secret@postgres:5432/repprox
-    command: >
-      sh -c "
-        npx prisma migrate deploy &&
-        npx prisma db seed
-      "
-    depends_on:
-      postgres:
-        condition: service_healthy
-
   app:
     build: .
     container_name: repprox_app
@@ -42,8 +28,19 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      migrate:
-        condition: service_completed_successfully
+      postgres:
+        condition: service_healthy
+
+  admin:
+    build:
+      context: .
+      target: builder
+    profiles: ["admin"]
+    environment:
+      DATABASE_URL: postgresql://repprox:repprox_secret@postgres:5432/repprox
+    depends_on:
+      postgres:
+        condition: service_healthy
 
 volumes:
   postgres_data:
