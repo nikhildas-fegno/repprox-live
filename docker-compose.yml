@@ -31,5 +31,16 @@ services:
       postgres:
         condition: service_healthy
 
+  admin:
+    build:
+      context: .
+      target: builder
+    profiles: ["admin"]
+    environment:
+      DATABASE_URL: postgresql://repprox:repprox_secret@postgres:5432/repprox
+    depends_on:
+      postgres:
+        condition: service_healthy
+
 volumes:
   postgres_data:

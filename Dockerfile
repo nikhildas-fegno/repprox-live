@@ -21,6 +21,7 @@ RUN npx prisma generate
 ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm run build
 
+
 # Stage 3: Production runner
 FROM node:22-alpine AS runner
 WORKDIR /app
@@ -39,6 +40,7 @@ COPY --from=builder /app/public ./public
 # Copy Prisma files needed at runtime
 COPY --from=builder /app/src/generated ./src/generated
 COPY --from=builder /app/prisma ./prisma
+
 
 USER nextjs
 
