@@ -12,6 +12,7 @@ import {
   HelpCircle,
   Star,
   Building2,
+  CalendarDays,
   ChevronRight,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -25,6 +26,7 @@ const nav = [
   { href: "/admin/faqs", label: "FAQs", icon: HelpCircle },
   { href: "/admin/testimonials", label: "Testimonials", icon: Star },
   { href: "/admin/client-logos", label: "Client Logos", icon: Building2 },
+  { href: "/admin/demo-bookings", label: "Demo Bookings", icon: CalendarDays },
 ];
 
 export function AdminSidebar() {
@@ -35,7 +37,7 @@ export function AdminSidebar() {
       {/* Brand */}
       <div className="flex items-center gap-3 px-5 h-16 border-b border-white/10">
         <div className="relative w-10 h-10 rounded-lg bg-white flex items-center justify-center shrink-0 shadow-sm overflow-hidden">
-          <Image src="/logo.png" alt="RepPro X Logo" fill className="object-contain" />
+          <Image src="/logo.png" alt="RepProX Logo" fill className="object-contain" />
         </div>
         <div>
           <p className="text-sm font-semibold text-white leading-none">Repprox</p>

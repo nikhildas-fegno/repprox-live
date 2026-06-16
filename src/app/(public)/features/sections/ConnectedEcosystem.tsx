@@ -60,7 +60,7 @@ export default function ConnectedEcosystem() {
             <motion.img
               animate={{ y: [0, -4, 0] }}
               transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-              src="/logo.png" alt="RepPro X Core" className="w-20 h-auto object-contain z-10"
+              src="/logo.png" alt="RepProX Core" className="w-20 h-auto object-contain z-10"
             />
           </motion.div>
 
@@ -88,7 +88,7 @@ export default function ConnectedEcosystem() {
         {/* Desktop Horizontal Ecosystem Illustration */}
         <div className="hidden md:flex relative w-full max-w-[1000px] h-[500px] items-center justify-center">
 
-          {/* Central RepPro X Core */}
+          {/* Central RepProX Core */}
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
@@ -103,7 +103,7 @@ export default function ConnectedEcosystem() {
             <motion.img
               animate={{ y: [0, -5, 0] }}
               transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-              src="/logo.png" alt="RepPro X Core" className="w-32 h-auto object-contain z-10"
+              src="/logo.png" alt="RepProX Core" className="w-32 h-auto object-contain z-10"
             />
           </motion.div>
 

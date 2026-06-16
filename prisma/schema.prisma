@@ -132,3 +132,49 @@ model Testimonial {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
+
+// ── Demo Booking ──────────────────────────────────────────────────────────────
+
+enum DemoMeetingStatus {
+  SCHEDULED
+  COMPLETED
+  CANCELLED
+  RESCHEDULED
+}
+
+model DemoLead {
+  id         String       @id @default(cuid())
+  firstName  String
+  lastName   String
+  email      String
+  company    String
+  country    String
+  teamSize   String
+  painPoints String[]
+  message    String?
+  meeting    DemoMeeting?
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+}
+
+model DemoMeeting {
+  id          String            @id @default(cuid())
+  leadId      String            @unique
+  lead        DemoLead          @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  scheduledAt DateTime
+  timezone    String
+  status      DemoMeetingStatus @default(SCHEDULED)
+  notes       String?
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  @@unique([scheduledAt])
+}
+
+model ScheduleConfig {
+  id            String   @id @default("main")
+  enabledSlots  String[]
+  availableDays Int[]
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}

@@ -20,10 +20,10 @@ import { HeroAnimatedDecorations } from "@/components/animated-icons/route-plann
 
 export default function RoutePlanningPage() {
   return (
-    <div className="bg-[#F8FAFC] min-h-screen pb-20 relative">
+    <div className="bg-gradient-to-b from-[#F8FAFF] via-[#EEF5FF] to-white relative">
       <AnimatedBackground />
       {/* HERO SECTION */}
-      <section className="relative pt-20 pb-16 lg:pt-28 lg:pb-24 overflow-hidden">
+      <section className="relative py-24 lg:h-svh lg:flex lg:items-center overflow-hidden">
         <HeroAnimatedDecorations />
         <Container className="relative z-10 max-w-[1400px]">
           <div className="grid lg:grid-cols-[1fr_1.3fr] gap-12 lg:gap-8 items-center">
@@ -34,7 +34,7 @@ export default function RoutePlanningPage() {
                 ROUTE PLANNING SOFTWARE
               </div>
 
-              <h1 className="font-display text-4xl lg:text-5xl xl:text-6xl font-extrabold text-[#0F172A] leading-[1.1] mb-6">
+              <h1 className="font-display text-4xl lg:text-5xl xl:text-6xl font-bold text-[#0F172A] leading-[1.1] mb-6">
                 Smarter Routes<br />Stronger Coverage.
               </h1>
 

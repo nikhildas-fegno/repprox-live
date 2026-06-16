@@ -5,9 +5,9 @@ import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import FeaturesClient from "./features-client";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Features - RepPro X",
+  title: "Features - RepProX",
   description:
-    "Everything Your Sales Team Needs. In One Platform. RepPro X combines AI ordering, KPI tracking, reporting, analytics, ERP integration, and management tools.",
+    "Everything Your Sales Team Needs. In One Platform. RepProX combines AI ordering, KPI tracking, reporting, analytics, ERP integration, and management tools.",
   path: "/features",
 });
 

@@ -5,7 +5,7 @@ import {
   Building2, Wind, Droplets, Hammer, Cog, Briefcase,
   CalendarCheck, MapPin, Clock, UserCheck, Camera, FileText,
   BarChart3, Users, Warehouse, DollarSign, ShoppingCart, Navigation,
-  ChevronRight, Link2, RefreshCw,
+  ChevronRight, Link2, RefreshCw, TrendingUp,
 } from "lucide-react";
 
 import { buildMetadata, SITE_NAME } from "@/lib/seo";
@@ -16,6 +16,7 @@ import { LogoStrip } from "@/components/sections/logo-strip";
 import { MobileAppExperience } from "@/components/sections/mobile-app-experience";
 import { FieldAutomation } from "@/components/sections/field-automation";
 import { SolutionsShowcase } from "@/components/sections/solutions-showcase";
+import { WhyChooseSection } from "@/components/sections/why-choose";
 import { CoreCapabilities } from "@/components/sections/core-capabilities";
 import { Testimonials } from "@/components/sections/testimonials";
 import { FaqSection } from "@/components/sections/faq-section";
@@ -24,7 +25,8 @@ import { SectionHeading } from "@/components/section-heading";
 import { Reveal } from "@/components/reveal";
 
 import { homefaq, pricingFaqs, testimonials } from "@/data/pricing";
-
+import saplogo from "@/public/home/sap.svg";
+import odoologo from "@/public/home/odoo.svg";
 export const metadata: Metadata = buildMetadata({
   title: `${SITE_NAME} — The Complete Field Operations & Distribution Execution Platform`,
   description:
@@ -90,7 +92,7 @@ const challengeCategories = [
 const traditionalApps = [
   {
     label: "Traditional Mobile Sales Apps",
-    description: "Only capture orders — no service, no collections, no visibility.",
+    description: "Only capture orders — no service, no collections, no end-to-end visibility.",
   },
   {
     label: "Traditional Field Service Apps",
@@ -229,61 +231,87 @@ export default function HomePage() {
       >
         <Container className="relative">
           <div className="mb-14 text-center">
-            <p className="mb-3 font-mono text-xs font-bold uppercase tracking-widest text-[#1d4ed8]">
-              Common Challenges
-            </p>
+            <span className="mb-3 inline-flex items-center gap-2.5 rounded-full border border-accent-ink/25 bg-accent-ink/[0.07] px-4 py-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-accent-ink">
+              <span className="size-1.5 shrink-0 rounded-full bg-current" aria-hidden="true" />
+              Sales & Distribution Challenges
+            </span>
             <h2
               id="traditional-heading"
-              className="font-display text-3xl font-bold leading-tight text-slate-900 lg:text-4xl xl:text-[2.75rem] text-balance"
+              className="mt-3 font-display text-3xl font-bold leading-tight text-slate-900 lg:text-4xl xl:text-[2.75rem] text-balance max-w-4xl mx-auto"
             >
-              Field Force Automation Software for Modern Sales &amp;{" "}
+              Field Force Automation Software for {" "}
               <span className="bg-linear-to-r from-[#ef4444] to-[#f97316] bg-clip-text text-transparent">
                 Distribution Challenges
               </span>
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-base text-slate-500 leading-relaxed">
-              Distribution businesses often struggle with missed customer visits, delayed order processing, poor route compliance, inventory visibility issues, collection inefficiencies, and limited field sales visibility. RepPro X helps organizations automate sales operations, optimize field execution, improve collections, and gain complete control over their distribution network through a unified Field Force Automation Software platform.
+            <p className="mx-auto mt-4 max-w-4xl text-base text-slate-500 leading-relaxed">
+              Traditional tools create blind spots across sales, inventory, collections, and field operations. RepProX unifies Field Force Automation and Distribution Management into a single platform for complete operational transparency.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div className="flex flex-col gap-4">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+            <div className="flex h-full flex-col gap-4">
               {traditionalApps.map((app, i) => (
-                <Reveal key={app.label} delay={i * 0.06}>
-                  <div className="flex items-start gap-4 rounded-2xl border border-red-100 bg-red-50/60 p-5">
-                    <div className="size-9 shrink-0 rounded-xl bg-red-100 flex items-center justify-center">
-                      <XCircle className="size-5 text-red-400" />
+                <Reveal key={app.label} delay={i * 0.06} className="flex flex-1">
+                  <div className="flex w-full items-start gap-4 rounded-[20px] border border-red-100/80 bg-[#fff8f8] p-5 lg:p-6">
+                    <div className="mt-0.5 flex shrink-0 items-center justify-center">
+                      <XCircle className="size-[22px] text-red-400" strokeWidth={2} />
                     </div>
                     <div>
-                      <p className="font-display text-[14px] font-bold text-slate-800">{app.label}</p>
-                      <p className="mt-0.5 text-[13px] text-slate-500">{app.description}</p>
+                      <p className="font-display text-[15px] font-bold text-slate-900">{app.label}</p>
+                      <p className="mt-1 text-[14px] text-slate-500 leading-relaxed">{app.description}</p>
                     </div>
                   </div>
                 </Reveal>
               ))}
+              <Reveal delay={0.24} className="flex flex-1">
+                <div className="flex w-full items-start gap-4 rounded-[20px] border border-red-100/80 bg-[#fff8f8] p-5 lg:p-6">
+                  <div className="mt-0.5 size-[22px] shrink-0 rounded-full bg-[#ef4444] flex items-center justify-center">
+                    <span className="text-white font-bold text-sm leading-none">!</span>
+                  </div>
+                  <div>
+                    <p className="font-display text-[15px] font-bold text-slate-900">The Result:</p>
+                    <p className="mt-1 text-[14px] text-slate-500 leading-relaxed">
+                      Disconnected teams, manual work, data gaps, and missed opportunities.
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
             </div>
 
-            <Reveal delay={0.1}>
-              <div className="rounded-2xl border border-[#1d4ed8]/20 bg-[#eff6ff] p-7">
-                <p className="font-mono text-xs font-bold uppercase tracking-widest text-[#1d4ed8] mb-2">
-                  RepPro X Connects
+            <Reveal delay={0.1} className="flex h-full">
+              <div className="flex w-full flex-col rounded-3xl border border-[#1d4ed8]/10 bg-[#f4f7fe] p-8 lg:p-10">
+                <p className="mb-3 font-mono text-[11px] font-bold uppercase tracking-widest text-[#1d4ed8]">
+                  RepProX Connects
                 </p>
-                <h3 className="font-display text-xl font-bold text-slate-900 mb-2">
+                <h3 className="mb-4 font-display text-2xl font-bold text-slate-900 lg:text-[28px]">
                   One platform. Every function.
                 </h3>
-                <p className="text-[13px] text-slate-500 leading-relaxed mb-5">
-                  RepPro X connects every part of your business — eliminating silos and giving you complete operational visibility in real time.
+                <p className="mb-8 text-[15px] leading-relaxed text-slate-500">
+                  RepProX connects every part of your business — automates sales operations, optimizes field execution, improves collections, and gives you complete control of your distribution network in real time.
                 </p>
-                <div className="flex flex-wrap gap-2">
+                <div className="mb-8 flex flex-wrap gap-3">
                   {repproxConnects.map((item) => (
                     <span
                       key={item}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-[#1d4ed8]/20 bg-white px-3.5 py-1.5 text-[12px] font-semibold text-[#1d4ed8]"
+                      className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2 text-[13px] font-semibold text-blue-600 shadow-sm shadow-blue-900/5"
                     >
-                      <CheckCircle2 className="size-3 shrink-0" />
+                      <CheckCircle2 className="size-[18px] shrink-0 text-blue-500" strokeWidth={2} />
                       {item}
                     </span>
                   ))}
+                </div>
+
+                <div className="mt-auto flex items-center gap-4 rounded-xl border border-blue-200/50 bg-[#e4edff] p-5">
+                  <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-[#1d4ed8]">
+                    <TrendingUp className="size-5 text-white" strokeWidth={2.5} />
+                  </div>
+                  <div>
+                    <p className="text-[13px] font-bold text-slate-900">The Outcome:</p>
+                    <p className="text-[13px] text-slate-600">
+                      Unified operations, real-time visibility, higher productivity, and better business outcomes.
+                    </p>
+                  </div>
                 </div>
               </div>
             </Reveal>
@@ -293,6 +321,9 @@ export default function HomePage() {
 
       {/* SECTION 6 — SOLUTIONS */}
       <SolutionsShowcase />
+      
+      {/* SECTION 6.5 — WHY CHOOSE */}
+      <WhyChooseSection />
 
       {/* SECTION 7 — CORE PLATFORM CAPABILITIES */}
       <CoreCapabilities />
@@ -306,9 +337,10 @@ export default function HomePage() {
         <Container>
           {/* Header */}
           <div className="mb-16 text-center lg:mb-20">
-            <p className="mb-4 font-mono text-xs font-bold uppercase tracking-widest text-[#1d4ed8]">
+            <span className="mb-3 inline-flex items-center gap-2.5 rounded-full border border-accent-ink/25 bg-accent-ink/[0.07] px-4 py-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-accent-ink">
+              <span className="size-1.5 shrink-0 rounded-full bg-current" aria-hidden="true" />
               ERP Integration
-            </p>
+            </span>
             <h2
               id="erp-heading"
               className="font-display text-4xl font-bold leading-tight text-slate-900 lg:text-5xl"
@@ -316,7 +348,7 @@ export default function HomePage() {
               Powered By Your ERP
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-lg text-slate-500 leading-relaxed">
-              RepPro X integrates natively with leading ERP platforms — keeping your field operations perfectly synchronized with your back office in real time.
+              RepProX integrates natively with leading ERP platforms — keeping your field operations perfectly synchronized with your back office in real time.
             </p>
           </div>
 
@@ -324,12 +356,14 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 gap-6 mb-8">
             {[
               {
+                logo: saplogo,
                 name: "SAP Business One",
                 badge: "Native Integration",
                 desc: "Bidirectional sync with full SAP B1 module coverage — inventory, sales orders, pricing, customer master data, payments, and service records stay perfectly aligned.",
                 points: ["Customer & Product Master Sync", "Sales Orders & Invoices", "Inventory & Stock Transfers", "Payments & Collections"],
               },
               {
+                logo: odoologo,
                 name: "Odoo",
                 badge: "Full Module Coverage",
                 desc: "Complete Odoo integration across sales, inventory, field service, and procurement modules — your back-office data flows seamlessly into field operations.",
@@ -340,7 +374,7 @@ export default function HomePage() {
                 <div className="group flex flex-col gap-6 rounded-2xl border border-slate-200 bg-white p-8 lg:p-10 hover:border-[#1d4ed8]/30 hover:shadow-xl hover:shadow-[#1d4ed8]/5 transition-all duration-300">
                   <div className="flex items-start justify-between gap-4">
                     <div className="size-16 rounded-2xl border border-slate-100 bg-[#eff6ff] flex items-center justify-center shrink-0">
-                      <Link2 className="size-7 text-[#1d4ed8]" />
+                    <img src={erp.logo.src} alt={`${erp.name} logo`} className="size-12 object-contain" />
                     </div>
                     <span className="mt-1 shrink-0 rounded-full border border-[#1d4ed8]/20 bg-[#eff6ff] px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[#1d4ed8]">
                       {erp.badge}
@@ -399,7 +433,7 @@ export default function HomePage() {
       <CtaSection
         eyebrow="One Platform. Complete Control."
         title="Ready to Control Every Visit, Order & Collection?"
-        description="RepPro X helps organizations manage field sales teams, service technicians, inventory, collections, routes, and customer activities through one integrated platform. Get complete operational visibility today."
+        description="RepProX helps organizations manage field sales teams, service technicians, inventory, collections, routes, and customer activities through one integrated platform. Get complete operational visibility today."
         primary={{ label: "Request a Demo", href: "/contact" }}
         secondary={{ label: "Contact Sales", href: "/contact" }}
       />

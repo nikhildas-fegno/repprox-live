@@ -80,12 +80,12 @@ export function IndustryShowcase({ industries }: { industries: Industry[] }) {
                 <span className="flex size-9 items-center justify-center rounded-xl bg-accent-soft text-accent-ink">
                   <ActiveIcon className="size-4.5" />
                 </span>
-                <span className="font-mono text-[10px] font-extrabold uppercase tracking-widest text-slate-400">
+                <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-slate-400">
                   Target Vertical
                 </span>
               </div>
 
-              <h3 className="font-display text-2xl lg:text-3xl font-extrabold tracking-tight text-ink">
+              <h3 className="font-display text-2xl lg:text-3xl font-bold tracking-tight text-ink">
                 {activeIndustry.name}
               </h3>
               
@@ -103,7 +103,7 @@ export function IndustryShowcase({ industries }: { industries: Industry[] }) {
                     <span className="font-mono text-[9px] uppercase tracking-wider text-slate-400 font-bold leading-normal min-h-[28px]">
                       {stat.label}
                     </span>
-                    <span className="font-display text-2xl lg:text-3xl font-extrabold text-accent-ink tracking-tight">
+                    <span className="font-display text-2xl lg:text-3xl font-bold text-accent-ink tracking-tight">
                       {stat.value}
                     </span>
                   </div>
@@ -157,7 +157,7 @@ export function IndustryShowcase({ industries }: { industries: Industry[] }) {
                         <div className="flex flex-col md:flex-row md:items-start gap-3">
                           {/* Challenge */}
                           <div className="flex-1 flex flex-col gap-1 pl-1">
-                            <span className="text-[8px] font-mono text-red-400 uppercase font-extrabold tracking-wider">
+                            <span className="text-[8px] font-mono text-red-400 uppercase font-bold tracking-wider">
                               Operational Bottleneck
                             </span>
                             <span className="text-xs text-slate-300 font-semibold leading-normal">
@@ -171,7 +171,7 @@ export function IndustryShowcase({ industries }: { industries: Industry[] }) {
 
                           {/* Help */}
                           <div className="flex-1 flex flex-col gap-1 pl-1 md:pl-0 border-l border-white/5 md:border-l-0">
-                            <span className="text-[8px] font-mono text-emerald-400 uppercase font-extrabold tracking-wider">
+                            <span className="text-[8px] font-mono text-emerald-400 uppercase font-bold tracking-wider">
                               RepProX Automation Solution
                             </span>
                             <span className="text-xs text-slate-400 leading-normal">

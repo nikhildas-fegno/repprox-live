@@ -46,9 +46,9 @@ export default function ContactPage() {
           </span>
 
           {/* Headline */}
-          <h1 className="max-w-3xl font-display text-4xl font-semibold tracking-tight text-ink lg:text-[3.25rem] lg:leading-[1.1]">
+          <h1 className="max-w-3xl font-display text-4xl font-bold tracking-tight text-ink lg:text-[3.25rem] lg:leading-[1.1]">
             Tell us where it&rsquo;s breaking down.{" "}
-            <span className="bg-linear-to-r from-blue-600 to-sky-500 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
               We&rsquo;ll show you what changes.
             </span>
           </h1>

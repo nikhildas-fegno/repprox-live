@@ -46,15 +46,21 @@ export function Footer() {
                 <ul className="flex flex-col gap-4">
                   {group.items.map((item) => (
                     <li key={item.label}>
-                      <Link
-                        href={item.href}
-                        className="text-sm md:text-sm text-slate-400 transition-colors hover:text-white inline-flex items-center group"
-                      >
-                        {item.label}
-                        {item.href.startsWith('http') && (
-                          <ArrowUpRight className="ml-1 size-3.5 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all" />
-                        )}
-                      </Link>
+                      {item.href === "#" ? (
+                        <span className="text-sm md:text-sm text-slate-400 inline-flex items-center cursor-default">
+                          {item.label}
+                        </span>
+                      ) : (
+                        <Link
+                          href={item.href}
+                          className="text-sm md:text-sm text-slate-400 transition-colors hover:text-white inline-flex items-center group"
+                        >
+                          {item.label}
+                          {item.href.startsWith('http') && (
+                            <ArrowUpRight className="ml-1 size-3.5 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all" />
+                          )}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>

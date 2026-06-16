@@ -40,7 +40,7 @@ export function SectionHeading({
       </span>
       <h2
         className={cn(
-          "text-balance font-display text-[clamp(2.25rem,4.5vw,3.25rem)] font-extrabold leading-[1.3] tracking-tight",
+          "text-balance font-display text-[clamp(2.25rem,4.5vw,3.25rem)] font-bold leading-[1.3] tracking-tight",
           tone === "paper" && "text-paper",
         )}
       >

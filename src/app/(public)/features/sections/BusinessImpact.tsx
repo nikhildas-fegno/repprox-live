@@ -32,18 +32,11 @@ export default function BusinessImpact() {
 
   return (
     <section 
-      className="py-24 relative overflow-hidden border-y border-blue-100/50"
-      style={{
-        background: "linear-gradient(180deg, #F8FBFF 0%, #EEF6FF 50%, #E0F2FE 100%)"
-      }}
+      className="py-24 relative overflow-hidden"
     >
       
       {/* Dynamic Background Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Soft Ambient Glows */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-400/10 blur-[120px] rounded-full mix-blend-multiply"></div>
-        <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-indigo-400/10 blur-[100px] rounded-full mix-blend-multiply"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-cyan-400/5 blur-[100px] rounded-full mix-blend-multiply"></div>
         
         {/* Floating Background Icons */}
         {floatingIcons.map((item, idx) => (
@@ -75,8 +68,6 @@ export default function BusinessImpact() {
           </motion.div>
         ))}
         
-        {/* Grid Mesh */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.02)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
 
         {/* Floating Particles */}
         {Array.from({ length: 15 }).map((_, i) => (

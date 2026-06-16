@@ -2,11 +2,11 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 
 import { contactFormSchema } from "@/lib/validations";
+import { db } from "@/lib/db";
+import { slotToUtc } from "@/lib/scheduling";
 
 export const runtime = "nodejs";
 
-// Simple in-memory rate limit per IP. Resets on deploy/restart — adequate for
-// deterring casual abuse on a marketing contact form without adding infra.
 const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX_REQUESTS = 5;
 const requestLog = new Map<string, number[]>();
@@ -36,6 +36,12 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid request body." }, { status: 400 });
   }
 
+  // Honeypot — silently succeed so bots don't adapt.
+  const rawBody = body as Record<string, unknown>;
+  if (rawBody.company_website) {
+    return NextResponse.json({ ok: true });
+  }
+
   const result = contactFormSchema.safeParse(body);
   if (!result.success) {
     return NextResponse.json(
@@ -44,28 +50,50 @@ export async function POST(request: Request) {
     );
   }
 
-  const { company_website, ...submission } = result.data;
+  const { ...submission } = result.data;
 
-  // Honeypot tripped — silently report success so bots don't learn to adapt.
-  if (company_website) {
-    return NextResponse.json({ ok: true });
+  try {
+    await db.$transaction(async (tx) => {
+      const lead = await tx.demoLead.create({
+        data: {
+          firstName: submission.firstName,
+          lastName: submission.lastName,
+          email: submission.email,
+          company: submission.company,
+          country: submission.country,
+          teamSize: submission.teamSize,
+          painPoints: submission.painPoints,
+          message: submission.message ?? null,
+        },
+      });
+
+      if (submission.date && submission.time && submission.timezone) {
+        const scheduledAt = slotToUtc(submission.date, submission.time, submission.timezone);
+        await tx.demoMeeting.create({
+          data: {
+            leadId: lead.id,
+            scheduledAt,
+            timezone: submission.timezone,
+          },
+        });
+      }
+    });
+  } catch (err: unknown) {
+    // P2002 = unique constraint violation → slot already booked
+    if (
+      err &&
+      typeof err === "object" &&
+      "code" in err &&
+      (err as { code: string }).code === "P2002"
+    ) {
+      return NextResponse.json(
+        { error: "This time slot was just booked. Please choose another." },
+        { status: 409 },
+      );
+    }
+    console.error("[contact] db error", err);
+    return NextResponse.json({ error: "Failed to save. Please try again." }, { status: 500 });
   }
-
-  // In production this would enqueue a CRM/email notification. Logging keeps
-  // the marketing site self-contained without requiring third-party secrets.
-  console.info("[contact] new inquiry", {
-    firstName: submission.firstName,
-    lastName: submission.lastName,
-    company: submission.company,
-    teamSize: submission.teamSize,
-    itAgents: submission.itAgents,
-    painPoints: submission.painPoints,
-    country: submission.country,
-    email: submission.email,
-    timezone: submission.timezone,
-    date: submission.date,
-    time: submission.time,
-  });
 
   return NextResponse.json({ ok: true });
 }

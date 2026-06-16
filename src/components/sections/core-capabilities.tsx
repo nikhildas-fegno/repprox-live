@@ -229,12 +229,8 @@ export function CoreCapabilities() {
             align="center"
             eyebrow="Core capabilities"
             tone="paper"
-            title={
-              <span id="capabilities-heading">
-                One Platform. Complete Visibility.
-              </span>
-            }
-            description="Run all aspects of field logistics, mobile billing, territory sequencing, and business intelligence on a single connected ledger."
+            title="Unified Sales Force Automation & Distribution Management Platform"
+            description="Run all aspects of field logistics, mobile billing, territory sequencing, and business intelligence on a single connected AI-Powered Field Force Automation Software."
           />
         </div>
 
@@ -313,7 +309,7 @@ export function CoreCapabilities() {
                 <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none" />
                 <img
                   src="/logo.png"
-                  alt="RepPro X Logo"
+                  alt="RepProX Logo"
                   className="size-20 object-contain relative z-10"
                 />
               </div>

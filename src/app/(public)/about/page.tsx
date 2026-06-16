@@ -101,7 +101,7 @@ export default function CompanyPage() {
             </Reveal>
 
             <Reveal delay={0.08}>
-              <h1 className="text-balance font-display text-[clamp(2.6rem,6vw,4.8rem)] font-extrabold leading-[1.05] tracking-tight">
+              <h1 className="text-balance font-display text-[clamp(2.6rem,6vw,4.8rem)] font-bold leading-[1.05] tracking-tight">
                 Built by ERP Experts.{" "}
                 <span className="bg-linear-to-r from-[#1d4ed8] to-[#0ea5ff] bg-clip-text text-transparent">
                   Designed for the Field.
@@ -111,7 +111,7 @@ export default function CompanyPage() {
 
             <Reveal delay={0.15}>
               <p className="max-w-2xl text-[18px] leading-relaxed text-muted-foreground lg:text-[20px]">
-                Designed for modern distribution businesses, RepPro X transforms field execution, sales performance, and operational management into a connected, data-driven experience.
+                Designed for modern distribution businesses, RepProX transforms field execution, sales performance, and operational management into a connected, data-driven experience.
               </p>
             </Reveal>
 
@@ -283,7 +283,7 @@ export default function CompanyPage() {
                     { value: "12+", label: "Industries Served" },
                   ].map((s) => (
                     <div key={s.label} className="flex flex-col gap-1">
-                      <span className="font-display text-[2rem] font-extrabold tracking-tight text-accent-ink">
+                      <span className="font-display text-[2rem] font-bold tracking-tight text-accent-ink">
                         {s.value}
                       </span>
                       <span className="text-[12px] leading-tight text-muted-foreground">
@@ -557,7 +557,7 @@ export default function CompanyPage() {
                 </div>
               </div>
               <blockquote className="text-center">
-                <p className="font-display text-[clamp(1.8rem,4vw,3.2rem)] font-extrabold leading-tight tracking-tight text-ink">
+                <p className="font-display text-[clamp(1.8rem,4vw,3.2rem)] font-bold leading-tight tracking-tight text-ink">
                   &ldquo;Every organization deserves complete visibility and
                   control over their field operations — without sacrificing
                   the speed and flexibility that drives growth.&rdquo;

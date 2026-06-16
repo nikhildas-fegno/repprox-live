@@ -6,8 +6,10 @@ function TestimonialCard({ item }: { item: Testimonial }) {
     <div
       className="group relative flex w-[340px] shrink-0 flex-col justify-between gap-8 rounded-3xl border border-slate-200/60 bg-white p-8 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/5 md:w-[420px]"
     >
-      <blockquote className="text-[15px] leading-relaxed text-slate-700 md:text-[16px]">
-        &ldquo;{item.quote}&rdquo;
+      <blockquote className="relative pl-6 text-[15px] leading-relaxed text-slate-700 md:text-[16px]">
+        <span className="absolute top-0 left-0 text-[1.6rem] font-black leading-none text-black/50 select-none" aria-hidden="true">&ldquo;</span>
+        {item.quote}
+        <span className="text-[1.6rem] font-black leading-none text-black/50 ml-0.5 align-bottom select-none" aria-hidden="true">&rdquo;</span>
       </blockquote>
 
       <div className="flex flex-col gap-5">

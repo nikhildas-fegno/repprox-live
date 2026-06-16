@@ -38,10 +38,11 @@ export function SolutionsShowcase() {
     <section aria-labelledby="solutions-heading" className="border-b border-ink/10 bg-paper py-4 mt-5 lg:mt-8">
       <Container>
         {/* Section Header */}
-        <div className="mb-14 flex flex-col gap-6 lg:mb-16 lg:flex-row lg:items-end lg:justify-between">
+        <div className="mb-14 gap-6 lg:mb-16">
           <SectionHeading
             eyebrow="Solutions"
-            title={<span id="solutions-heading">Solutions Built For Modern Distribution</span>}
+            align="center"
+            title="Field Force Automation Solutions For Sales & Distribution Management"
             description="RepProX combines multiple operational modules into a single platform designed to improve sales execution and operational visibility."
           />
         </div>

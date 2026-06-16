@@ -58,7 +58,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
-          className="text-balance font-display text-[clamp(2.1rem,5vw,5rem)] font-extrabold leading-[1.08] tracking-tight text-ink"
+          className="text-balance font-display text-[clamp(2.1rem,5vw,5rem)] font-bold leading-[1.08] tracking-tight text-ink"
         >
           Transform Sales Operations Into 
           <span className="bg-linear-to-r from-[#1d4ed8] to-[#0ea5ff] bg-clip-text text-transparent">
@@ -72,7 +72,7 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.22, ease: [0.16, 1, 0.3, 1] }}
           className="mt-4 sm:mt-6 max-w-4xl text-balance text-sm sm:text-base lg:text-lg leading-relaxed text-ink-soft"
         >
-          RepPro X is an AI-powered Field Force Automation Software that helps distributors, wholesalers, FMCG companies, pharmaceutical suppliers, and field sales organizations automate sales, collections, inventory management, route planning, customer visits, and field operations from a single platform.
+          RepProX is an AI-powered Field Force Automation Software that helps distributors, wholesalers, FMCG companies, pharmaceutical suppliers, and field sales organizations automate sales, collections, inventory management, route planning, customer visits, and field operations from a single platform.
         </motion.p>
 
         <motion.div

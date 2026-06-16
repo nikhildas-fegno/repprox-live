@@ -7,8 +7,11 @@ const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! });
 const db = new PrismaClient({ adapter } as never);
 
 async function main() {
-  const email = process.env.ADMIN_EMAIL ?? "admin@repprox.com";
-  const password = process.env.ADMIN_PASSWORD ?? "Admin@123456";
+  const email = process.env.ADMIN_EMAIL;
+  const password = process.env.ADMIN_PASSWORD;
+  if (!email || !password) {
+    throw new Error("ADMIN_EMAIL and ADMIN_PASSWORD must be set in the environment before seeding.");
+  }
 
   const existing = await db.adminUser.findUnique({ where: { email } });
   if (existing) {
