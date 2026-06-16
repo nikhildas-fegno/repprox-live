@@ -230,19 +230,19 @@ export default function HomePage() {
         <Container className="relative">
           <div className="mb-14 text-center">
             <p className="mb-3 font-mono text-xs font-bold uppercase tracking-widest text-[#1d4ed8]">
-              The Problem With Today&apos;s Tools
+              Common Challenges
             </p>
             <h2
               id="traditional-heading"
               className="font-display text-3xl font-bold leading-tight text-slate-900 lg:text-4xl xl:text-[2.75rem] text-balance"
             >
-              Why Traditional Methods{" "}
+              Field Force Automation Software for Modern Sales &amp;{" "}
               <span className="bg-linear-to-r from-[#ef4444] to-[#f97316] bg-clip-text text-transparent">
-                Fall Short
+                Distribution Challenges
               </span>
             </h2>
-            <p className="mx-auto mt-4 max-w-lg text-base text-slate-500 leading-relaxed">
-              Point solutions solve only one problem. RepPro X was built to eliminate every blind spot across your entire operation.
+            <p className="mx-auto mt-4 max-w-2xl text-base text-slate-500 leading-relaxed">
+              Distribution businesses often struggle with missed customer visits, delayed order processing, poor route compliance, inventory visibility issues, collection inefficiencies, and limited field sales visibility. RepPro X helps organizations automate sales operations, optimize field execution, improve collections, and gain complete control over their distribution network through a unified Field Force Automation Software platform.
             </p>
           </div>
 

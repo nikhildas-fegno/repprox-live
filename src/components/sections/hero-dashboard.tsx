@@ -457,20 +457,20 @@ export function HeroDashboard() {
                 {/* Stat cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-6">
                   {[
-                    { label: "Total Sales Today", value: "485 USD", pct: "18.6%", from: "#3b82f6", to: "#2563eb", shadow: "shadow-blue-500/20", Icon: LineChart, wave: "M0,50 C320,100 420,0 740,50 C1060,100 1160,0 1440,50 L1440,100 L0,100 Z" },
-                    { label: "Total Cash Today", value: "386 USD", pct: "12.4%", from: "#f43f5e", to: "#e11d48", shadow: "shadow-rose-500/20", Icon: Wallet, wave: "M0,30 C320,80 420,20 740,50 C1060,80 1160,20 1440,30 L1440,100 L0,100 Z" },
-                    { label: "Total Sales This Month", value: "9372 USD", pct: "24.7%", from: "#10b981", to: "#059669", shadow: "shadow-emerald-500/20", Icon: BarChart3, wave: "M0,60 C320,20 420,80 740,50 C1060,20 1160,80 1440,60 L1440,100 L0,100 Z" },
-                    { label: "Total Cash This Month", value: "8331 USD", pct: "21.3%", from: "#f97316", to: "#ea580c", shadow: "shadow-orange-500/20", Icon: CircleDollarSign, wave: "M0,40 C320,90 420,10 740,40 C1060,90 1160,10 1440,40 L1440,100 L0,100 Z" },
+                    { label: "Total Sales Today", value: "485.00 USD", pct: "18.6%", from: "#3b82f6", to: "#2563eb", shadow: "shadow-blue-500/20", Icon: LineChart, wave: "M0,50 C320,100 420,0 740,50 C1060,100 1160,0 1440,50 L1440,100 L0,100 Z" },
+                    { label: "Total Cash Today", value: "386.00 USD", pct: "12.4%", from: "#f43f5e", to: "#e11d48", shadow: "shadow-rose-500/20", Icon: Wallet, wave: "M0,30 C320,80 420,20 740,50 C1060,80 1160,20 1440,30 L1440,100 L0,100 Z" },
+                    { label: "Total Sales This Month", value: "9,372.00 USD", pct: "24.7%", from: "#10b981", to: "#059669", shadow: "shadow-emerald-500/20", Icon: BarChart3, wave: "M0,60 C320,20 420,80 740,50 C1060,20 1160,80 1440,60 L1440,100 L0,100 Z" },
+                    { label: "Total Cash This Month", value: "8,331.00 USD", pct: "21.3%", from: "#f97316", to: "#ea580c", shadow: "shadow-orange-500/20", Icon: CircleDollarSign, wave: "M0,40 C320,90 420,10 740,40 C1060,90 1160,10 1440,40 L1440,100 L0,100 Z" },
                   ].map(({ label, value, pct, from, to, shadow, Icon, wave }) => (
                     <div key={label} className={`relative rounded-xl overflow-hidden text-white p-5 shadow-lg ${shadow} group hover:-translate-y-1 transition-transform duration-300 cursor-pointer`} style={{ background: `linear-gradient(to bottom right, ${from}, ${to})` }}>
                       <div className="relative z-10 flex justify-between items-start">
                         <div>
-                          <p className="text-white/70 text-xs font-medium mb-1">{label}</p>
+                          <p className="text-white/80 text-sm tracking-wide mb-1">{label}</p>
                           <h3 className="text-2xl font-bold mb-3">{value}</h3>
-                          <div className="flex items-center gap-1 text-xs font-medium text-white/70">
+                          {/* <div className="flex items-center gap-1 text-xs font-medium text-white/80">
                             <TrendingUp className="size-3 text-emerald-300" />
                             <span className="text-emerald-300">{pct}</span> vs yesterday
-                          </div>
+                          </div> */}
                         </div>
                         <div className="size-10 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm shadow-inner group-hover:scale-110 transition-transform duration-300">
                           <Icon className="size-5 text-white" />
@@ -484,15 +484,15 @@ export function HeroDashboard() {
                 </div>
 
                 {/* Small metric strip */}
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8 bg-white p-4 rounded-xl border border-ink/5 shadow-sm">
+                {/* <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-8">
                   {[
-                    { icon: ShoppingBag, value: "72", label: "Orders Today", bg: "bg-blue-50", color: "text-blue-600" },
-                    { icon: Users, value: "28", label: "New Customers", bg: "bg-rose-50", color: "text-rose-600" },
-                    { icon: FileText, value: "7", label: "Pending Collections", bg: "bg-emerald-50", color: "text-emerald-600" },
-                    { icon: Percent, value: "96.2%", label: "Collection Efficiency", bg: "bg-orange-50", color: "text-orange-600" },
-                  ].map(({ icon: Icon, value, label, bg, color }, i, arr) => (
-                    <div key={label} className={`flex items-center gap-4 p-2 cursor-pointer hover:bg-slate-50 rounded-lg transition-colors ${i < arr.length - 1 ? "lg:border-r border-ink/5" : ""}`}>
-                      <div className={`size-12 rounded-full ${bg} flex items-center justify-center ${color} flex-shrink-0`}>
+                    { icon: ShoppingBag, value: "72",    label: "Orders Today",         bg: "bg-blue-50",    color: "text-blue-600"    },
+                    { icon: Users,       value: "28",    label: "New Customers",         bg: "bg-rose-50",    color: "text-rose-600"    },
+                    { icon: FileText,    value: "7",     label: "Pending Collections",   bg: "bg-emerald-50", color: "text-emerald-600"  },
+                    { icon: Percent,     value: "96.2%", label: "Collection Efficiency", bg: "bg-orange-50",  color: "text-orange-600"   },
+                  ].map(({ icon: Icon, value, label, bg, color }) => (
+                    <div key={label} className="flex items-center gap-4 p-4 bg-white rounded-xl border border-ink/5 shadow-sm cursor-pointer hover:bg-slate-50 transition-colors">
+                      <div className={`size-10 rounded-full ${bg} flex items-center justify-center ${color} shrink-0`}>
                         <Icon className="size-5" />
                       </div>
                       <div>
@@ -501,7 +501,7 @@ export function HeroDashboard() {
                       </div>
                     </div>
                   ))}
-                </div>
+                </div> */}
 
                 {/* Bar chart */}
                 <div className="bg-white p-6 rounded-xl border border-ink/5 shadow-sm mb-4">
@@ -515,13 +515,13 @@ export function HeroDashboard() {
 
                   <div className="flex items-center gap-8 mb-8">
                     <div>
-                      <div className="text-lg font-bold text-ink">485 USD</div>
+                      <div className="text-lg font-bold text-ink">485.00 USD</div>
                       <div className="flex items-center gap-2 text-[10px] font-bold text-ink-soft mt-1">
-                        <div className="size-2.5 rounded-[2px] 386-600" /> TOTAL SALES
+                        <div className="size-2.5 rounded-[2px] bg-blue-600" /> TOTAL SALES
                       </div>
                     </div>
                     <div>
-                      <div className="text-lg font-bold text-ink">386 USD</div>
+                      <div className="text-lg font-bold text-ink">386.00 USD</div>
                       <div className="flex items-center gap-2 text-[10px] font-bold text-ink-soft mt-1">
                         <div className="size-2.5 rounded-[2px] bg-rose-600" /> TOTAL CASH
                       </div>

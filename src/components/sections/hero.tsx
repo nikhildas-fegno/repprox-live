@@ -37,25 +37,8 @@ export function Hero() {
   ];
 
   return (
-    <section className="relative overflow-hidden border-b border-ink/10 bg-paper pt-24 pb-14 sm:pt-16 sm:pb-24 lg:pt-32 lg:pb-32">
-      <div className="absolute inset-0">
-        <DotField
-          dotRadius={2}
-          dotSpacing={24}
-          bulgeStrength={15}
-          glowRadius={0}
-          sparkle={false}
-          waveAmplitude={0}
-          cursorRadius={500}
-          cursorForce={0.1}
-          bulgeOnly
-          gradientFrom="rgba(29, 78, 216, 0.40)"
-          gradientTo="rgba(14, 165, 255, 0.38)"
-          glowColor="#0ea5ff"
-        />
-      </div>
-
-      <Container className="relative flex flex-col items-center text-center z-10 gap-6 lg:gap-2">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#F8FAFF] via-[#EEF5FF] to-white border-b border-ink/10 bg-paper pt-24 pb-14 sm:pt-16 sm:pb-24 lg:pt-32 lg:pb-32">
+      <Container className="relative flex flex-col items-center text-center z-10 gap-6 lg:gap-4">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -67,7 +50,7 @@ export function Hero() {
             className="border-accent-ink/20 bg-accent-soft text-accent-ink font-mono text-[11px] py-1 px-3.5 tracking-wider"
           >
             <Sparkles className="size-3.5 text-accent-ink" />
-            AI-Powered Field Force Automation & Distribution Management
+            AI-Powered Field Force Automation Software
           </Badge>
         </motion.div>
 
@@ -87,9 +70,9 @@ export function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.22, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-4 sm:mt-6 max-w-2xl text-balance text-sm sm:text-base lg:text-lg leading-relaxed text-ink-soft"
+          className="mt-4 sm:mt-6 max-w-4xl text-balance text-sm sm:text-base lg:text-lg leading-relaxed text-ink-soft"
         >
-          One platform for sales force automation, distribution management, route planning, collections, and field operations.
+          RepPro X is an AI-powered Field Force Automation Software that helps distributors, wholesalers, FMCG companies, pharmaceutical suppliers, and field sales organizations automate sales, collections, inventory management, route planning, customer visits, and field operations from a single platform.
         </motion.p>
 
         <motion.div
