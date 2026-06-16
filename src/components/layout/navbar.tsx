@@ -53,14 +53,14 @@ function DropdownGroup({
         aria-haspopup="true"
         onClick={() => setOpenGroup(isOpen ? null : group.label)}
         className={cn(
-          "flex items-center gap-1.5 cursor-pointer rounded-lg px-3.5 py-2 text-base font-semibold transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1d4ed8]/30",
+          "flex items-center gap-0.5 cursor-pointer rounded-lg pl-3.5 pr-2 py-2 text-base font-semibold transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1d4ed8]/30",
           isOpen ? "text-[#2A58DA]" : "text-slate-600 hover:bg-slate-100 hover:text-slate-900",
         )}
       >
         {group.label}
         <ChevronDown
           aria-hidden="true"
-          className={cn("size-3.5 text-slate-400 transition-transform duration-200", isOpen && "rotate-180 text-slate-600")}
+          className={cn("size-2.5 text-slate-400 transition-transform duration-200", isOpen && "rotate-180 text-slate-600")}
         />
       </button>
 
@@ -178,8 +178,8 @@ export function Navbar() {
           href="/"
           className="group flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1d4ed8]/40 rounded-lg"
         >
-          <Image src="/logo.png" alt="RepPro X Logo" width={60} height={60} className="object-contain" />
-          <span className="font-display text-[#1D6BD9] text-[1.25rem] lg:text-[1.5rem] font-extrabold tracking-tight">
+          <Image src="/logo.png" alt="RepProX Logo" width={60} height={60} className="object-contain" />
+          <span className="font-display text-[#1D6BD9] text-[1.25rem] lg:text-[1.5rem] font-bold tracking-tight">
             RepProX
           </span>
         </Link>

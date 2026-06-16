@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!blog) return { title: "Not Found" };
 
   return {
-    title: `${blog.title} | RepPro X`,
+    title: `${blog.title} | RepProX`,
     description: blog.excerpt || `Read the full article on ${blog.title}`,
     openGraph: {
       title: blog.title,

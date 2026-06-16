@@ -8,8 +8,8 @@ import Container from "@/components/layout/container";
 import { Badge } from "@/components/ui/badge";
 
 export const metadata: Metadata = {
-  title: "Blog & Articles | RepPro X",
-  description: "Read the latest insights, strategies, and news about field automation from the RepPro X team.",
+  title: "Blog & Articles | RepProX",
+  description: "Read the latest insights, strategies, and news about field automation from the RepProX team.",
 };
 
 export default async function BlogsPage() {
@@ -39,7 +39,7 @@ export default async function BlogsPage() {
               <Sparkles className="size-3.5 text-accent-ink mr-1.5 inline-block" />
               Insights & Updates
             </Badge>
-            <h1 className="text-5xl lg:text-[clamp(3rem,5vw,4.5rem)] font-display font-extrabold text-ink tracking-tight mb-6 leading-[1.08] text-balance">
+            <h1 className="text-5xl lg:text-[clamp(3rem,5vw,4.5rem)] font-display font-bold text-ink tracking-tight mb-6 leading-[1.08] text-balance">
               The RepPro
               <span className="bg-linear-to-r from-[#1d4ed8] to-[#0ea5ff] bg-clip-text text-transparent block sm:inline">
                 {" "}Journal

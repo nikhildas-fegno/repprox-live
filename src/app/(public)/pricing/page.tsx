@@ -9,6 +9,7 @@ import { CtaSection } from "@/components/sections/cta-section";
 import { Reveal } from "@/components/reveal";
 import { pricingPlans, pricingFaqs } from "@/data/pricing";
 import Container from "@/components/layout/container";
+import { PricingComparison } from "@/components/sections/pricing-comparison";
 
 export const metadata: Metadata = buildMetadata({
   title: "Pricing",
@@ -28,8 +29,9 @@ export default function PricingPage() {
           <SectionHeading
             eyebrow="Pricing"
             align="center"
-            title="Simple, Transparent Pricing for Every Stage of Growth"
+            title={<>Simple, Transparent Pricing for <span className="bg-linear-to-r from-[#1d4ed8] to-[#0ea5ff] bg-clip-text text-transparent">Every Stage of Growth</span></>}
             description="From essential field sales digitization to enterprise-grade AI and analytics — choose the plan that fits your team today and upgrade as you scale."
+            className="max-w-3xl mx-auto"
           />
         </Container>
       </section>
@@ -45,24 +47,19 @@ export default function PricingPage() {
         </Container>
       </section>
 
+      <PricingComparison />
+
       <section aria-labelledby="pricing-faq-heading" className="border-t border-ink/10 bg-paper-soft/50">
         <Container className="py-20 lg:py-24">
           <SectionHeading
             eyebrow="Pricing FAQ"
             title={<span id="pricing-faq-heading">Common questions about plans &amp; billing</span>}
             className="mb-10 lg:mb-12"
+            align="center"
           />
           <FaqSection items={pricingFaqs} />
         </Container>
       </section>
-
-      <CtaSection
-        eyebrow="Not sure which plan fits?"
-        title="Tell us about your team and we'll recommend a starting point."
-        description="Most companies know within one conversation whether Foundation or Operating System fits their current stage — and what would trigger an upgrade later."
-        primary={{ label: "Get a recommendation", href: "/contact" }}
-        secondary={{ label: "Compare features", href: "/features" }}
-      />
     </>
   );
 }

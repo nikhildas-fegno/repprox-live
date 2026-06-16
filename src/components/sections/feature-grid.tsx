@@ -61,7 +61,7 @@ export function FeatureGrid({ modules, variant = "full" }: FeatureGridProps) {
                       <span className="flex size-11 items-center justify-center rounded-xl bg-accent-soft text-accent-ink transition-transform duration-300 group-hover:scale-110">
                         <Icon className="size-5 text-accent-ink" />
                       </span>
-                      <span className="font-mono text-[10px] font-extrabold uppercase tracking-widest text-[#ff9800]">
+                      <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#ff9800]">
                         Module {mod.index}
                       </span>
                     </div>

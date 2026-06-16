@@ -58,7 +58,7 @@ const successMetrics = [
   {
     value: "65%",
     label: "Higher Collection Efficiency",
-    description: "Real-time mobile payment logging & reconciliation",
+    description: "Real-time mobile payment, automated reconciliation & instant receivables tracking",
   },
   {
     value: "80%",
@@ -145,7 +145,7 @@ export function LogoStrip() {
               key={metric.label}
               className="bg-white border border-slate-200/80 p-6 rounded-xl shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-300 flex flex-col gap-2.5 text-center sm:text-left"
             >
-              <span className="font-display text-4xl lg:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-[#1d4ed8] to-[#0ea5ff] bg-clip-text text-transparent">
+              <span className="font-display text-4xl lg:text-5xl font-bold tracking-tight bg-gradient-to-r from-[#1d4ed8] to-[#0ea5ff] bg-clip-text text-transparent">
                 <AnimatedCounter value={metric.value} />
               </span>
               <div className="flex flex-col gap-1">

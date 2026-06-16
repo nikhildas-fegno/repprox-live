@@ -12,11 +12,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!cs) return { title: "Not Found" };
 
   return {
-    title: `${cs.clientName} Case Study | RepPro X`,
-    description: `Learn how ${cs.clientName} solved their field automation challenges using RepPro X.`,
+    title: `${cs.clientName} Case Study | RepProX`,
+    description: `Learn how ${cs.clientName} solved their field automation challenges using RepProX.`,
     openGraph: {
       title: `${cs.clientName} Success Story`,
-      description: `Learn how ${cs.clientName} solved their field automation challenges using RepPro X.`,
+      description: `Learn how ${cs.clientName} solved their field automation challenges using RepProX.`,
       images: cs.imageUrl ? [cs.imageUrl] : [],
     },
   };

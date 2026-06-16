@@ -15,15 +15,6 @@ export function HeroAnimatedDecorations() {
 
   return (
     <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-      {/* Radar Sweep Animation (Top Left) */}
-      <motion.div
-        className="absolute top-10 left-[10%] w-32 h-32 rounded-full border border-blue-500/20 flex items-center justify-center opacity-50"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-      >
-        <div className="absolute inset-0 rounded-full bg-[conic-gradient(from_0deg,transparent_0%,rgba(59,130,246,0.1)_100%)]" />
-        <Crosshair className="size-6 text-blue-500/40" />
-      </motion.div>
 
       {/* GPS Pin Pulse (Top Right) */}
       <motion.div

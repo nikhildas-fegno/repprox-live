@@ -59,8 +59,8 @@ export function MobileAppExperience() {
             align="center"
             eyebrow="Mobile app"
             tone="paper"
-            title={<span id="mobile-app-heading">Everything Your Sales Team Needs In One Mobile App</span>}
-            description="Empower field representatives with a mobile-first platform that keeps sales, collections, customer information, inventory visibility, and performance insights at their fingertips."
+            title="Mobile Sales Force Automation Software for Field Teams"
+            description="Empower sales representatives with mobile access to customer information, sales orders, quotations, invoices, collections, inventory visibility, GPS tracking, and AI-powered recommendations."
           />
         </div>
 

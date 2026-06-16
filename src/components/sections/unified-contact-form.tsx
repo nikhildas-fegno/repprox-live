@@ -17,14 +17,12 @@ import {
   CalendarDays,
   Clock,
   Users,
-  Cpu,
 } from "lucide-react";
 import { countries as countriesData } from "countries-list";
 
 import {
   contactFormSchema,
   teamSizeOptions,
-  itAgentOptions,
   painPointOptions,
   type ContactFormValues,
 } from "@/lib/validations";
@@ -81,15 +79,53 @@ function buildTimezoneOptions(): Option[] {
 
 const timezoneOptions = buildTimezoneOptions();
 
-const TIME_SLOTS = [
-  "10:00 AM",
-  "11:00 AM",
-  "12:00 PM",
-  "04:00 PM",
-  "05:00 PM",
-  "06:00 PM",
-];
 const DAY_LABELS = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
+
+// ─── Availability hooks ───────────────────────────────────────────────────────
+
+type SlotEntry = { slot: string; available: boolean };
+const slotCache = new Map<string, SlotEntry[]>();
+
+function useSlotAvailability(date: string, timezone: string) {
+  const [, rerender] = React.useReducer((x: number) => x + 1, 0);
+
+  React.useEffect(() => {
+    if (!date || !timezone) return;
+    const key = `${date}|${timezone}`;
+    if (slotCache.has(key)) return;
+    let cancelled = false;
+    fetch(`/api/availability?date=${encodeURIComponent(date)}&timezone=${encodeURIComponent(timezone)}`)
+      .then((r) => r.json())
+      .then((data: { slots?: SlotEntry[] }) => {
+        if (cancelled) return;
+        slotCache.set(key, data.slots ?? []);
+        rerender();
+      })
+      .catch(() => {
+        if (!cancelled) {
+          slotCache.set(key, []);
+          rerender();
+        }
+      });
+    return () => { cancelled = true; };
+  }, [date, timezone]);
+
+  if (!date || !timezone) return { slots: [] as SlotEntry[], loading: false };
+  const key = `${date}|${timezone}`;
+  const cached = slotCache.get(key);
+  return { slots: cached ?? ([] as SlotEntry[]), loading: !slotCache.has(key) };
+}
+
+function useAvailableDays() {
+  const [days, setDays] = React.useState<number[] | null>(null);
+  React.useEffect(() => {
+    fetch("/api/schedule-config")
+      .then((r) => r.json())
+      .then((d: { availableDays: number[] }) => setDays(d.availableDays ?? [1, 2, 3, 4, 5]))
+      .catch(() => setDays([1, 2, 3, 4, 5]));
+  }, []);
+  return days ?? [1, 2, 3, 4, 5];
+}
 
 // ─── OptionSelect — premium dropdown for small option lists ──────────────────
 
@@ -333,10 +369,11 @@ function SearchSelect({
 
 // ─── Main form ────────────────────────────────────────────────────────────────
 
-type MsgState = "idle" | "submitting" | "success" | "error";
+type MsgState = "idle" | "submitting" | "success" | "error" | "invalid";
 
 export function UnifiedContactForm() {
   const [msgState, setMsgState] = React.useState<MsgState>("idle");
+  const [errorMsg, setErrorMsg] = React.useState<string>("");
 
   const defaultTimezone = React.useMemo(() => {
     try {
@@ -355,6 +392,7 @@ export function UnifiedContactForm() {
     formState: { errors },
   } = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
+    shouldFocusError: false,
     defaultValues: {
       firstName: "",
       lastName: "",
@@ -365,7 +403,6 @@ export function UnifiedContactForm() {
       painPoints: [],
       country: "",
       message: "",
-      company_website: "",
       timezone: defaultTimezone,
       date: "",
       time: "",
@@ -380,13 +417,26 @@ export function UnifiedContactForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
       });
-      if (!res.ok) throw new Error();
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({})) as { error?: string };
+        console.error("[contact] api error", res.status, body);
+        setErrorMsg(body.error ?? "Something went wrong — please try again.");
+        setMsgState("error");
+        return;
+      }
+      // Bust cached availability so the booked slot shows as taken immediately
+      if (values.date && values.timezone) {
+        slotCache.delete(`${values.date}|${values.timezone}`);
+      }
       setMsgState("success");
       reset();
     } catch {
+      setErrorMsg("Something went wrong — please try again.");
       setMsgState("error");
     }
   };
+
+  const onInvalid = () => setMsgState("invalid");
 
   // ── Calendar state ─────────────────────────────────────────────────────────
   const [calDate, setCalDate] = React.useState(() => new Date());
@@ -416,14 +466,20 @@ export function UnifiedContactForm() {
   const timezone = watch("timezone");
   const painPoints = watch("painPoints") ?? [];
   const teamSizeVal = watch("teamSize");
-  const itAgentsVal = watch("itAgents");
 
+  const availableDays = useAvailableDays();
+  const slotData = useSlotAvailability(selectedDate ?? "", timezone ?? "");
+
+  const isUnavailableDay = (day: number) => {
+    const dow = new Date(calYear, calMonth, day).getDay();
+    return !availableDays.includes(dow);
+  };
   const isSelected = (day: number) => selectedDate === dayKey(day);
   const isToday = (day: number) =>
     new Date(calYear, calMonth, day).toDateString() === today.toDateString();
 
   const handleDateClick = (day: number) => {
-    if (isPast(day)) return;
+    if (isPast(day) || isUnavailableDay(day)) return;
     setValue("date", dayKey(day), { shouldValidate: true });
     setValue("time", "");
   };
@@ -468,7 +524,7 @@ export function UnifiedContactForm() {
 
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(onSubmit, onInvalid)}
       noValidate
       className="grid lg:grid-cols-[4fr_minmax(360px,2fr)] divide-y lg:divide-x lg:divide-y-0 divide-slate-100"
     >
@@ -477,6 +533,12 @@ export function UnifiedContactForm() {
         <h2 className="font-display text-2xl font-bold tracking-tight text-ink">
           Tell us about your team
         </h2>
+
+        {msgState === "invalid" && (
+          <div role="alert" className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+            Please fill in all required fields before submitting.
+          </div>
+        )}
 
         {/* Name row */}
         <div className="grid gap-4 sm:grid-cols-2">
@@ -636,17 +698,6 @@ export function UnifiedContactForm() {
           />
         </div>
 
-        {/* Honeypot */}
-        <div className="sr-only" aria-hidden="true">
-          <label htmlFor="company_website">Leave this field blank</label>
-          <input
-            id="company_website"
-            tabIndex={-1}
-            autoComplete="off"
-            {...register("company_website")}
-          />
-        </div>
-
         {/* Submit */}
         <div className="flex flex-col gap-2.5 pt-1">
           <Button
@@ -654,7 +705,7 @@ export function UnifiedContactForm() {
             variant="accent"
             size="lg"
             disabled={msgState === "submitting"}
-            className="w-full rounded-lg"
+            className="w-full rounded-lg cursor-pointer"
           >
             {msgState === "submitting" ? (
               <>
@@ -670,7 +721,7 @@ export function UnifiedContactForm() {
           </Button>
           <p className="text-center text-[11px] text-slate-400">
             By submitting this form, you agree to our{" "}
-            <a href="#" className="underline transition-colors hover:text-slate-600">
+            <a href="/privacy" className="underline transition-colors hover:text-slate-600">
               Privacy Policy
             </a>
             .
@@ -679,7 +730,7 @@ export function UnifiedContactForm() {
 
         {msgState === "error" && (
           <p role="alert" className="text-[13px] text-red-500">
-            Something went wrong — please try again.
+            {errorMsg}
           </p>
         )}
       </div>
@@ -756,26 +807,29 @@ export function UnifiedContactForm() {
                 <div key={`sp-${i}`} />
               ))}
               {/* Day cells */}
-              {Array.from({ length: daysInMonth }, (_, i) => i + 1).map((day) => (
-                <button
-                  key={day}
-                  type="button"
-                  disabled={isPast(day)}
-                  onClick={() => handleDateClick(day)}
-                  className={[
-                    "mx-auto flex size-7 cursor-pointer items-center justify-center rounded-full text-[12px] font-medium transition-colors",
-                    isSelected(day)
-                      ? "bg-blue-600 text-white"
-                      : isPast(day)
-                        ? "cursor-not-allowed text-slate-300"
-                        : isToday(day)
-                          ? "bg-blue-100 font-bold text-blue-700"
-                          : "text-slate-700 hover:bg-slate-200",
-                  ].join(" ")}
-                >
-                  {day}
-                </button>
-              ))}
+              {Array.from({ length: daysInMonth }, (_, i) => i + 1).map((day) => {
+                const disabled = isPast(day) || isUnavailableDay(day);
+                return (
+                  <button
+                    key={day}
+                    type="button"
+                    disabled={disabled}
+                    onClick={() => handleDateClick(day)}
+                    className={[
+                      "mx-auto flex size-7 items-center justify-center rounded-full text-[12px] font-medium transition-colors",
+                      isSelected(day)
+                        ? "bg-blue-600 text-white cursor-pointer"
+                        : disabled
+                          ? "cursor-not-allowed text-slate-300"
+                          : isToday(day)
+                            ? "bg-blue-100 font-bold text-blue-700 cursor-pointer"
+                            : "text-slate-700 hover:bg-slate-200 cursor-pointer",
+                    ].join(" ")}
+                  >
+                    {day}
+                  </button>
+                );
+              })}
             </div>
           </div>
 
@@ -785,25 +839,40 @@ export function UnifiedContactForm() {
               <Label className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">
                 Available Times
               </Label>
-              <div className="grid grid-cols-2 gap-2">
-                {TIME_SLOTS.map((slot) => (
-                  <button
-                    key={slot}
-                    type="button"
-                    onClick={() =>
-                      setValue("time", slot, { shouldValidate: true })
-                    }
-                    className={[
-                      "cursor-pointer rounded-lg border py-2 text-[13px] font-medium transition-all",
-                      selectedTime === slot
-                        ? "border-blue-600 bg-blue-600 text-white shadow-sm"
-                        : "border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50",
-                    ].join(" ")}
-                  >
-                    {slot}
-                  </button>
-                ))}
-              </div>
+              {slotData.loading ? (
+                <div className="grid grid-cols-2 gap-2">
+                  {[0, 1, 2, 3, 4, 5].map((i) => (
+                    <div key={i} className="h-9 animate-pulse rounded-lg bg-slate-100" />
+                  ))}
+                </div>
+              ) : slotData.slots.length === 0 ? (
+                <p className="text-[12.5px] text-slate-400 py-1">
+                  No slots available for this day.
+                </p>
+              ) : (
+                <div className="grid grid-cols-2 gap-2">
+                  {slotData.slots.map(({ slot, available }) => (
+                    <button
+                      key={slot}
+                      type="button"
+                      disabled={!available}
+                      onClick={() =>
+                        available && setValue("time", slot, { shouldValidate: true })
+                      }
+                      className={[
+                        "rounded-lg border py-2 text-[13px] font-medium transition-all",
+                        selectedTime === slot
+                          ? "border-blue-600 bg-blue-600 text-white shadow-sm cursor-pointer"
+                          : available
+                            ? "border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50 cursor-pointer"
+                            : "border-slate-100 bg-slate-50 text-slate-300 line-through cursor-not-allowed",
+                      ].join(" ")}
+                    >
+                      {slot}
+                    </button>
+                  ))}
+                </div>
+              )}
               {selectedTime && (
                 <p className="flex items-center gap-1.5 text-[12.5px] font-medium text-green-600">
                   <Check className="size-3.5 shrink-0" aria-hidden="true" />

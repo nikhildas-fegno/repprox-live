@@ -19,10 +19,7 @@ export default function DistributionPage() {
   return (
     <>
       {/* HERO SECTION - SPLIT LAYOUT */}
-      <section className="relative overflow-hidden bg-slate-50 pt-24 pb-20 lg:pt-32 lg:pb-32">
-        {/* Background Gradients */}
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-indigo-200/50 blur-[150px] rounded-full mix-blend-multiply pointer-events-none"></div>
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-200/50 blur-[150px] rounded-full mix-blend-multiply pointer-events-none"></div>
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#F8FAFF] via-[#EEF5FF] to-white py-24 lg:h-svh lg:flex lg:items-center">
 
         <Container className="relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
@@ -31,7 +28,7 @@ export default function DistributionPage() {
                 <Truck className="size-4 text-indigo-600" />
                 <span className="text-sm font-semibold text-indigo-700 tracking-wide uppercase">Distribution & Van Sales</span>
               </div>
-              <h1 className="font-display text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl text-balance leading-tight mb-6">
+              <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl text-balance leading-tight mb-6">
                 Manage Every Product Movement From Warehouse To Customer
               </h1>
               <p className="text-lg text-slate-600 leading-relaxed max-w-2xl mb-10 text-balance">

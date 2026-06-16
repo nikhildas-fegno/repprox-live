@@ -295,7 +295,7 @@ export default function IndustriesPage() {
 
               <Reveal delay={0.3}>
                 <div className="mb-10 flex flex-wrap gap-2">
-                  {["FMCG", "Food & Beverage", "Pharmaceuticals", "Manufacturing", "Building Materials", "Agriculture", "Fuel & Energy", "Consumer Durables"].map((chip, i) => (
+                  {["FMCG", "Food & Beverage", "Pharmaceuticals", "Manufacturing", "Logistics & Delivery", "Wholesale Distribution", "Consumer Goods", "Field Services","Building Materials","Facility Management","Engineering services","Telcom field operations"].map((chip, i) => (
                     <span key={i} className="inline-flex items-center rounded-full bg-white px-3 py-1 text-sm font-medium text-ink/70 shadow-sm ring-1 ring-ink/5 transition-colors hover:text-blue-600 hover:ring-blue-200">
                       {chip}
                     </span>

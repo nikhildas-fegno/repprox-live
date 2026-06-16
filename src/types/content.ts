@@ -33,7 +33,9 @@ export interface Industry {
 export interface PricingPlan {
   name: string;
   tagline: string;
-  price: string;
+  price: string;           // fallback / custom label
+  monthlyPrice?: string;   // e.g. "$35"
+  annualPrice?: string;    // e.g. "$29"
   cadence: string;
   description: string;
   features: string[];

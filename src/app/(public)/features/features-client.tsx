@@ -7,6 +7,7 @@ import {
   BarChart3,
   Bot,
   Brain,
+  Check,
   CheckCircle2,
   Database,
   LayoutDashboard,
@@ -15,6 +16,7 @@ import {
   PieChart,
   Repeat,
   Settings,
+  Shield,
   ShieldCheck,
   ShoppingCart,
   Sparkles,
@@ -30,6 +32,26 @@ import PlatformInAction from "./sections/PlatformInAction";
 import BusinessImpact from "./sections/BusinessImpact";
 import ConnectedEcosystem from "./sections/ConnectedEcosystem";
 import { CtaSection } from "@/components/sections/cta-section";
+
+// Reusable Feature Tag Component
+const FeatureTag = ({ text, color = "blue" }: { text: string; color?: "blue" | "green" | "purple" | "orange" | "cyan" }) => {
+  const styles = {
+    blue: { bg: "bg-blue-50/80", text: "text-blue-700", iconBg: "bg-blue-500", border: "border-blue-100/50" },
+    green: { bg: "bg-emerald-50/80", text: "text-emerald-700", iconBg: "bg-emerald-500", border: "border-emerald-100/50" },
+    purple: { bg: "bg-purple-50/80", text: "text-purple-700", iconBg: "bg-purple-500", border: "border-purple-100/50" },
+    orange: { bg: "bg-orange-50/80", text: "text-orange-700", iconBg: "bg-orange-500", border: "border-orange-100/50" },
+    cyan: { bg: "bg-cyan-50/80", text: "text-cyan-700", iconBg: "bg-cyan-500", border: "border-cyan-100/50" },
+  };
+  const theme = styles[color];
+  return (
+    <div className={`flex items-center gap-2.5 ${theme.bg} ${theme.border} px-3 py-1.5 rounded-full border shadow-sm transition-all hover:shadow-md`}>
+      <div className={`size-4 rounded-full ${theme.iconBg} shadow-sm text-white flex items-center justify-center shrink-0`}>
+        <Check className="size-2.5" strokeWidth={3} />
+      </div>
+      <span className={`text-[11px] font-bold ${theme.text}`}>{text}</span>
+    </div>
+  );
+};
 export default function FeaturesClient() {
   const fadeUp: any = {
     hidden: { opacity: 0, y: 30 },
@@ -44,7 +66,7 @@ export default function FeaturesClient() {
     },
   };
 
-  const cardClasses = "group relative flex flex-col bg-white rounded-[24px] border border-[#E2E8F0] shadow-[0_4px_20px_rgba(15,23,42,0.03)] transition-all duration-300 hover:-translate-y-[8px] hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(15,23,42,0.08)] overflow-hidden h-full z-10";
+  const cardBaseClasses = "relative flex flex-col bg-white rounded-[2rem] border border-slate-100 shadow-[0_4px_40px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_40px_-10px_rgba(0,0,0,0.08)] transition-all overflow-hidden h-full z-10 group";
 
   return (
     <div className="bg-gradient-to-b from-[#F4F9FF] to-white text-[#475569] selection:bg-blue-500/20 min-h-svh relative overflow-hidden font-sans">
@@ -117,96 +139,184 @@ export default function FeaturesClient() {
             variants={stagger}
             className="flex flex-col gap-8"
           >
-            {/* Top Row: 3 Cards */}
+            {/* TOP ROW: 3 Cards */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
-              {/* CARD 01 - BLUE */}
-              <motion.div variants={fadeUp} className={`${cardClasses} hover:border-blue-400 hover:shadow-[0_0_30px_rgba(37,99,235,0.15)] overflow-hidden`}>
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-                  className="absolute -bottom-16 -right-16 text-blue-50 opacity-50 group-hover:text-blue-100 group-hover:opacity-70 transition-all duration-700 z-0 pointer-events-none"
-                >
-                  <ShoppingCart className="w-64 h-64" />
-                </motion.div>
-                <div className="p-8 flex-1 flex flex-col relative z-10">
-                  <div className="flex items-start justify-between mb-8">
-                    <div className="relative">
-                      <div className="w-16 h-16 rounded-2xl flex items-center justify-center bg-blue-50 text-blue-600 border border-blue-100 shadow-sm relative z-10 group-hover:scale-110 transition-transform duration-500">
-                        <ShoppingCart className="w-8 h-8" />
+              {/* CARD 1: AI Smart Ordering */}
+              <motion.div variants={fadeUp} className={cardBaseClasses}>
+                <div className="p-6 xl:p-8 flex-1 flex flex-col relative z-10">
+                  <div className="flex justify-between items-center mb-6">
+                    <div className="w-1/2">
+                      <div className="w-14 h-14 rounded-2xl flex items-center justify-center bg-blue-50 text-blue-600 border border-blue-100 shadow-sm mb-6 group-hover:scale-110 transition-transform duration-500">
+                        <ShoppingCart className="w-7 h-7" />
                       </div>
-                      <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-white border border-blue-100 flex items-center justify-center text-blue-600 shadow-sm z-20">
-                        <Sparkles className="w-4 h-4" />
+                      <h3 className="text-[22px] font-bold text-slate-900 leading-tight mb-3">AI Smart Ordering</h3>
+                      <p className="text-slate-500 text-sm leading-relaxed mb-4">Turn historical data into smarter, faster orders.</p>
+                      <div className="w-8 h-1 rounded-full bg-blue-500 group-hover:w-12 transition-all duration-500"></div>
+                    </div>
+                    {/* 3D Illustration - Cart & AI Block */}
+                    <div className="w-1/2 h-full relative flex items-center justify-end">
+                      <div className="absolute w-[140%] h-[140%] -right-10 -top-10 bg-[radial-gradient(circle,rgba(59,130,246,0.05)_0%,transparent_60%)]"></div>
+                      <div className="relative w-full max-w-[160px] aspect-square flex items-center justify-center transform group-hover:-translate-y-2 group-hover:scale-105 transition-all duration-700">
+                        {/* Abstract Chart elements */}
+                        <div className="absolute top-0 right-4 w-12 h-16 bg-gradient-to-t from-blue-100 to-white border border-white shadow-xl rounded-lg -rotate-6 group-hover:-rotate-12 transition-transform"></div>
+                        <div className="absolute top-2 left-0 w-16 h-12 bg-white border border-slate-100 shadow-lg rounded-lg rotate-12 group-hover:rotate-6 transition-transform p-1.5 flex gap-1">
+                          <div className="w-2 h-full bg-blue-200 rounded-sm"></div>
+                          <div className="w-2 h-[60%] mt-auto bg-blue-300 rounded-sm"></div>
+                          <div className="w-2 h-[80%] mt-auto bg-blue-400 rounded-sm"></div>
+                        </div>
+                        {/* AI Box */}
+                        <div className="absolute right-0 top-10 size-16 bg-gradient-to-br from-blue-500 to-blue-600 shadow-[0_10px_20px_rgba(59,130,246,0.3)] rounded-xl border border-blue-400 flex items-center justify-center transform group-hover:scale-110 transition-transform z-20">
+                          <span className="text-white font-black text-xl tracking-tighter">AI</span>
+                        </div>
+                        {/* Floating Cart */}
+                        <div className="absolute bottom-2 left-6 size-12 bg-white rounded-full shadow-lg border border-slate-100 flex items-center justify-center animate-[bounce_4s_infinite] z-30">
+                          <ShoppingCart className="w-5 h-5 text-blue-500" />
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <h3 className="text-2xl font-bold mb-3 text-[#0B1736] group-hover:text-blue-600 transition-colors">AI Smart Ordering</h3>
-                  <p className="text-[#64748B] mb-8 leading-relaxed text-sm">Turn Historical Data Into Future Revenue.</p>
-                  <div className="mt-auto flex flex-wrap gap-2">
-                    {["Suggested Orders", "Reorder Recommendations", "Purchase Pattern Analysis", "Customer Buying Trends", "Cross-Selling Opportunities", "Upselling Opportunities", "Demand Prediction"].map((tag, i) => (
-                      <motion.span key={tag} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: i * 0.05 }} className="inline-flex items-center px-3 py-1.5 rounded-full bg-blue-50/50 border border-blue-100 text-[13px] font-medium text-blue-800 transition-colors whitespace-nowrap">
-                        <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mr-2 shrink-0"></span> {tag}
-                      </motion.span>
-                    ))}
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-2 mt-6 pt-5 border-t border-slate-50">
+                    <FeatureTag color="blue" text="Suggested Orders" />
+                    <FeatureTag color="blue" text="Retailer Recommendation" />
+                    <FeatureTag color="blue" text="Purchase Pattern Analysis" />
+                    <FeatureTag color="blue" text="Optimize Buying Trends" />
+                    <FeatureTag color="blue" text="Data-Driven Replenishment" />
+                    <FeatureTag color="blue" text="Inventory Optimization" />
+                    <FeatureTag color="blue" text="Demand Prediction" />
                   </div>
                 </div>
               </motion.div>
-
-              {/* CARD 02 - GREEN */}
-              <motion.div variants={fadeUp} className={`${cardClasses} hover:border-green-400 hover:shadow-[0_0_30px_rgba(34,197,94,0.15)] overflow-hidden`}>
-                <motion.div
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
-                  className="absolute -bottom-16 -right-16 text-green-50 opacity-50 group-hover:text-green-100 group-hover:opacity-70 transition-all duration-700 z-0 pointer-events-none"
-                >
-                  <TrendingUp className="w-64 h-64" />
-                </motion.div>
-                <div className="p-8 flex-1 flex flex-col relative z-10">
-                  <div className="flex items-start justify-between mb-8">
-                    <div className="w-16 h-16 rounded-2xl flex items-center justify-center bg-green-50 text-green-600 border border-green-100 shadow-sm group-hover:scale-110 transition-transform duration-500">
-                      <TrendingUp className="w-8 h-8" />
+              {/* CARD 2: KPI & Performance */}
+              <motion.div variants={fadeUp} className={cardBaseClasses}>
+                <div className="p-6 xl:p-8 flex-1 flex flex-col relative z-10">
+                  <div className="flex justify-between items-center mb-6">
+                    <div className="w-1/2">
+                      <div className="w-14 h-14 rounded-2xl flex items-center justify-center bg-emerald-50 text-emerald-600 border border-emerald-100 shadow-sm mb-6 group-hover:scale-110 transition-transform duration-500">
+                        <TrendingUp className="w-7 h-7" />
+                      </div>
+                      <h3 className="text-[22px] font-bold text-slate-900 leading-tight mb-3">KPI & Performance<br />Management</h3>
+                      <p className="text-slate-500 text-sm leading-relaxed mb-4">Measure, monitor and improve field performance.</p>
+                      <div className="w-8 h-1 rounded-full bg-emerald-500 group-hover:w-12 transition-all duration-500"></div>
+                    </div>
+                    {/* 3D Illustration - Bar Chart & Trend */}
+                    <div className="w-1/2 h-full relative flex items-center justify-end">
+                      <div className="absolute w-[140%] h-[140%] -right-10 -top-10 bg-[radial-gradient(circle,rgba(16,185,129,0.05)_0%,transparent_60%)]"></div>
+                      <div className="relative w-full max-w-[180px] aspect-[4/3] flex items-center justify-center transform group-hover:-translate-y-2 group-hover:scale-105 transition-all duration-700">
+                        {/* 3D Bars */}
+                        <div className="flex items-end gap-1.5 absolute bottom-10 left-4 z-10">
+                          <div className="w-5 h-8 bg-gradient-to-tr from-emerald-400 to-emerald-200 rounded-sm shadow-md group-hover:h-12 transition-all duration-700"></div>
+                          <div className="w-5 h-12 bg-gradient-to-tr from-emerald-500 to-emerald-300 rounded-sm shadow-md group-hover:h-16 transition-all duration-700"></div>
+                          <div className="w-5 h-20 bg-gradient-to-tr from-emerald-500 to-emerald-300 rounded-sm shadow-md group-hover:h-24 transition-all duration-700"></div>
+                          <div className="w-5 h-16 bg-gradient-to-tr from-emerald-400 to-emerald-200 rounded-sm shadow-md group-hover:h-20 transition-all duration-700"></div>
+                        </div>
+                        {/* Trend Arrow */}
+                        <svg className="absolute inset-0 w-full h-full z-20" viewBox="0 0 160 120">
+                          <path d="M 20 80 Q 50 60 80 40 T 140 10" fill="none" stroke="#10b981" strokeWidth="4" strokeLinecap="round" className="drop-shadow-md group-hover:animate-pulse" />
+                          <polygon points="140,5 150,10 135,15" fill="#10b981" />
+                        </svg>
+                        {/* Performance floating card */}
+                        <div className="absolute -bottom-2 -right-4 w-32 bg-white border border-slate-100 rounded-xl shadow-[0_10px_20px_rgba(16,185,129,0.15)] p-2 z-30 transform group-hover:-translate-y-1 transition-transform">
+                          <div className="text-[9px] font-bold text-slate-400 uppercase">Performance</div>
+                          <div className="text-sm font-black text-emerald-600 flex items-center gap-1 mt-0.5">
+                            <TrendingUp className="size-3" /> 24.6%
+                          </div>
+                          <div className="text-[8px] text-slate-400 mt-0.5">vs last month</div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <h3 className="text-2xl font-bold mb-3 text-[#0B1736] group-hover:text-green-600 transition-colors">KPI & Performance Management</h3>
-                  <p className="text-[#64748B] mb-8 leading-relaxed text-sm">Measure, monitor and improve field performance.</p>
-                  <div className="mt-auto flex flex-wrap gap-2">
-                    {["Sales Targets", "Collection Targets", "Visit Targets", "Product Targets", "Customer Coverage", "Route Compliance", "Daily Tracking", "Monthly Tracking"].map((tag, i) => (
-                      <motion.span key={tag} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: i * 0.05 }} className="inline-flex items-center px-3 py-1.5 rounded-full bg-green-50/50 border border-green-100 text-[13px] font-medium text-green-800 transition-colors whitespace-nowrap">
-                        <span className="w-1.5 h-1.5 rounded-full bg-green-500 mr-2 shrink-0"></span> {tag}
-                      </motion.span>
-                    ))}
+
+                  {/* Tags */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-2 mt-6 pt-5 border-t border-slate-50">
+                    <FeatureTag color="green" text="Sales Targets" />
+                    <FeatureTag color="green" text="Collection Targets" />
+                    <FeatureTag color="green" text="Visit Targets" />
+                    <FeatureTag color="green" text="Product Targets" />
+                    <FeatureTag color="green" text="Retailer Coverage" />
+                    <FeatureTag color="green" text="Route Compliance" />
+                    <FeatureTag color="green" text="Daily Tracking" />
+                    <FeatureTag color="green" text="Monthly Tracking" />
                   </div>
                 </div>
               </motion.div>
-
-              {/* CARD 03 - PURPLE */}
-              <motion.div variants={fadeUp} className={`${cardClasses} hover:border-purple-400 hover:shadow-[0_0_30px_rgba(139,92,246,0.15)] overflow-hidden`}>
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-                  className="absolute -bottom-16 -right-16 text-purple-50 opacity-50 group-hover:text-purple-100 group-hover:opacity-70 transition-all duration-700 z-0 pointer-events-none"
-                >
-                  <LayoutDashboard className="w-64 h-64" />
-                </motion.div>
-                <div className="p-8 flex-1 flex flex-col relative z-10">
-                  <div className="flex items-start justify-between mb-8">
-                    <div className="w-16 h-16 rounded-2xl flex items-center justify-center bg-purple-50 text-purple-600 border border-purple-100 shadow-sm group-hover:scale-110 transition-transform duration-500">
-                      <LayoutDashboard className="w-8 h-8" />
+              {/* CARD 3: Web Management Portal */}
+              <motion.div variants={fadeUp} className={cardBaseClasses}>
+                <div className="p-6 xl:p-8 flex-1 flex flex-col relative z-10">
+                  <div className="flex justify-between items-center mb-6">
+                    <div className="w-1/2">
+                      <div className="w-14 h-14 rounded-2xl flex items-center justify-center bg-purple-50 text-purple-600 border border-purple-100 shadow-sm mb-6 group-hover:scale-110 transition-transform duration-500">
+                        <LayoutDashboard className="w-7 h-7" />
+                      </div>
+                      <h3 className="text-[22px] font-bold text-slate-900 leading-tight mb-3">Web Management<br />Portal</h3>
+                      <p className="text-slate-500 text-sm leading-relaxed mb-4">Manage users, territories, teams and operations.</p>
+                      <div className="w-8 h-1 rounded-full bg-purple-500 group-hover:w-12 transition-all duration-500"></div>
+                    </div>
+                    {/* 3D Illustration - Monitor & Shield */}
+                    <div className="w-1/2 h-full relative flex items-center justify-end">
+                      <div className="absolute w-[140%] h-[140%] -right-10 -top-10 bg-[radial-gradient(circle,rgba(168,85,247,0.05)_0%,transparent_60%)]"></div>
+                      <div className="relative w-full max-w-[180px] aspect-[4/3] flex items-center justify-center transform group-hover:-translate-y-2 group-hover:scale-105 transition-all duration-700">
+                        {/* Monitor Stand */}
+                        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-12 h-2 bg-gradient-to-r from-blue-900 to-blue-950 rounded-full shadow-lg z-0"></div>
+                        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 w-4 h-6 bg-blue-900 z-0"></div>
+                        {/* Monitor Screen */}
+                        <div className="absolute top-4 left-4 right-2 bottom-8 bg-blue-950 rounded-xl border-4 border-blue-900 shadow-2xl flex flex-col overflow-hidden z-10 transform group-hover:rotate-y-12 transition-transform perspective-1000">
+                          {/* Inner Screen Dashboard */}
+                          <div className="w-full h-full bg-slate-50 p-1.5 flex flex-col gap-1.5 relative">
+                            {/* Header */}
+                            <div className="w-full h-2 bg-white rounded shadow-sm flex items-center px-1 gap-1">
+                              <div className="size-1 rounded-full bg-slate-200"></div>
+                              <div className="size-1 rounded-full bg-slate-200"></div>
+                              <div className="size-1 rounded-full bg-slate-200"></div>
+                            </div>
+                            {/* Body layout */}
+                            <div className="flex gap-1.5 h-full">
+                              <div className="w-1/3 bg-white rounded shadow-sm flex flex-col gap-1 p-1">
+                                <div className="w-full h-1 bg-slate-100 rounded-sm"></div>
+                                <div className="w-3/4 h-1 bg-slate-100 rounded-sm"></div>
+                                <div className="w-5/6 h-1 bg-slate-100 rounded-sm"></div>
+                              </div>
+                              <div className="w-2/3 flex flex-col gap-1.5">
+                                <div className="h-1/2 bg-white rounded shadow-sm p-1">
+                                  <div className="w-1/2 h-1 bg-purple-100 rounded-sm mb-1"></div>
+                                  <div className="flex items-end gap-0.5 h-3">
+                                    <div className="w-1/4 h-1/2 bg-purple-200 rounded-t-sm"></div>
+                                    <div className="w-1/4 h-full bg-purple-400 rounded-t-sm"></div>
+                                    <div className="w-1/4 h-3/4 bg-purple-300 rounded-t-sm"></div>
+                                  </div>
+                                </div>
+                                <div className="h-1/2 flex gap-1">
+                                  <div className="w-1/2 bg-white rounded shadow-sm"></div>
+                                  <div className="w-1/2 bg-white rounded shadow-sm"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        {/* Floating Shield */}
+                        <div className="absolute -bottom-2 left-0 size-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl shadow-[0_10px_20px_rgba(168,85,247,0.3)] border border-purple-400 flex items-center justify-center transform -rotate-12 z-30 animate-[bounce_5s_infinite]">
+                          <Shield className="w-6 h-6 text-white" />
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <h3 className="text-2xl font-bold mb-3 text-[#0B1736] group-hover:text-purple-600 transition-colors">Web Management Portal</h3>
-                  <p className="text-[#64748B] mb-8 leading-relaxed text-sm">Manage users, territories, routes and operations.</p>
-                  <div className="mt-auto flex flex-wrap gap-2">
-                    {["User Management", "Authorization Control", "Route Planning", "Survey Management", "Promotions", "Territory Management", "Monitoring", "Dashboards"].map((tag, i) => (
-                      <motion.span key={tag} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: i * 0.05 }} className="inline-flex items-center px-3 py-1.5 rounded-full bg-purple-50/50 border border-purple-100 text-[13px] font-medium text-purple-800 transition-colors whitespace-nowrap">
-                        <span className="w-1.5 h-1.5 rounded-full bg-purple-500 mr-2 shrink-0"></span> {tag}
-                      </motion.span>
-                    ))}
+
+                  {/* Tags */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-2 mt-6 pt-5 border-t border-slate-50">
+                    <FeatureTag color="purple" text="User Management" />
+                    <FeatureTag color="purple" text="Authorization Control" />
+                    <FeatureTag color="purple" text="Route Planning" />
+                    <FeatureTag color="purple" text="Security Management" />
+                    <FeatureTag color="purple" text="Territory Management" />
+                    <FeatureTag color="purple" text="Monitoring" />
+                    <FeatureTag color="purple" text="Permission" />
+                    <FeatureTag color="purple" text="Dashboard" />
                   </div>
                 </div>
               </motion.div>
-
             </div>
+
 
             {/* Bottom Row: 2 Wide Cards */}
             <div className="grid grid-cols-1 gap-8">
@@ -351,7 +461,7 @@ export default function FeaturesClient() {
                       <div className="text-sm font-bold text-[#18C7E6] bg-[#18C7E6]/10 px-4 py-1.5 rounded-full border border-[#18C7E6]/20 shadow-sm lg:hidden">05</div>
                     </div>
                     <h3 className="text-3xl font-bold mb-4 text-[#0B1736] group-hover:text-[#18C7E6] transition-colors tracking-tight">ERP Integration</h3>
-                    <p className="text-[#64748B] mb-8 leading-relaxed text-base">Seamlessly connect RepPro X with your ERP ecosystem and synchronize business-critical data in real time.</p>
+                    <p className="text-[#64748B] mb-8 leading-relaxed text-base">Seamlessly connect RepProX with your ERP ecosystem and synchronize business-critical data in real time.</p>
 
 
 
@@ -386,10 +496,10 @@ export default function FeaturesClient() {
                     <div className="h-10 w-[2px] bg-gradient-to-b from-[#E2E8F0] to-[#18C7E6]/40 my-2 relative z-10">
                       <motion.div className="w-1.5 h-1.5 bg-[#18C7E6] rounded-full absolute -left-[2px]" animate={{ top: ["0%", "100%"] }} transition={{ duration: 1.5, repeat: Infinity }} />
                     </div>
-                    {/* Center Block: RepPro X Engine */}
+                    {/* Center Block: RepProX Engine */}
                     <div className="relative w-full max-w-[240px] bg-white/95 backdrop-blur-md rounded-2xl shadow-[0_10px_30px_rgba(24,199,230,0.1)] border border-[#18C7E6]/40 p-5 flex flex-col items-center justify-center z-30">
                       <div className="absolute inset-0 rounded-2xl border border-[#18C7E6]/50 animate-ping opacity-20" style={{ animationDuration: '3s' }}></div>
-                      <img src="/logo.png" alt="RepPro X Engine" className="w-24 h-auto object-contain mb-4" />
+                      <img src="/logo.png" alt="RepProX Engine" className="w-24 h-auto object-contain mb-4" />
                       <div className="flex flex-wrap justify-center gap-1.5">
                         {["Normalize", "Validate", "Transform", "Sync"].map((label) => (
                           <div key={label} className="px-2 py-1 bg-cyan-50 rounded border border-cyan-100 text-[8px] font-black text-cyan-900 uppercase">
@@ -535,7 +645,7 @@ export default function FeaturesClient() {
                           <div className="absolute right-[-1px] bottom-1/4 w-[2px] h-16 bg-gradient-to-b from-transparent via-[#18C7E6]/60 to-transparent"></div>
                         </div>
                       </div>
-                      {/* 2. Center Block: RepPro X Engine (+20% size) */}
+                      {/* 2. Center Block: RepProX Engine (+20% size) */}
                       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] bg-white/95 backdrop-blur-2xl rounded-[32px] shadow-[0_20px_60px_rgba(24,199,230,0.15)] border border-[#18C7E6]/40 p-8 flex flex-col items-center justify-center z-30 transition-all duration-700 group cursor-pointer">
                         {/* Strong cyan glow underneath */}
                         <div className="absolute -inset-4 bg-[#18C7E6]/20 blur-[30px] rounded-[32px] opacity-0 group-hover:opacity-100 transition-opacity duration-1000 -z-10"></div>
@@ -544,7 +654,7 @@ export default function FeaturesClient() {
                         <div className="absolute -inset-[2px] rounded-[34px] border-[2px] border-[#18C7E6] opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-opacity duration-300 shadow-[0_0_20px_rgba(24,199,230,0.5)] z-20 pointer-events-none"></div>
                         <div className="absolute inset-0 rounded-[32px] border-[2px] border-[#18C7E6]/80 animate-ping opacity-0 group-hover:opacity-30 transition-opacity duration-700 pointer-events-none" style={{ animationDuration: '2s' }}></div>
                         <div className="relative z-10 flex flex-col items-center group-hover:scale-110 transition-transform duration-500 mb-6 mt-2">
-                          <img src="/logo.png" alt="RepPro X Logo" className="w-28 h-auto object-contain drop-shadow-[0_12px_30px_rgba(24,199,230,0.4)]" />
+                          <img src="/logo.png" alt="RepProX Logo" className="w-28 h-auto object-contain drop-shadow-[0_12px_30px_rgba(24,199,230,0.4)]" />
                         </div>
                         <div className="flex flex-wrap justify-center gap-2 w-full relative z-10">
                           {["Normalize", "Validate", "Transform", "Sync"].map((label, i) => (
@@ -586,7 +696,6 @@ export default function FeaturesClient() {
 
       <BusinessImpact />
 
-      <ConnectedEcosystem />
       <CtaSection
         eyebrow="Transform Your Sales Execution"
         title="Ready to transform sales execution?"

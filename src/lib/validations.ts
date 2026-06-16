@@ -75,9 +75,7 @@ export const contactFormSchema = z.object({
   teamSize: z.enum(["1-10", "11-50", "51-200", "201-1000", "1000+"], {
     message: "Select your team size.",
   }),
-  itAgents: z.enum(["1-5", "6-15", "16-50", "51+"], {
-    message: "Select the number of IT Agents.",
-  }),
+  itAgents: z.enum(["1-5", "6-15", "16-50", "51+"]).optional(),
   painPoints: z.array(z.string()).optional(),
   country: z.string().min(1, "Select your country."),
   message: z
@@ -88,8 +86,8 @@ export const contactFormSchema = z.object({
   timezone: z.string().optional(),
   date: z.string().optional(),
   time: z.string().optional(),
-  // Honeypot field
-  company_website: z.string().max(0).optional().or(z.literal("")),
+  // Honeypot — not validated client-side; checked from raw body server-side
+  company_website: z.string().optional(),
 });
 
 export type ContactFormValues = z.infer<typeof contactFormSchema>;

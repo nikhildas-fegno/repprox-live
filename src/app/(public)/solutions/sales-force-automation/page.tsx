@@ -132,12 +132,7 @@ export default function SalesForceAutomationPage() {
   return (
     <>
       {/* HERO SECTION */}
-      <section className="relative overflow-hidden bg-slate-50 h-svh flex items-center justify-center">
-        {/* Animated Background Glows */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-blue-200/40 blur-[120px] rounded-full mix-blend-multiply pointer-events-none"></div>
-        <div className="absolute -bottom-40 right-0 w-[600px] h-[600px] bg-emerald-200/40 blur-[120px] rounded-full mix-blend-multiply pointer-events-none"></div>
-
-        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-40"></div>
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#F8FAFF] via-[#EEF5FF] to-white h-svh flex items-center justify-center">
 
         {/* Floating Icons */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden max-w-[1400px] mx-auto hidden lg:block">
@@ -176,7 +171,7 @@ export default function SalesForceAutomationPage() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <h1 className="mx-auto max-w-5xl font-display text-[clamp(2.5rem,5vw,5.5rem)] font-extrabold tracking-tight text-slate-900 leading-[1.1] text-balance">
+            <h1 className="mx-auto max-w-5xl font-display text-[clamp(2.5rem,5vw,5.5rem)] font-bold tracking-tight text-slate-900 leading-[1.1] text-balance">
               Close More Deals.{" "}
               <br className="hidden lg:block" />
               <span className="bg-linear-to-r from-blue-600 via-indigo-600 to-emerald-600 bg-clip-text text-transparent drop-shadow-sm">

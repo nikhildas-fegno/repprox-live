@@ -7,8 +7,8 @@ import { Metadata } from "next";
 import Container from "@/components/layout/container";
 
 export const metadata: Metadata = {
-  title: "Case Studies & Success Stories | RepPro X",
-  description: "Discover how leading companies use RepPro X to automate their field operations.",
+  title: "Case Studies & Success Stories | RepProX",
+  description: "Discover how leading companies use RepProX to automate their field operations.",
 };
 
 export default async function CaseStudiesPage() {
@@ -29,11 +29,11 @@ export default async function CaseStudiesPage() {
             <span className="text-accent-ink font-mono text-sm tracking-widest uppercase font-bold mb-6 block">
               Success Stories
             </span>
-            <h1 className="text-5xl lg:text-[clamp(3rem,5vw,4.5rem)] font-display font-extrabold text-ink tracking-tight mb-6 leading-[1.08] text-balance">
+            <h1 className="text-5xl lg:text-[clamp(3rem,5vw,4.5rem)] font-display font-bold text-ink tracking-tight mb-6 leading-[1.08] text-balance">
               Customer Success Stories
             </h1>
             <p className="text-lg sm:text-xl text-ink-soft max-w-2xl leading-relaxed text-balance">
-              Explore how organizations are transforming their field operations and driving revenue growth with RepPro X.
+              Explore how organizations are transforming their field operations and driving revenue growth with RepProX.
             </p>
           </div>
         </Reveal>

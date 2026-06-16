@@ -51,8 +51,8 @@ export const primaryNav: NavGroup[] = [
 ];
 
 export const secondaryNav: NavLink[] = [
-  { label: "Features", href: "/features" },
-  { label: "Industries", href: "/industries" },
+  { label: "Features", href: "#" },
+  { label: "Industries", href: "#" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
@@ -75,23 +75,23 @@ export const footerNav: NavGroup[] = [
   },
   {
     label: "Features",
-    href: "/features",
+    href: "#",
     items: [
-      { label: "AI Smart Ordering", href: "/features#ai-ordering" },
-      { label: "KPI Management", href: "/features#kpi-management" },
-      { label: "Web Portal", href: "/features#web-portal" },
-      { label: "Reporting & Analytics", href: "/features#analytics" },
-      { label: "ERP Integration", href: "/features#erp-integration" },
+      { label: "AI Smart Ordering", href: "#" },
+      { label: "KPI Management", href: "#" },
+      { label: "Web Portal", href: "#" },
+      { label: "Reporting & Analytics", href: "#" },
+      { label: "ERP Integration", href: "#" },
     ],
   },
   {
     label: "Industries",
-    href: "/industries",
+    href: "#",
     items: [
-      { label: "FMCG Distribution", href: "/industries#fmcg" },
-      { label: "Pharmaceuticals", href: "/industries#pharma" },
-      { label: "Wholesale", href: "/industries#wholesale" },
-      { label: "Logistics & Delivery", href: "/industries#logistics" },
+      { label: "FMCG Distribution", href: "#" },
+      { label: "Pharmaceuticals", href: "#" },
+      { label: "Wholesale", href: "#" },
+      { label: "Logistics & Delivery", href: "#" },
     ],
   },
   {
